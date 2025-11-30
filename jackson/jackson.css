@@ -1,0 +1,91 @@
+/* RESET E BASE */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Segoe UI", sans-serif;
+}
+
+body {
+  background-color: #f0f2f5;
+  color: #333;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 20px;
+  text-align: center; /* Centraliza tudo */
+}
+
+/* HEADER SIMPLES */
+header {
+  background: linear-gradient(135deg, #555 0%, #333 100%); /* Cinza escuro */
+  color: white;
+  padding: 30px 0;
+  margin-bottom: 40px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* ÁREA DE CONSTRUÇÃO */
+.em-construcao {
+  background: white;
+  padding: 50px 20px;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  margin-top: 20px;
+}
+
+.icone-grande {
+  font-size: 80px; /* Ícone gigante */
+  margin-bottom: 20px;
+  animation: pulsar 2s infinite; /* Animação suave */
+}
+
+h2 {
+  color: #333;
+  margin-bottom: 15px;
+}
+
+p {
+  color: #666;
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+/* BOTÃO DE VOLTAR BONITO */
+.btn-destaque {
+  display: inline-block;
+  background-color: #007bff;
+  color: white;
+  padding: 15px 30px;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: bold;
+  margin-top: 30px;
+  transition: transform 0.2s, background 0.2s;
+}
+
+.btn-destaque:hover {
+  background-color: #0056b3;
+  transform: scale(1.05);
+}
+
+/* ANIMAÇÃO OPCIONAL DO ÍCONE */
+@keyframes pulsar {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}

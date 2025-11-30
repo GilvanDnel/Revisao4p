@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Revisão Mobile | Prof. Ronilson</title>
+    <link rel="stylesheet" href="ronilson.css">
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <h1>Revisão: Dispositivos Móveis</h1>
+            <p>Foco: React Native, APIs, Hooks e Boas Práticas</p>
+            <a href="../index.html" class="btn-voltar">← Voltar ao Menu</a>
+        </div>
+    </header>
+
+    <main class="container">
+
+        <section class="bloco-questoes">
+            <h2>Parte 1: Hooks (useState e useEffect)</h2>
+
+            <article class="questao">
+                <span class="tag-tipo">Conceito</span>
+                <p><strong>1.</strong> Qual a função principal do hook <strong>useState</strong> em uma aplicação que consome API?</p>
+                <div class="opcoes">
+                    <button onclick="verificar(this, false, 'Errado. Quem faz efeitos colaterais é o useEffect.')">A) Realizar a chamada assíncrona para o servidor.</button>
+                    [cite_start]<button onclick="verificar(this, true, 'Correto! Ele armazena dados da API (ex: lista de produtos) e estados de controle (loading, erro)[cite: 12, 13].')">B) Armazenar valores que mudam, como os dados retornados, status de carregamento e erros.</button>
+                    <button onclick="verificar(this, false, 'Errado. Hooks funcionam em componentes funcionais, não classes.')">C) Substituir o uso de classes para estilização.</button>
+                </div>
+            </article>
+
+            <article class="questao">
+                <span class="tag-tipo">Comportamento</span>
+                <p><strong>2.</strong> O que acontece na interface quando a função <em>set</em> (ex: setDados) do useState é chamada com um novo valor?</p>
+                <div class="opcoes">
+                    [cite_start]<button onclick="verificar(this, true, 'Correto! O React detecta a mudança de estado e atualiza a tela automaticamente[cite: 14].')">A) O React Native re-renderiza o componente automaticamente, exibindo os novos dados.</button>
+                    <button onclick="verificar(this, false, 'Errado. A atualização é automática (reatividade).')">B) Nada acontece até que o usuário recarregue a página manualmente.</button>
+                </div>
+            </article>
+
+            <article class="questao">
+                <span class="tag-tipo">Conceito</span>
+                <p><strong>3.</strong> Para que serve o hook <strong>useEffect</strong> no contexto de APIs?</p>
+                <div class="opcoes">
+                    [cite_start]<button onclick="verificar(this, true, 'Correto! Ele lida com efeitos colaterais, como buscar dados externos[cite: 21, 22].')">A) Executar efeitos colaterais, como solicitar dados a uma API no momento certo.</button>
+                    <button onclick="verificar(this, false, 'Errado. Isso é função do useState.')">B) Apenas para armazenar variáveis globais.</button>
+                </div>
+            </article>
+
+            <article class="questao">
+                <span class="tag-tipo">Sintaxe</span>
+                <p><strong>4.</strong> O que acontece se passarmos um array de dependências vazio <code>[]</code> para o useEffect?</p>
+                <div class="opcoes">
+                    <button onclick="verificar(this, false, 'Errado. Ele executa sim, mas apenas uma vez.')">A) O efeito nunca será executado.</button>
+                    [cite_start]<button onclick="verificar(this, true, 'Correto! Garante que a requisição aconteça apenas uma vez na montagem do componente[cite: 23, 24].')">B) O efeito é executado apenas uma vez, logo que o componente é montado.</button>
+                    <button onclick="verificar(this, false, 'Errado. Sem array, ele executaria em todo render.')">C) Ele executa toda vez que qualquer estado mudar.</button>
+                </div>
+            </article>
+
+            <article class="questao">
+                <span class="tag-tipo">Asserção e Razão (Q8 do PDF)</span>
+                <p><strong>5. Analise as afirmações sobre useEffect:</strong></p>
+                <p>I. O useEffect executa ações automáticas, como buscar dados ao montar o componente.</p>
+                <p>PORQUE</p>
+                <p>II. O vetor de dependências controla quando o efeito será executado.</p>
+                <div class="opcoes">
+                    <button onclick="verificar(this, false, 'Errado.')">A) A primeira é falsa.</button>
+                    [cite_start]<button onclick="verificar(this, true, 'Correto! Ambas verdadeiras e a II justifica a I (o array vazio define a montagem única) [cite: 160-163].')">B) I e II são verdadeiras, e II justifica I.</button>
+                    <button onclick="verificar(this, false, 'Errado. Elas têm relação direta.')">C) I e II são verdadeiras, mas II não justifica I.</button>
+                </div>
+            </article>
+        </section>
+
+        <hr>
+
+        <section class="bloco-questoes">
+            <h2>Parte 2: Fetch vs Axios e Integrações</h2>
+
+            <article class="questao">
+                <span class="tag-tipo">Diferenças Técnicas</span>
+                <p><strong>6.</strong> Qual a principal diferença técnica entre <strong>fetch()</strong> e <strong>axios</strong> no tratamento da resposta JSON?</p>
+                <div class="opcoes">
+                    [cite_start]<button onclick="verificar(this, true, 'Correto! No fetch precisamos de response.json(), no axios já vem pronto em response.data[cite: 33, 34].')">A) O fetch exige `response.json()` para converter, enquanto o axios já retorna o JSON automático.</button>
+                    <button onclick="verificar(this, false, 'Errado. Fetch é nativo, axios é biblioteca externa.')">B) O fetch é uma biblioteca externa e o axios é nativo.</button>
+                </div>
+            </article>
+
+            <article class="questao">
+                <span class="tag-tipo">Múltipla Escolha (Q4 do PDF)</span>
+                <p><strong>7.</strong> Assinale a alternativa correta sobre fetch e axios:</p>
+                <div class="opcoes">
+                    [cite_start]<button onclick="verificar(this, false, 'Errado. Axios funciona perfeitamente com async/await[cite: 96].')">A) Axios não pode ser usado com async/await.</button>
+                    [cite_start]<button onclick="verificar(this, true, 'Correto! Fetch é nativo/simples. Axios tem interceptores e recursos extras[cite: 93].')">B) fetch() é nativo e mais leve; axios é externo e mais completo (interceptores, etc).</button>
+                    [cite_start]<button onclick="verificar(this, false, 'Errado. Fetch não converte automático[cite: 98].')">C) fetch() converte JSON automaticamente.</button>
+                </div>
+            </article>
+
+            <article class="questao">
+                <span class="tag-tipo">Conceito</span>
+                <p><strong>8.</strong> Qual a relação entre <strong>API</strong> e <strong>Webservice</strong>?</p>
+                <div class="opcoes">
+                    [cite_start]<button onclick="verificar(this, true, 'Correto! Webservice é um tipo específico de API (geralmente SOAP/XML), mas nem toda API é Webservice[cite: 58, 59].')">A) Todo Webservice é uma API, mas nem toda API é um Webservice.</button>
+                    <button onclick="verificar(this, false, 'Errado. São conceitos diferentes.')">B) API e Webservice são exatamente a mesma coisa.</button>
+                    <button onclick="verificar(this, false, 'Errado. Inverteu a lógica.')">C) Toda API é um Webservice.</button>
+                </div>
+            </article>
+
+            <article class="questao">
+                <span class="tag-tipo">Fluxo</span>
+                <p><strong>9.</strong> Por que utilizamos <code>async</code> e <code>await</code> nas funções de requisição?</p>
+                <div class="opcoes">
+                    <button onclick="verificar(this, false, 'Errado. Elas servem justamente para esperar.')">A) Para fazer o código rodar mais rápido sem esperar a resposta.</button>
+                    [cite_start]<button onclick="verificar(this, true, 'Correto! Evita o "callback hell" e mantém a lógica organizada enquanto espera a resposta da API[cite: 25].')">B) Para aguardar a resposta da API de forma síncrona visualmente, evitando repetições e mantendo o código limpo.</button>
+                </div>
+            </article>
+
+            <article class="questao">
+                <span class="tag-tipo">Asserção e Razão (Q10 do PDF)</span>
+                <p><strong>10. Analise sobre o Axios:</strong></p>
+                <p>I. Axios facilita tratamento de erros e reutilização.</p>
+                <p>PORQUE</p>
+                <p>II. Axios permite criar instâncias com interceptores (modificar request/response).</p>
+                <div class="opcoes">
+                    [cite_start]<button onclick="verificar(this, true, 'Correto! Interceptores tornam o axios poderoso no tratamento de erros [cite: 191-195].')">A) Ambas verdadeiras, e II justifica I.</button>
+                    <button onclick="verificar(this, false, 'Errado.')">B) A primeira é falsa.</button>
+                </div>
+            </article>
+
+            <article class="questao">
+                <span class="tag-tipo">Exemplos Reais</span>
+                <p><strong>11.</strong> O PDF cita dois exemplos clássicos de integração via API. Quais são?</p>
+                <div class="opcoes">
+                    [cite_start]<button onclick="verificar(this, true, 'Correto! OAuth 2.0 (Google) e OpenWeather (Clima)[cite: 72, 77].')">A) Login com Google (OAuth) e API de Clima (OpenWeather).</button>
+                    <button onclick="verificar(this, false, 'Errado.')">B) Bloco de Notas e Calculadora Offline.</button>
+                </div>
+            </article>
+        </section>
+
+        <hr>
+
+        <section class="bloco-questoes">
+            <h2>Parte 3: Boas Práticas e Segurança</h2>
+
+            <article class="questao">
+                <span class="tag-tipo">Segurança</span>
+                <p><strong>12.</strong> Onde devemos armazenar chaves de API e URLs sensíveis?</p>
+                <div class="opcoes">
+                    [cite_start]<button onclick="verificar(this, false, 'PERIGO! Nunca exponha chaves no código[cite: 179].')">A) Diretamente no código fonte, dentro das funções.</button>
+                    [cite_start]<button onclick="verificar(this, true, 'Correto! Variáveis de ambiente protegem dados sensíveis[cite: 42, 107].')">B) Em variáveis de ambiente (.env).</button>
+                </div>
+            </article>
+
+            <article class="questao">
+                <span class="tag-tipo">UX / Usuário</span>
+                <p><strong>13.</strong> Qual a importância de exibir um <em>ActivityIndicator</em> (loading) durante a requisição?</p>
+                <div class="opcoes">
+                    [cite_start]<button onclick="verificar(this, true, 'Correto! Feedback visual é essencial[cite: 38].')">A) Informar ao usuário que o processo está em andamento, melhorando a experiência.</button>
+                    <button onclick="verificar(this, false, 'Errado. Não afeta a velocidade, apenas a percepção.')">B) Acelerar o download dos dados.</button>
+                </div>
+            </article>
+
+            <article class="questao">
+                <span class="tag-tipo">Tratamento de Erro</span>
+                <p><strong>14.</strong> Qual estrutura é fundamental para capturar erros de rede ou exceções da API?</p>
+                <div class="opcoes">
+                    [cite_start]<button onclick="verificar(this, true, 'Correto! try...catch captura falhas e evita que o app feche[cite: 31, 169].')">A) Bloco try...catch.</button>
+                    <button onclick="verificar(this, false, 'Errado.')">B) if...else.</button>
+                </div>
+            </article>
+
+            <article class="questao">
+                <span class="tag-tipo">Arquitetura</span>
+                <p><strong>15.</strong> Sobre a organização do código de requisições (Q5 do PDF):</p>
+                <div class="opcoes">
+                    [cite_start]<button onclick="verificar(this, false, 'Errado. Repetir código é má prática[cite: 116].')">A) Devemos repetir o código de requisição em cada tela para isolar erros.</button>
+                    [cite_start]<button onclick="verificar(this, true, 'Correto! Centralizar facilita manutenção e reuso[cite: 105, 120].')">B) Devemos centralizar funções de requisição em arquivos de serviço (services).</button>
+                </div>
+            </article>
+
+            <article class="questao">
+                <span class="tag-tipo">Boas Práticas (Q6 PDF)</span>
+                <p><strong>16.</strong> Quais itens abaixo compõem as boas práticas no consumo de API?</p>
+                <div class="opcoes">
+                    <button onclick="verificar(this, false, 'Incompleto.')">A) Apenas usar Try...Catch.</button>
+                    [cite_start]<button onclick="verificar(this, true, 'Correto! Todas essas são citadas como essenciais [cite: 119-123].')">B) Centralizar chamadas, tratar códigos HTTP, usar variáveis de ambiente e timeout.</button>
+                </div>
+            </article>
+
+            <article class="questao">
+                <span class="tag-tipo">Discursiva - Definição</span>
+                <p><strong>17.</strong> Explique detalhadamente a diferença entre API e Webservice.</p>
+                <textarea placeholder="Sua resposta..."></textarea>
+                <button class="btn-gabarito" onclick="toggleGabarito('gab-17')">Ver Resposta</button>
+                <div id="gab-17" class="gabarito-oculto">
+                    <p><strong>Resposta Sugerida:</strong></p>
+                    [cite_start]<p>API é a interface de comunicação entre sistemas (padrão amplo). Webservice é um TIPO de API que segue padrões rígidos (SOAP/XML) [cite: 54-56].<br>
+                    Resumo: "Todo Webservice é uma API, nem toda API é um Webservice". [cite_start]APIs modernas (REST+JSON) são mais usadas em mobile [cite: 58-60].</p>
+                </div>
+            </article>
+
+            <article class="questao">
+                <span class="tag-tipo">Discursiva - Fluxo</span>
+                <p><strong>18.</strong> Descreva o fluxo completo (passo a passo) para consumir uma API no React Native (Q1-C do PDF).</p>
+                <textarea placeholder="Liste os passos..."></textarea>
+                <button class="btn-gabarito" onclick="toggleGabarito('gab-18')">Ver Resposta</button>
+                <div id="gab-18" class="gabarito-oculto">
+                    [cite_start]<p><strong>Passos Ideais [cite: 30-37]:</strong></p>
+                    <ol>
+                        <li>Criar função assíncrona (async/await).</li>
+                        <li>Usar try...catch para erros.</li>
+                        <li>Fazer requisição (fetch/axios).</li>
+                        <li>Se usar fetch, converter .json().</li>
+                        <li>Atualizar estado (useState) com os dados.</li>
+                        <li>Renderizar na tela.</li>
+                        <li>Mostrar loading durante o processo.</li>
+                    </ol>
+                </div>
+            </article>
+
+            <article class="questao">
+                <span class="tag-tipo">Discursiva - Benefícios</span>
+                <p><strong>19.</strong> Cite 3 benefícios técnicos de integrar aplicativos via API.</p>
+                <textarea placeholder="Sua resposta..."></textarea>
+                <button class="btn-gabarito" onclick="toggleGabarito('gab-19')">Ver Resposta</button>
+                <div id="gab-19" class="gabarito-oculto">
+                    [cite_start]<p><strong>Benefícios [cite: 63-68]:</strong></p>
+                    <ol>
+                        <li><strong>Escalabilidade:</strong> Lógica fica no servidor.</li>
+                        <li><strong>Atualizações fáceis:</strong> Muda no servidor, não precisa atualizar o app na loja.</li>
+                        <li><strong>Múltiplos serviços:</strong> Permite conectar mapas, pagamentos, etc.</li>
+                    </ol>
+                </div>
+            </article>
+
+            <article class="questao">
+                <span class="tag-tipo">Boas Práticas</span>
+                <p><strong>20.</strong> Sobre autenticação (Ex: Login): O que NÃO devemos fazer com o Token JWT?</p>
+                <div class="opcoes">
+                    <button onclick="verificar(this, true, 'Correto! Expor tokens coloca a conta do usuário em risco.')">A) Deixar salvo em texto puro ou logar no console em produção.</button>
+                    [cite_start]<button onclick="verificar(this, false, 'Errado. Armazenar seguro é o correto[cite: 104].')">B) Armazenar de forma segura.</button>
+                </div>
+            </article>
+
+             <article class="questao">
+                <span class="tag-tipo">Conceito Final</span>
+                <p><strong>21.</strong> APIs modernas para mobile geralmente utilizam qual arquitetura e qual formato de dados?</p>
+                <div class="opcoes">
+                    [cite_start]<button onclick="verificar(this, true, 'Correto! São mais leves e ideais para mobile[cite: 60].')">A) REST e JSON.</button>
+                    <button onclick="verificar(this, false, 'Errado. SOAP/XML é pesado e antigo.')">B) SOAP e XML.</button>
+                </div>
+            </article>
+
+        </section>
+
+    </main>
+
+    <div id="modal-alerta" class="modal-overlay" onclick="fecharModal(event)">
+        <div class="modal-box">
+            <div id="modal-header" class="modal-header"></div>
+            <div class="modal-body">
+                <p id="modal-texto"></p>
+            </div>
+            <div class="modal-footer">
+                <button onclick="fecharModal(null)">Continuar</button>
+            </div>
+        </div>
+    </div>
+
+    <a href="../index.html" class="btn-float">🏠 Inicio</a>
+
+    <footer>
+      <p>Desenvolvedor: Gilvan Daniel 2025</p>
+    </footer>
+
+    <script src="ronilson.js"></script>
+
+</body>
+</html>
