@@ -1,368 +1,558 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Revisão Gestão de Projetos | Prof. Manfredo</title>
-    <link rel="stylesheet" href="manfredo.css">
-</head>
-<body>
-
+    <link rel="stylesheet" href="manfredo.css" />
+  </head>
+  <body>
     <header>
-        <div class="container">
-            <h1>Revisão: Gestão de Projetos</h1>
-            <p>Foco: PMBOK, Viabilidade, Escopo, Qualidade e Riscos</p>
-            <a href="../index.html" class="btn-voltar">← Voltar ao Menu</a>
-        </div>
+      <div class="container">
+        <h1>Revisão: Gestão de Projetos</h1>
+        <p>Foco: PMBOK, Viabilidade, Escopo, Qualidade e Riscos</p>
+        <a href="../index.html" class="btn-voltar">← Voltar ao Menu</a>
+      </div>
     </header>
 
     <main class="container">
+      <section class="bloco-questoes">
+        <h2>Parte 1: Viabilidade e Iniciação</h2>
 
-        <section class="bloco-questoes">
-            <h2>Parte 1: Viabilidade e Iniciação (Lista da Prof.)</h2>
+        <article class="questao">
+          <span class="tag-tipo">Estudo de Caso</span>
+          <p>
+            <strong>1.</strong> Em um projeto, a equipe esqueceu de calcular
+            custos operacionais (servidores), focando apenas no desenvolvimento.
+            Avalie:
+          </p>
+          <p>I. Viabilidade técnica deve incluir custos operacionais.</p>
+          <p>II. Análise financeira é independente do ciclo de vida.</p>
+          <p>
+            III. Falta de integração entre viabilidade e custo compromete o
+            sucesso.
+          </p>
+          <div class="opcoes">
+            <button onclick="verificar(this, false)">A) I e II, apenas.</button>
+            <button onclick="verificar(this, true)">B) I e III, apenas.</button>
+            <button onclick="verificar(this, false)">
+              C) Todas as alternativas.
+            </button>
+          </div>
+          <div class="mini-aula-oculta">
+            <h4>💡 Viabilidade Real</h4>
+            <p>
+              A II é falsa. A análise financeira não acaba no início; ela deve
+              ser monitorada durante todo o ciclo de vida. Custos de operação
+              (manutenção, servidores) muitas vezes superam o custo de
+              desenvolvimento.
+            </p>
+          </div>
+        </article>
 
-            <article class="questao">
-                <span class="tag-tipo">Estudo de Caso</span>
-                <p><strong>1.</strong> Em um projeto de automação, a equipe esqueceu de calcular custos operacionais de servidores, focando apenas no desenvolvimento. O orçamento estourou. Avalie:</p>
-                <p>I. Viabilidade técnica deve incluir custos operacionais.</p>
-                <p>II. Análise financeira é independente do ciclo de vida (falsa).</p>
-                <p>III. Falta de integração entre viabilidade e custo compromete o sucesso.</p>
-                <p>IV. Orçamento deve considerar testes e validação.</p>
-                <div class="opcoes">
-                    <button onclick="verificar(this, false, 'Errado.')">A) I e II, apenas.</button>
-                    <button onclick="verificar(this, true, 'Correto! A II é falsa porque a análise financeira deve permear o ciclo todo. As demais estão corretas.')">B) I, III e IV, apenas.</button>
-                    <button onclick="verificar(this, false, 'Errado. A II é falsa.')">C) I, II e IV, apenas.</button>
-                </div>
-            </article>
+        <article class="questao">
+          <span class="tag-tipo">Asserção e Razão</span>
+          <p><strong>2.</strong> Sobre a Análise de Viabilidade:</p>
+          <p>
+            I. A análise auxilia a organização a escolher projetos alinhados ao
+            planejamento estratégico.
+          </p>
+          <p>PORQUE</p>
+          <p>
+            II. A análise considera indicadores econômicos, mas não analisa
+            impactos organizacionais.
+          </p>
+          <div class="opcoes">
+            <button onclick="verificar(this, false)">
+              A) As duas são verdadeiras.
+            </button>
+            <button onclick="verificar(this, true)">
+              B) A I é verdadeira, e a II é falsa.
+            </button>
+          </div>
+          <div class="mini-aula-oculta">
+            <h4>💡 Alinhamento Estratégico</h4>
+            <p>
+              A II é Falsa. A viabilidade <strong>DEVE</strong> analisar
+              impactos organizacionais. Um projeto pode dar lucro (viável
+              financeiramente) mas ferir a imagem da empresa (inviável
+              estrategicamente).
+            </p>
+          </div>
+        </article>
 
-            <article class="questao">
-                <span class="tag-tipo">Asserção e Razão</span>
-                <p><strong>2.</strong> Sobre a Análise de Viabilidade:</p>
-                <p>I. A análise auxilia a organização a escolher projetos alinhados ao planejamento estratégico.</p>
-                <p>PORQUE</p>
-                <p>II. A análise considera indicadores econômicos, mas não analisa alinhamento estratégico ou impactos organizacionais.</p>
-                <div class="opcoes">
-                    <button onclick="verificar(this, false, 'Errado.')">A) As duas são verdadeiras.</button>
-                    <button onclick="verificar(this, true, 'Correto! A I é Verdadeira. A II é Falsa, pois a viabilidade DEVE analisar o alinhamento estratégico e impactos.')">B) A asserção I é verdadeira, e a II é falsa.</button>
-                    <button onclick="verificar(this, false, 'Errado.')">C) Ambas são falsas.</button>
-                </div>
-            </article>
+        <article class="questao">
+          <span class="tag-tipo">Asserção e Razão</span>
+          <p><strong>3.</strong> Sobre o Termo de Abertura do Projeto (TAP):</p>
+          <p>
+            I. O TAP deve indicar o gerente do projeto e conceder autoridade
+            para aplicar recursos.
+          </p>
+          <p>PORQUE</p>
+          <p>II. O TAP faz parte do grupo de processos de Planejamento.</p>
+          <div class="opcoes">
+            <button onclick="verificar(this, true)">
+              A) A I é verdadeira, e a II é falsa.
+            </button>
+            <button onclick="verificar(this, false)">
+              B) As duas são verdadeiras.
+            </button>
+          </div>
+          <div class="mini-aula-oculta">
+            <h4>💡 TAP é Iniciação!</h4>
+            <p>
+              O TAP nasce na fase de <strong>Iniciação</strong> (para autorizar
+              o projeto a existir). O Planejamento vem <em>depois</em> que o
+              projeto já foi autorizado.
+            </p>
+          </div>
+        </article>
 
-            <article class="questao">
-                <span class="tag-tipo">Asserção e Razão</span>
-                <p><strong>3.</strong> Sobre o Termo de Abertura do Projeto (TAP):</p>
-                <p>I. O TAP deve indicar o gerente do projeto e conceder autoridade para aplicar recursos.</p>
-                <p>PORQUE</p>
-                <p>II. O TAP faz parte do grupo de processos de planejamento, onde se definem parâmetros detalhados.</p>
-                <div class="opcoes">
-                    <button onclick="verificar(this, true, 'Correto! A I é Verdadeira. A II é Falsa porque o TAP faz parte da INICIAÇÃO, não do Planejamento.')">A) A asserção I é verdadeira, e a II é falsa.</button>
-                    <button onclick="verificar(this, false, 'Errado. TAP é Iniciação.')">B) As duas são verdadeiras.</button>
-                    <button onclick="verificar(this, false, 'Errado.')">C) I é falsa e II é verdadeira.</button>
-                </div>
-            </article>
+        <article class="questao">
+          <span class="tag-tipo">Integração</span>
+          <p>
+            <strong>4.</strong> Qual a função da área de Integração de Projetos?
+          </p>
+          <div class="opcoes">
+            <button onclick="verificar(this, true)">
+              A) Conectar diversos elementos (escopo, tempo, custo) e garantir
+              alinhamento estratégico.
+            </button>
+            <button onclick="verificar(this, false)">
+              B) Apenas somar os custos das tarefas.
+            </button>
+          </div>
+          <div class="mini-aula-oculta">
+            <h4>💡 O Cimento do Projeto</h4>
+            <p>
+              A Integração é a única área que "enxerga tudo". Ela garante que
+              uma mudança no Escopo reflita no Cronograma e no Orçamento. É
+              responsabilidade principal do Gerente.
+            </p>
+          </div>
+        </article>
+      </section>
 
-            <article class="questao">
-                <span class="tag-tipo">Integração</span>
-                <p><strong>4.</strong> A área de Integração de Projetos coordena todos os elementos.</p>
-                <p>I. Contribui para decisões alinhadas à estratégia.</p>
-                <p>PORQUE</p>
-                <p>II. Envolve processos que conectam diversos elementos, permitindo compreender impactos amplos.</p>
-                <div class="opcoes">
-                    <button onclick="verificar(this, true, 'Correto! Ambas verdadeiras e a II justifica a I. A integração é o "cimento" que une tudo.')">A) As asserções I e II são verdadeiras, e a II é uma justificativa correta da I.</button>
-                    <button onclick="verificar(this, false, 'Errado.')">B) A I é verdadeira e a II é falsa.</button>
-                </div>
-            </article>
-        </section>
+      <hr />
 
-        <hr>
+      <section class="bloco-questoes">
+        <h2>Parte 2: Áreas de Conhecimento e Qualidade</h2>
 
-        <section class="bloco-questoes">
-            <h2>Parte 2: Áreas de Conhecimento, Escopo e Qualidade</h2>
+        <article class="questao">
+          <span class="tag-tipo">PMBOK</span>
+          <p>
+            <strong>5.</strong> Quais das afirmações representam corretamente
+            áreas de conhecimento do PMBOK?
+          </p>
+          <p>I. Qualidade | II. Cronograma | III. Vendas | IV. Custos</p>
+          <div class="opcoes">
+            <button onclick="verificar(this, false)">A) Todas.</button>
+            <button onclick="verificar(this, true)">
+              B) I, II e IV, apenas.
+            </button>
+          </div>
+          <div class="mini-aula-oculta">
+            <h4>💡 Áreas do PMBOK</h4>
+            <p>
+              "Vendas" <strong>não</strong> é uma área do PMBOK (o mais próximo
+              seria 'Aquisições' ou 'Partes Interessadas'). As áreas clássicas
+              incluem Escopo, Tempo, Custo, Qualidade, Riscos, etc.
+            </p>
+          </div>
+        </article>
 
-            <article class="questao">
-                <span class="tag-tipo">PMBOK</span>
-                <p><strong>5.</strong> Quais das afirmações representam corretamente áreas de conhecimento do PMBOK?</p>
-                <p>I. Qualidade | II. Cronograma | III. Vendas | IV. Custos</p>
-                <div class="opcoes">
-                    <button onclick="verificar(this, false, 'Errado. Vendas não é área do PMBOK.')">A) I, II e III.</button>
-                    <button onclick="verificar(this, true, 'Correto! "Vendas" (III) não é uma área de conhecimento do PMBOK (o correto seria Aquisições ou Partes Interessadas).')">B) I, II e IV, apenas.</button>
-                    <button onclick="verificar(this, false, 'Errado.')">C) Todas as alternativas.</button>
-                </div>
-            </article>
+        <article class="questao">
+          <span class="tag-tipo">Qualidade</span>
+          <p>
+            <strong>6.</strong> Qual processo está relacionado ao uso de
+            <strong>auditorias</strong> para assegurar que os processos estão
+            sendo seguidos?
+          </p>
+          <div class="opcoes">
+            <button onclick="verificar(this, false)">
+              A) Controlar a qualidade.
+            </button>
+            <button onclick="verificar(this, true)">
+              B) Gerenciar a qualidade (Quality Assurance).
+            </button>
+          </div>
+          <div class="mini-aula-oculta">
+            <h4>💡 QA vs QC</h4>
+            <ul>
+              <li>
+                <strong>Gerenciar (QA):</strong> Foca no PROCESSO. "Estamos
+                trabalhando do jeito certo?" (Auditoria).
+              </li>
+              <li>
+                <strong>Controlar (QC):</strong> Foca no PRODUTO. "O software
+                tem bugs?" (Testes/Inspeção).
+              </li>
+            </ul>
+          </div>
+        </article>
 
-            <article class="questao">
-                <span class="tag-tipo">Qualidade</span>
-                <p><strong>6.</strong> Qual processo de qualidade está relacionado ao uso de <strong>testes e auditorias</strong> para assegurar que os processos estão adequados?</p>
-                <div class="opcoes">
-                    <button onclick="verificar(this, false, 'Errado. Planejar define os padrões.')">A) Planejar o gerenciamento da qualidade.</button>
-                    <button onclick="verificar(this, true, 'Correto! Gerenciar a Qualidade (Quality Assurance) foca nos processos e auditorias.')">B) Gerenciar a qualidade.</button>
-                    <button onclick="verificar(this, false, 'Errado. Controlar foca no produto final e defeitos.')">C) Controlar a qualidade.</button>
-                </div>
-            </article>
+        <article class="questao">
+          <span class="tag-tipo">Ferramentas</span>
+          <p>
+            <strong>7.</strong> Quais são ferramentas clássicas da qualidade?
+          </p>
+          <p>I. Pareto | II. Causa e Efeito | III. EAP</p>
+          <div class="opcoes">
+            <button onclick="verificar(this, false)">A) I, II e III.</button>
+            <button onclick="verificar(this, true)">B) I e II, apenas.</button>
+          </div>
+          <div class="mini-aula-oculta">
+            <h4>💡 EAP é Escopo!</h4>
+            <p>
+              Pareto e Ishikawa (Causa e Efeito) são de Qualidade. A EAP
+              (Estrutura Analítica do Projeto) é a ferramenta rainha do
+              <strong>Escopo</strong>.
+            </p>
+          </div>
+        </article>
 
-            <article class="questao">
-                <span class="tag-tipo">Ferramentas da Qualidade</span>
-                <p><strong>7.</strong> Quais são ferramentas clássicas da qualidade citadas?</p>
-                <p>I. Pareto | II. Causa e Efeito | III. EAP | IV. Histograma</p>
-                <div class="opcoes">
-                    <button onclick="verificar(this, false, 'Errado. EAP é ferramenta de Escopo.')">A) I, II e III.</button>
-                    <button onclick="verificar(this, true, 'Correto! EAP (III) é de Escopo. As outras (I, II, IV) são da Qualidade.')">B) I, II e IV, apenas.</button>
-                </div>
-            </article>
+        <article class="questao">
+          <span class="tag-tipo">Escopo</span>
+          <p>
+            <strong>8.</strong> Qual o principal risco de não documentar o
+            escopo adequadamente?
+          </p>
+          <div class="opcoes">
+            <button onclick="verificar(this, false)">
+              A) A equipe trabalhar rápido demais.
+            </button>
+            <button onclick="verificar(this, true)">
+              B) Scope Creep (mudanças não controladas e crescimento do escopo).
+            </button>
+          </div>
+          <div class="mini-aula-oculta">
+            <h4>💡 Scope Creep</h4>
+            <p>
+              Sem escopo definido, o cliente pede "só mais um botãozinho" todo
+              dia. No final, o projeto dobra de tamanho, atrasa e estoura o
+              orçamento.
+            </p>
+          </div>
+        </article>
 
-            <article class="questao">
-                <span class="tag-tipo">Escopo</span>
-                <p><strong>8.</strong> Segundo o texto, qual é um dos principais riscos associados à falta de documentação adequada do escopo?</p>
-                <div class="opcoes">
-                    <button onclick="verificar(this, false, 'Errado. A equipe não melhora sem escopo.')">A) Aumento do desempenho da equipe.</button>
-                    <button onclick="verificar(this, true, 'Correto! Sem escopo definido, ocorre o "Scope Creep" (mudanças não controladas).')">B) Ocorrência frequente de mudanças não controladas.</button>
-                </div>
-            </article>
+        <article class="questao">
+          <span class="tag-tipo">EAP</span>
+          <p>
+            <strong>9.</strong> Para que serve a EAP (Estrutura Analítica do
+            Projeto)?
+          </p>
+          <div class="opcoes">
+            <button onclick="verificar(this, true)">
+              A) Decompor o trabalho em partes menores e gerenciáveis.
+            </button>
+            <button onclick="verificar(this, false)">
+              B) Definir a sequência cronológica das atividades.
+            </button>
+          </div>
+          <div class="mini-aula-oculta">
+            <h4>💡 Dividir para Conquistar</h4>
+            <p>
+              A EAP quebra o "monstro" (projeto grande) em pedacinhos pequenos
+              chamados Pacotes de Trabalho. Ela não mostra TEMPO (isso é o
+              Cronograma), ela mostra HIERARQUIA.
+            </p>
+          </div>
+        </article>
 
-            <article class="questao">
-                <span class="tag-tipo">Escopo / EAP</span>
-                <p><strong>9.</strong> Em um projeto onde as expectativas mudavam muito, o gerente criou a EAP. Qual o principal benefício?</p>
-                <div class="opcoes">
-                    <button onclick="verificar(this, true, 'Correto! A EAP decompõe o trabalho em partes gerenciáveis.')">A) Facilitar a decomposição do trabalho em partes gerenciáveis, permitindo controle.</button>
-                    <button onclick="verificar(this, false, 'Errado. O cliente ainda pode pedir alterações, mas agora serão controladas.')">B) Permitir que o cliente altere o escopo sem impacto no cronograma.</button>
-                </div>
-            </article>
+        <article class="questao">
+          <span class="tag-tipo">Execução</span>
+          <p>
+            <strong>10.</strong> Qual a consequência direta de iniciar a
+            execução com um escopo mal definido?
+          </p>
+          <div class="opcoes">
+            <button onclick="verificar(this, false)">
+              A) Economia de tempo no planejamento.
+            </button>
+            <button onclick="verificar(this, true)">
+              B) Retrabalho, atrasos e conflitos.
+            </button>
+          </div>
+          <div class="mini-aula-oculta">
+            <h4>💡 Planejamento Pobre = Execução Pobre</h4>
+            <p>
+              Se você não sabe exatamente o que tem que construir (escopo), vai
+              construir errado. Depois terá que desmanchar e fazer de novo
+              (retrabalho).
+            </p>
+          </div>
+        </article>
+      </section>
 
-            <article class="questao">
-                <span class="tag-tipo">Execução</span>
-                <p><strong>10.</strong> Qual a consequência direta de iniciar a execução do projeto com um escopo mal definido?</p>
-                <div class="opcoes">
-                    <button onclick="verificar(this, false, 'Errado. O risco aumenta, não reduz.')">A) Redução do número de riscos.</button>
-                    <button onclick="verificar(this, true, 'Correto! Escopo ruim gera retrabalho, interpretações erradas e atrasos.')">B) Maior probabilidade de retrabalho e atrasos.</button>
-                </div>
-            </article>
+      <hr />
 
-            <article class="questao">
-                <span class="tag-tipo">Riscos</span>
-                <p><strong>11.</strong> Sobre a integração de Riscos:</p>
-                <p>I. Gestão integrada permite respostas baseadas em dados.</p>
-                <p>II. Integração risco/comunicação facilita identificação precoce.</p>
-                <p>III. Ausência de integração reduz complexidade (Falso).</p>
-                <p>IV. Controle de riscos deve estar em todas as fases.</p>
-                <div class="opcoes">
-                    <button onclick="verificar(this, false, 'Errado. III é falsa (a ausência aumenta o caos, não reduz complexidade).')">A) I, II e III.</button>
-                    <button onclick="verificar(this, true, 'Correto! I, II e IV são verdadeiras.')">B) I, II e IV, apenas.</button>
-                </div>
-            </article>
-        </section>
+      <section class="bloco-questoes">
+        <h2>Parte 3: Riscos, Ciclo de Vida e Ferramentas</h2>
 
-        <hr>
+        <article class="questao">
+          <span class="tag-tipo">Riscos</span>
+          <p><strong>11.</strong> Sobre a gestão de Riscos:</p>
+          <div class="opcoes">
+            <button onclick="verificar(this, false)">
+              A) Deve ser feita apenas no início.
+            </button>
+            <button onclick="verificar(this, true)">
+              B) Deve estar presente em todas as fases do ciclo de vida.
+            </button>
+          </div>
+          <div class="mini-aula-oculta">
+            <h4>💡 Riscos são Vivos</h4>
+            <p>
+              Novos riscos surgem o tempo todo. Um projeto que não monitora
+              riscos continuamente será pego de surpresa na execução.
+            </p>
+          </div>
+        </article>
 
-        <section class="bloco-questoes">
-            <h2>Parte 3: Conceitos Fundamentais e Discursivas</h2>
+        <article class="questao">
+          <span class="tag-tipo">Ciclo de Vida</span>
+          <p>
+            <strong>12.</strong> Qual a ordem correta dos grupos de processos
+            (PMBOK)?
+          </p>
+          <div class="opcoes">
+            <button onclick="verificar(this, true)">
+              A) Iniciação > Planejamento > Execução > Monitoramento >
+              Encerramento.
+            </button>
+            <button onclick="verificar(this, false)">
+              B) Planejamento > Iniciação > Desenvolvimento > Testes.
+            </button>
+          </div>
+          <div class="mini-aula-oculta">
+            <h4>💡 IPECC</h4>
+            <p>
+              Lembre da sigla: <strong>I</strong>niciação,
+              <strong>P</strong>lanejamento, <strong>E</strong>xecução,
+              <strong>C</strong>ontrole, en<strong>C</strong>erramento. Nota:
+              Monitoramento e Controle acontece em paralelo com todos.
+            </p>
+          </div>
+        </article>
 
-            <article class="questao">
-                <span class="tag-tipo">Ciclo de Vida</span>
-                <p><strong>12.</strong> Qual a ordem correta dos grupos de processos do ciclo de vida de um projeto segundo o PMBOK?</p>
-                <div class="opcoes">
-                    <button onclick="verificar(this, true, 'Correto! IPECC (Iniciação, Planejamento, Execução, Monitoramento/Controle, Encerramento).')">A) Iniciação, Planejamento, Execução, Monitoramento e Controle, Encerramento.</button>
-                    <button onclick="verificar(this, false, 'Errado.')">B) Planejamento, Iniciação, Desenvolvimento, Testes, Entrega.</button>
-                </div>
-            </article>
+        <article class="questao">
+          <span class="tag-tipo">TAP</span>
+          <p>
+            <strong>13.</strong> Qual é o principal documento de saída da fase
+            de <strong>Iniciação</strong>?
+          </p>
+          <div class="opcoes">
+            <button onclick="verificar(this, false)">A) Cronograma.</button>
+            <button onclick="verificar(this, true)">
+              B) Termo de Abertura do Projeto (TAP).
+            </button>
+          </div>
+          <div class="mini-aula-oculta">
+            <h4>💡 O Nascimento do Projeto</h4>
+            <p>
+              O TAP é a "Certidão de Nascimento" do projeto. Sem ele, o projeto
+              não existe oficialmente e o gerente não tem poder.
+            </p>
+          </div>
+        </article>
 
-            <article class="questao">
-                <span class="tag-tipo">TAP</span>
-                <p><strong>13.</strong> Qual é o principal documento de saída da fase de <strong>Iniciação</strong>?</p>
-                <div class="opcoes">
-                    <button onclick="verificar(this, false, 'Errado. A EAP é do Planejamento.')">A) EAP (Estrutura Analítica do Projeto).</button>
-                    <button onclick="verificar(this, true, 'Correto! O Termo de Abertura (TAP) oficializa o início do projeto.')">B) Termo de Abertura do Projeto (TAP).</button>
-                    <button onclick="verificar(this, false, 'Errado. Cronograma é Planejamento.')">C) Cronograma.</button>
-                </div>
-            </article>
+        <article class="questao">
+          <span class="tag-tipo">Ferramentas</span>
+          <p><strong>14.</strong> Para que serve o Diagrama de Ishikawa?</p>
+          <div class="opcoes">
+            <button onclick="verificar(this, false)">
+              A) Priorizar problemas (80/20).
+            </button>
+            <button onclick="verificar(this, true)">
+              B) Identificar a Causa Raiz de um problema.
+            </button>
+          </div>
+          <div class="mini-aula-oculta">
+            <h4>💡 Espinha de Peixe</h4>
+            <p>
+              Ishikawa não prioriza (quem faz isso é Pareto). Ishikawa investiga
+              as causas profundas (Método, Matéria-prima, Mão de obra...).
+            </p>
+          </div>
+        </article>
 
-            <article class="questao">
-                <span class="tag-tipo">Conceito</span>
-                <p><strong>14.</strong> O que é "Scope Creep" (aumento de escopo)?</p>
-                <div class="opcoes">
-                    <button onclick="verificar(this, true, 'Correto! É o crescimento descontrolado do escopo sem ajustes de prazo/custo.')">A) Mudanças não controladas ou contínuas no escopo do projeto.</button>
-                    <button onclick="verificar(this, false, 'Errado.')">B) Uma ferramenta para definir o escopo inicial.</button>
-                </div>
-            </article>
+        <article class="questao">
+          <span class="tag-tipo">Ferramentas</span>
+          <p><strong>15.</strong> Para que serve o Diagrama de Pareto?</p>
+          <div class="opcoes">
+            <button onclick="verificar(this, true)">
+              A) Priorizar problemas (80% dos efeitos vêm de 20% das causas).
+            </button>
+            <button onclick="verificar(this, false)">
+              B) Mostrar a relação cronológica.
+            </button>
+          </div>
+          <div class="mini-aula-oculta">
+            <h4>💡 Regra 80/20</h4>
+            <p>
+              Pareto diz: "Não tente resolver tudo de uma vez. Foque nos 20% dos
+              problemas que causam 80% da dor de cabeça". Serve para
+              priorização.
+            </p>
+          </div>
+        </article>
 
-            <article class="questao">
-                <span class="tag-tipo">Ferramentas</span>
-                <p><strong>15.</strong> Para que serve o Diagrama de Ishikawa (Espinha de Peixe)?</p>
-                <div class="opcoes">
-                    <button onclick="verificar(this, false, 'Errado. Isso é o Diagrama de Pareto (80/20).')">A) Priorizar problemas baseados na frequência.</button>
-                    <button onclick="verificar(this, true, 'Correto! Serve para identificar a Causa Raiz de um problema.')">B) Identificar as causas raízes de um efeito ou problema.</button>
-                </div>
-            </article>
+        <article class="questao">
+          <span class="tag-tipo">Viabilidade</span>
+          <p>
+            <strong>16.</strong> Quais indicadores financeiros são comuns na
+            análise de viabilidade?
+          </p>
+          <div class="opcoes">
+            <button onclick="verificar(this, false)">A) KPI e SLA.</button>
+            <button onclick="verificar(this, true)">
+              B) ROI (Retorno), VPL (Valor Presente) e TIR (Taxa Interna).
+            </button>
+          </div>
+          <div class="mini-aula-oculta">
+            <h4>💡 Vai dar dinheiro?</h4>
+            <p>
+              KPI é indicador de desempenho. Para saber se vale a pena investir
+              (viabilidade), usamos ROI, VPL e TIR.
+            </p>
+          </div>
+        </article>
 
-            <article class="questao">
-                <span class="tag-tipo">Ferramentas</span>
-                <p><strong>16.</strong> Para que serve o Diagrama de Pareto?</p>
-                <div class="opcoes">
-                    <button onclick="verificar(this, true, 'Correto! Baseado na regra 80/20 (80% dos problemas vêm de 20% das causas).')">A) Priorizar problemas, mostrando que poucos fatores causam a maioria dos defeitos.</button>
-                    <button onclick="verificar(this, false, 'Errado.')">B) Mostrar a relação entre duas variáveis.</button>
-                </div>
-            </article>
+        <article class="questao">
+          <span class="tag-tipo">Planejamento</span>
+          <p>
+            <strong>17.</strong> O que diz a "Regra dos 100%" na construção da
+            EAP?
+          </p>
+          <div class="opcoes">
+            <button onclick="verificar(this, true)">
+              A) A EAP deve conter 100% do trabalho do projeto. Nada mais, nada
+              menos.
+            </button>
+            <button onclick="verificar(this, false)">
+              B) O projeto deve estar 100% pronto na metade do tempo.
+            </button>
+          </div>
+          <div class="mini-aula-oculta">
+            <h4>💡 Regra dos 100%</h4>
+            <p>
+              Se está na EAP, tem que ser feito. Se não está na EAP, está fora
+              do escopo. Ela representa a totalidade do trabalho.
+            </p>
+          </div>
+        </article>
 
-            <article class="questao">
-                <span class="tag-tipo">Viabilidade</span>
-                <p><strong>17.</strong> Quais são os indicadores financeiros comuns na análise de viabilidade?</p>
-                <div class="opcoes">
-                    <button onclick="verificar(this, false, 'Errado. KPI e SLA são de operação.')">A) KPI e SLA.</button>
-                    <button onclick="verificar(this, true, 'Correto! ROI (Retorno sobre Investimento), VPL (Valor Presente Líquido) e TIR.')">B) ROI, VPL e TIR.</button>
-                </div>
-            </article>
+        <article class="questao">
+          <span class="tag-tipo">Discursiva - EAP</span>
+          <p>
+            <strong>18.</strong> Explique com suas palavras o que é a EAP e cite
+            um benefício.
+          </p>
+          <textarea placeholder="Sua resposta..."></textarea>
+          <button class="btn-gabarito" onclick="toggleGabarito('gab-18')">
+            Ver Resposta
+          </button>
+          <div id="gab-18" class="gabarito-oculto">
+            <h4>💡 Resposta Esperada</h4>
+            <p>
+              <strong>EAP (Estrutura Analítica do Projeto):</strong> É a
+              decomposição hierárquica do escopo em partes menores (pacotes de
+              trabalho).
+            </p>
+            <p>
+              <strong>Benefício:</strong> Melhora a precisão das estimativas de
+              custo e tempo, pois é mais fácil estimar partes pequenas do que o
+              todo.
+            </p>
+          </div>
+        </article>
 
-            <article class="questao">
-                <span class="tag-tipo">Planejamento</span>
-                <p><strong>18.</strong> O que é a EAP (Estrutura Analítica do Projeto)?</p>
-                <div class="opcoes">
-                    <button onclick="verificar(this, true, 'Correto! É visual e hierárquica.')">A) Uma decomposição hierárquica do escopo total do trabalho.</button>
-                    <button onclick="verificar(this, false, 'Errado. EAP foca nas entregas, não na sequência de tempo (cronograma).')">B) Uma lista de atividades sequenciais com datas.</button>
-                </div>
-            </article>
+        <article class="questao">
+          <span class="tag-tipo">Discursiva - Viabilidade</span>
+          <p>
+            <strong>19.</strong> Por que um projeto viável financeiramente pode
+            ser rejeitado?
+          </p>
+          <textarea placeholder="Sua resposta..."></textarea>
+          <button class="btn-gabarito" onclick="toggleGabarito('gab-19')">
+            Ver Resposta
+          </button>
+          <div id="gab-19" class="gabarito-oculto">
+            <h4>💡 Resposta Esperada</h4>
+            <p>
+              Porque pode não estar alinhado com a
+              <strong>Estratégia</strong> da empresa. Se a empresa quer focar em
+              Sustentabilidade e o projeto é sobre vender petróleo, ele desvia o
+              foco, mesmo dando lucro.
+            </p>
+          </div>
+        </article>
 
-            <article class="questao">
-                <span class="tag-tipo">Integração</span>
-                <p><strong>19.</strong> Quem é o principal responsável pela Integração do projeto?</p>
-                <div class="opcoes">
-                    <button onclick="verificar(this, false, 'Errado. O cliente define requisitos, não integra.')">A) O Cliente.</button>
-                    <button onclick="verificar(this, true, 'Correto! Só o Gerente tem a visão do todo para integrar as áreas.')">B) O Gerente de Projetos.</button>
-                </div>
-            </article>
+        <article class="questao">
+          <span class="tag-tipo">Discursiva - Ciclo</span>
+          <p>
+            <strong>20.</strong> Como se comportam os Custos e o Risco ao longo
+            do tempo no projeto?
+          </p>
+          <textarea placeholder="Sua resposta..."></textarea>
+          <button class="btn-gabarito" onclick="toggleGabarito('gab-20')">
+            Ver Resposta
+          </button>
+          <div id="gab-20" class="gabarito-oculto">
+            <h4>💡 Gráfico do Tempo</h4>
+            <ul>
+              <li>
+                <strong>Início:</strong> Risco alto (incerteza), Custo de
+                mudança baixo.
+              </li>
+              <li>
+                <strong>Fim:</strong> Risco baixo (já está pronto), Custo de
+                mudança altíssimo (refazer tudo é caro).
+              </li>
+            </ul>
+          </div>
+        </article>
 
-            <article class="questao">
-                <span class="tag-tipo">Discursiva - EAP</span>
-                <p><strong>20.</strong> Explique com suas palavras o que é a EAP e cite um benefício.</p>
-                <textarea placeholder="Sua resposta..."></textarea>
-                <button class="btn-gabarito" onclick="toggleGabarito('gab-20')">Ver Resposta</button>
-                <div id="gab-20" class="gabarito-oculto">
-                    <p><strong>Resposta:</strong> A EAP (Estrutura Analítica do Projeto) é a decomposição do trabalho em partes menores e gerenciáveis (pacotes de trabalho). <br>Benefício: Melhora a precisão das estimativas de custo, tempo e recursos.</p>
-                </div>
-            </article>
-
-            <article class="questao">
-                <span class="tag-tipo">Discursiva - Viabilidade</span>
-                <p><strong>21.</strong> Por que um projeto viável financeiramente pode ser rejeitado na análise de viabilidade?</p>
-                <textarea placeholder="Sua resposta..."></textarea>
-                <button class="btn-gabarito" onclick="toggleGabarito('gab-21')">Ver Resposta</button>
-                <div id="gab-21" class="gabarito-oculto">
-                    <p><strong>Resposta:</strong> Porque ele pode não estar alinhado com o <strong>Planejamento Estratégico</strong> da empresa. Se o projeto dá lucro mas foge da missão/visão da empresa, ele desvia o foco e recursos.</p>
-                </div>
-            </article>
-
-            <article class="questao">
-                <span class="tag-tipo">TAP</span>
-                <p><strong>22.</strong> O Termo de Abertura do Projeto (TAP) é fundamental na Iniciação. Quem é o responsável por emitir ou aprovar este documento?</p>
-                <div class="opcoes">
-                    <button onclick="verificar(this, false, 'Errado. O Gerente é nomeado NO documento, ele não se auto-nomeia.')">A) O Gerente de Projetos.</button>
-                    <button onclick="verificar(this, true, 'Correto! O Patrocinador (Sponsor) é quem provê os recursos e autoriza o projeto.')">B) O Patrocinador (Sponsor) ou iniciador do projeto.</button>
-                    <button onclick="verificar(this, false, 'Errado. A equipe ainda nem foi formada.')">C) A equipe de desenvolvimento.</button>
-                </div>
-            </article>
-
-            <article class="questao">
-                <span class="tag-tipo">Ciclo de Vida</span>
-                <p><strong>23.</strong> Sobre as fases do Ciclo de Vida do Projeto: Como se comportam os custos e a incerteza (risco) ao longo do tempo?</p>
-                <div class="opcoes">
-                    <button onclick="verificar(this, true, 'Correto! No início é barato mudar mas o risco é alto. No fim, mudar é caro, mas o risco diminui.')">A) O risco é maior no início e diminui com o tempo; os custos são baixos no início e aumentam durante a execução.</button>
-                    <button onclick="verificar(this, false, 'Errado. Mudar algo no fim do projeto custa muito caro.')">B) O custo de mudanças é alto no início e baixo no final.</button>
-                </div>
-            </article>
-
-            <article class="questao">
-                <span class="tag-tipo">EAP</span>
-                <p><strong>24.</strong> Na construção da EAP (Estrutura Analítica do Projeto), qual é o nome dado ao nível mais baixo de decomposição, onde estimamos custo e prazo?</p>
-                <div class="opcoes">
-                    <button onclick="verificar(this, false, 'Errado. Dicionário é o documento que explica a EAP.')">A) Dicionário da EAP.</button>
-                    <button onclick="verificar(this, true, 'Correto! O Pacote de Trabalho é a menor unidade da EAP.')">B) Pacote de Trabalho.</button>
-                    <button onclick="verificar(this, false, 'Errado. Entregável é o produto, mas o nível de gerenciamento é o Pacote.')">C) Fase do Projeto.</button>
-                </div>
-            </article>
-
-            <article class="questao">
-                <span class="tag-tipo">Qualidade</span>
-                <p><strong>25.</strong> No gerenciamento moderno da Qualidade, qual é a abordagem preferida?</p>
-                <div class="opcoes">
-                    <button onclick="verificar(this, false, 'Errado. Inspeção é corrigir o erro depois de feito (caro).')">A) Inspeção (encontrar erros no produto final).</button>
-                    <button onclick="verificar(this, true, 'Correto! Prevenção (evitar que o erro aconteça) é sempre mais barato que a inspeção.')">B) Prevenção (evitar defeitos através de processos corretos).</button>
-                </div>
-            </article>
-
-            <article class="questao">
-                <span class="tag-tipo">Escopo</span>
-                <p><strong>26.</strong> Qual a diferença entre Escopo do Produto e Escopo do Projeto?</p>
-                <div class="opcoes">
-                    <button onclick="verificar(this, true, 'Correto! Produto = O que você entrega. Projeto = O trabalho para fazer a entrega.')">A) Escopo do Produto são as funcionalidades/características; Escopo do Projeto é o trabalho necessário para entregar o produto.</button>
-                    <button onclick="verificar(this, false, 'Errado. É o contrário.')">B) Escopo do Projeto são as características do software; Escopo do Produto é o cronograma.</button>
-                </div>
-            </article>
-
-            <article class="questao">
-                <span class="tag-tipo">Planejamento</span>
-                <p><strong>27.</strong> Por que a etapa de construção do Planejamento é considerada a mais importante para evitar falhas?</p>
-                <div class="opcoes">
-                    <button onclick="verificar(this, false, 'Errado. O planejamento é onde gastamos "cérebro" para não gastar dinheiro errado na execução.')">A) Porque é a fase mais curta e barata.</button>
-                    <button onclick="verificar(this, true, 'Correto! O planejamento define "como" fazer. Planejar mal leva a execuções erradas, retrabalho e estouro de custos.')">B) Porque define as linhas de base (Escopo, Tempo, Custo) e reduz as incertezas da execução.</button>
-                </div>
-            </article>
-
-            <article class="questao">
-                <span class="tag-tipo">Bases de Conhecimento</span>
-                <p><strong>28.</strong> O que são os "Ativos de Processos Organizacionais" e "Bases de Conhecimento"?</p>
-                <div class="opcoes">
-                    <button onclick="verificar(this, true, 'Correto! São o histórico da empresa: modelos, lições aprendidas e dados de projetos passados.')">A) Informações históricas, lições aprendidas, templates e procedimentos de projetos anteriores.</button>
-                    <button onclick="verificar(this, false, 'Errado. Isso são Fatores Ambientais.')">B) Leis de mercado e condições climáticas.</button>
-                </div>
-            </article>
-
-            <article class="questao">
-                <span class="tag-tipo">Viabilidade</span>
-                <p><strong>29.</strong> Além do retorno financeiro (dinheiro), que outro tipo de benefício a Análise de Viabilidade deve considerar?</p>
-                <div class="opcoes">
-                    <button onclick="verificar(this, false, 'Errado.')">A) Apenas lucros imediatos.</button>
-                    <button onclick="verificar(this, true, 'Correto! Benefícios intangíveis (marca, reputação, bem social) são vitais.')">B) Benefícios intangíveis (ex: melhora da imagem da marca, alinhamento estratégico, benefícios sociais).</button>
-                </div>
-            </article>
-
-            <article class="questao">
-                <span class="tag-tipo">Conceito</span>
-                <p><strong>30.</strong> O TAP contém o escopo detalhado do projeto?</p>
-                <div class="opcoes">
-                    <button onclick="verificar(this, false, 'Errado. O detalhe vem na Declaração de Escopo e na EAP (Planejamento).')">A) Sim, o TAP deve ter todo o detalhe técnico.</button>
-                    <button onclick="verificar(this, true, 'Correto! O TAP é de alto nível (macro). O detalhamento ocorre depois, no Planejamento.')">B) Não, o TAP contém apenas requisitos de alto nível e limites iniciais.</button>
-                </div>
-            </article>
-
-            <article class="questao">
-                <span class="tag-tipo">EAP</span>
-                <p><strong>31.</strong> O que diz a "Regra dos 100%" na construção da EAP?</p>
-                <div class="opcoes">
-                    <button onclick="verificar(this, true, 'Correto! A EAP deve conter TUDO e APENAS o necessário. Nada fica de fora, nada sobra.')">A) A EAP deve representar 100% do trabalho do projeto. Se não está na EAP, não faz parte do projeto.</button>
-                    <button onclick="verificar(this, false, 'Errado. Isso é cronograma.')">B) O projeto deve estar 100% pronto na metade do tempo.</button>
-                </div>
-            </article>
-
-        </section>
-
+        <article class="questao">
+          <span class="tag-tipo">TAP</span>
+          <p>
+            <strong>21.</strong> Quem é o responsável por emitir/assinar o Termo
+            de Abertura (TAP)?
+          </p>
+          <div class="opcoes">
+            <button onclick="verificar(this, false)">
+              A) O Gerente de Projetos.
+            </button>
+            <button onclick="verificar(this, true)">
+              B) O Patrocinador (Sponsor).
+            </button>
+          </div>
+          <div class="mini-aula-oculta">
+            <h4>💡 Quem manda?</h4>
+            <p>
+              O Gerente não pode se auto-contratar. Quem assina o TAP é alguém
+              acima dele (o Patrocinador/Sponsor), que tem o dinheiro e
+              autoridade para iniciar o projeto.
+            </p>
+          </div>
+        </article>
+      </section>
     </main>
 
     <div id="modal-alerta" class="modal-overlay" onclick="fecharModal(event)">
-        <div class="modal-box">
-            <div id="modal-header" class="modal-header"></div>
-            <div class="modal-body">
-                <p id="modal-texto"></p>
-            </div>
-            <div class="modal-footer">
-                <button onclick="fecharModal(null)">Continuar</button>
-            </div>
+      <div class="modal-box">
+        <div id="modal-header" class="modal-header"></div>
+        <div class="modal-body">
+          <p id="modal-texto"></p>
         </div>
+        <div class="modal-footer">
+          <button onclick="fecharModal(null)">Continuar</button>
+        </div>
+      </div>
     </div>
 
-    <a href="../index.html" class="btn-float">🏠 Inicio</a>
-    <footer>
-      <p>Desenvolvedor: Gilvan Daniel 2025</p>
-    </footer>
+    <a href="../index.html" class="btn-float">🏠 Menu</a>
 
     <script src="manfredo.js"></script>
-
-</body>
+  </body>
 </html>

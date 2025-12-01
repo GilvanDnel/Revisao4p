@@ -1,4 +1,4 @@
-/* ARQUIVO: ead.css */
+/* ARQUIVO: debora.css */
 
 /* 1. RESET E BASE GERAL */
 * {
@@ -21,29 +21,19 @@ body {
   padding: 0 20px;
 }
 
-/* 2. CABEÇALHO */
+/* HEADER */
 header {
-  background: linear-gradient(
-    135deg,
-    #667eea 0%,
-    #764ba2 100%
-  ); /* Roxo para diferenciar */
+  background: linear-gradient(135deg, #005bea 0%, #00c6fb 100%);
   color: white;
   padding: 40px 0;
   text-align: center;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   margin-bottom: 40px;
 }
-
 header h1 {
   font-size: 2.2rem;
   margin-bottom: 10px;
 }
-header p {
-  font-size: 1.1rem;
-  opacity: 0.9;
-}
-
 .btn-voltar {
   display: inline-block;
   margin-top: 20px;
@@ -53,22 +43,18 @@ header p {
   text-decoration: none;
   border-radius: 30px;
   border: 1px solid rgba(255, 255, 255, 0.5);
-  transition: background 0.3s;
-  font-weight: bold;
-}
-.btn-voltar:hover {
-  background-color: rgba(255, 255, 255, 0.4);
 }
 
-/* 3. QUESTÕES */
+/* QUESTÕES */
+.bloco-questoes {
+  margin-bottom: 60px;
+}
 .bloco-questoes h2 {
-  color: #764ba2;
+  color: #005bea;
   border-bottom: 2px solid #e0e0e0;
   padding-bottom: 10px;
   margin-bottom: 25px;
-  font-size: 1.5rem;
 }
-
 hr {
   border: 0;
   height: 1px;
@@ -82,32 +68,24 @@ hr {
   margin-bottom: 25px;
   border-radius: 12px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-  transition: transform 0.2s;
 }
-
-.questao:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-}
-
 .tag-tipo {
   display: inline-block;
-  background-color: #f3e5f5; /* Roxo clarinho */
-  color: #4a148c;
+  background-color: #e9ecef;
+  color: #495057;
   padding: 4px 12px;
   border-radius: 12px;
   font-size: 0.75rem;
   font-weight: bold;
-  text-transform: uppercase;
   margin-bottom: 15px;
 }
 
+/* BOTÕES DE RESPOSTA */
 .opcoes {
   display: flex;
   flex-direction: column;
   gap: 12px;
 }
-
 .opcoes button {
   background-color: #f8f9fa;
   border: 1px solid #ced4da;
@@ -117,20 +95,15 @@ hr {
   cursor: pointer;
   font-size: 1rem;
   color: #333;
-  transition: all 0.2s ease;
 }
-
 .opcoes button:hover {
   background-color: #e2e6ea;
   border-color: #adb5bd;
 }
-
-/* FEEDBACK */
 .btn-correto {
   background-color: #d1e7dd !important;
   border-color: #badbcc !important;
   color: #0f5132 !important;
-  font-weight: bold;
 }
 .btn-errado {
   background-color: #f8d7da !important;
@@ -138,42 +111,12 @@ hr {
   color: #842029 !important;
 }
 
-/* DISCURSIVA */
-textarea {
-  width: 100%;
-  height: 100px;
-  padding: 15px;
-  margin: 10px 0;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  resize: vertical;
+/* MINI AULA OCULTA (O SEGREDO) */
+.mini-aula-oculta {
+  display: none; /* Garante que não apareça na página, só no modal */
 }
 
-.gabarito-oculto {
-  display: none;
-  margin-top: 15px;
-  padding: 15px;
-  background-color: #d1e7dd;
-  border-left: 4px solid #198754;
-  border-radius: 4px;
-  color: #146c43;
-}
-
-.btn-gabarito {
-  background-color: #6c757d;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 6px;
-  cursor: pointer;
-  font-size: 0.9rem;
-  margin-top: 5px;
-}
-.btn-gabarito:hover {
-  background-color: #5a6268;
-}
-
-/* MODAL */
+/* MODAL CUSTOMIZADO */
 .modal-overlay {
   display: none;
   position: fixed;
@@ -187,7 +130,6 @@ textarea {
   align-items: center;
   backdrop-filter: blur(3px);
 }
-
 .modal-box {
   background: white;
   width: 90%;
@@ -196,7 +138,6 @@ textarea {
   overflow: hidden;
   animation: slideIn 0.3s ease;
 }
-
 @keyframes slideIn {
   from {
     transform: translateY(-20px);
@@ -207,7 +148,6 @@ textarea {
     opacity: 1;
   }
 }
-
 .modal-header {
   padding: 20px;
   text-align: center;
@@ -223,7 +163,7 @@ textarea {
 }
 .modal-body {
   padding: 20px;
-  text-align: center;
+  text-align: left;
   font-size: 1rem;
   color: #333;
 }
@@ -232,7 +172,6 @@ textarea {
   text-align: center;
   background: #f8f9fa;
 }
-
 .modal-footer button {
   background-color: #333;
   color: white;
@@ -240,49 +179,55 @@ textarea {
   padding: 10px 30px;
   border-radius: 20px;
   cursor: pointer;
-  font-weight: bold;
 }
 
-footer {
-  width: 100%;
-  padding: 10px 0;
-  text-align: center;
-  color: #777;
-  font-size: 0.8em;
-  margin-top: 20px;
-}
-
-/* --- BOTÃO FLUTUANTE DE VOLTAR --- */
+/* BOTÃO FLUTUANTE */
 .btn-float {
   position: fixed;
   bottom: 20px;
   right: 20px;
-  background-color: #333; /* Cor escura neutra */
+  background-color: #333;
   color: white;
   padding: 12px 20px;
-  border-radius: 50px; /* Borda redondinha */
+  border-radius: 50px;
   text-decoration: none;
   font-weight: bold;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); /* Sombra para destacar */
-  z-index: 2000; /* Garante que fique por cima de tudo */
-  transition: all 0.3s ease;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  font-size: 0.9rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  z-index: 2000;
 }
 
-.btn-float:hover {
-  background-color: #000;
-  transform: translateY(-3px); /* Leve subida ao passar o mouse */
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
+/* ÁREA DE ESTUDO DE CASO E DISCURSIVAS */
+.box-caso {
+  background-color: #fff3cd;
+  border: 1px solid #ffecb5;
+  color: #664d03;
+  padding: 20px;
+  border-radius: 8px;
+  margin-bottom: 30px;
 }
-
-/* Ajuste para não atrapalhar em telas muito pequenas */
-@media (max-width: 480px) {
-  .btn-float {
-    padding: 10px 15px;
-    bottom: 15px;
-    right: 15px;
-  }
+textarea {
+  width: 100%;
+  height: 100px;
+  padding: 15px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+.btn-gabarito {
+  background-color: #6c757d;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-top: 5px;
+}
+.gabarito-oculto {
+  display: none;
+  margin-top: 15px;
+  padding: 15px;
+  background-color: #d1e7dd;
+  border-left: 4px solid #198754;
+  border-radius: 4px;
+  color: #146c43;
 }

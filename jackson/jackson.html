@@ -1,270 +1,593 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Revisão Testes | Prof. Jackson</title>
-    <link rel="stylesheet" href="jackson.css">
-</head>
-<body>
-
+    <link rel="stylesheet" href="jackson.css" />
+  </head>
+  <body>
     <header>
-        <div class="container">
-            <h1>Revisão: Teste e Qualidade</h1>
-            <p>Foco: Pirâmide de Testes, Casos de Teste e Automação (Pytest)</p>
-            <a href="../index.html" class="btn-voltar">← Voltar ao Menu</a>
-        </div>
+      <div class="container">
+        <h1>Revisão: Teste e Qualidade</h1>
+        <p>Foco: Pirâmide de Testes, Casos de Teste e Automação (Pytest)</p>
+        <a href="../index.html" class="btn-voltar">← Voltar ao Menu</a>
+      </div>
     </header>
 
     <main class="container">
+      <section class="bloco-questoes">
+        <h2>Parte 1: A Pirâmide e Conceitos Básicos</h2>
 
-        <section class="bloco-questoes">
-            <h2>Parte 1: A Pirâmide e Conceitos Básicos</h2>
+        <article class="questao">
+          <span class="tag-tipo">Conceito Fundamental</span>
+          <p>
+            <strong>1.</strong> Jackson enfatizou a diferença entre Erro,
+            Defeito e Falha. Qual a definição correta de
+            <strong>Defeito</strong>?
+          </p>
+          <div class="opcoes">
+            <button onclick="verificar(this, false)">
+              A) O engano humano cometido durante o desenvolvimento.
+            </button>
+            <button onclick="verificar(this, true)">
+              B) O problema concreto no código-fonte (o bug escrito).
+            </button>
+            <button onclick="verificar(this, false)">
+              C) O comportamento incorreto percebido pelo usuário durante a
+              execução.
+            </button>
+          </div>
+          <div class="mini-aula-oculta">
+            <h4>💡 Diferença: Erro vs Defeito vs Falha</h4>
+            <ul>
+              <li>
+                <strong>Erro:</strong> Ação humana (equívoco mental do
+                programador) .
+              </li>
+              <li>
+                <strong>Defeito (Bug):</strong> O resultado do erro no código (o
+                trecho escrito errado) .
+              </li>
+              <li>
+                <strong>Falha:</strong> O sistema parando ou agindo errado na
+                frente do usuário .
+              </li>
+            </ul>
+          </div>
+        </article>
 
-            <article class="questao">
-                <span class="tag-tipo">Conceito Fundamental</span>
-                <p><strong>1.</strong> Jackson enfatizou a diferença entre Erro, Defeito e Falha. Qual a definição correta de <strong>Defeito</strong>?</p>
-                <div class="opcoes">
-                    <button onclick="verificar(this, false, 'Errado. Isso é o Erro (ação humana).')">A) O engano humano cometido durante o desenvolvimento (ex: lógica errada na cabeça).</button>
-                    [cite_start]<button onclick="verificar(this, true, 'Correto! Defeito (ou Bug) é o problema concreto inserido no código-fonte [cite: 393-394].')">B) O problema concreto no código-fonte (o bug escrito).</button>
-                    <button onclick="verificar(this, false, 'Errado. Isso é a Falha (execução).')">C) O comportamento incorreto percebido pelo usuário durante a execução.</button>
-                </div>
-            </article>
+        <article class="questao">
+          <span class="tag-tipo">Pirâmide de Testes</span>
+          <p>
+            <strong>2.</strong> Sobre a Pirâmide de Testes, qual nível deve ter
+            a <strong>maior quantidade</strong> de testes e ser o mais rápido?
+          </p>
+          <div class="opcoes">
+            <button onclick="verificar(this, false)">
+              A) Teste de Sistema (E2E).
+            </button>
+            <button onclick="verificar(this, false)">
+              B) Teste de Integração.
+            </button>
+            <button onclick="verificar(this, true)">C) Teste Unitário.</button>
+          </div>
+          <div class="mini-aula-oculta">
+            <h4>💡 A Base da Pirâmide</h4>
+            <p>A resposta é <strong>Teste Unitário</strong>.</p>
+            <p>
+              Eles formam a base da pirâmide: são muitos, rápidos, baratos e
+              isolados. Testes de Sistema (topo) devem ser poucos porque são
+              lentos e caros .
+            </p>
+          </div>
+        </article>
 
-            <article class="questao">
-                <span class="tag-tipo">Pirâmide de Testes</span>
-                <p><strong>2.</strong> Sobre a Pirâmide de Testes, qual nível deve ter a <strong>maior quantidade</strong> de testes e ser o mais rápido?</p>
-                <div class="opcoes">
-                    <button onclick="verificar(this, false, 'Errado. Sistema é o topo (poucos e lentos).')">A) Teste de Sistema (E2E).</button>
-                    <button onclick="verificar(this, false, 'Errado. Integração é o meio.')">B) Teste de Integração.</button>
-                    [cite_start]<button onclick="verificar(this, true, 'Correto! Testes Unitários formam a base sólida, são muitos, rápidos e isolados [cite: 402-403].')">C) Teste Unitário.</button>
-                </div>
-            </article>
+        <article class="questao">
+          <span class="tag-tipo">Identificação</span>
+          <p>
+            <strong>3.</strong> Você escreveu um teste que valida uma função de
+            cálculo, mas para funcionar ele precisa consultar uma tabela no
+            banco de dados real. Que tipo de teste é esse?
+          </p>
+          <div class="opcoes">
+            <button onclick="verificar(this, false)">A) Teste Unitário.</button>
+            <button onclick="verificar(this, true)">
+              B) Teste de Integração.
+            </button>
+            <button onclick="verificar(this, false)">
+              C) Teste de Sistema.
+            </button>
+          </div>
+          <div class="mini-aula-oculta">
+            <h4>💡 Por que Integração?</h4>
+            <p>
+              Se o teste depende de um recurso externo (Banco de Dados, API) ou
+              comunica dois módulos, ele <strong>NÃO</strong> é unitário. É um
+              <strong>Teste de Integração</strong> .
+            </p>
+          </div>
+        </article>
 
-            <article class="questao">
-                <span class="tag-tipo">Identificação</span>
-                <p><strong>3.</strong> Você escreveu um teste que valida uma função de cálculo, mas para funcionar ele precisa consultar uma tabela no banco de dados real. Que tipo de teste é esse?</p>
-                <div class="opcoes">
-                    <button onclick="verificar(this, false, 'Errado. Unitário NÃO toca em banco de dados ou arquivos.')">A) Teste Unitário.</button>
-                    [cite_start]<button onclick="verificar(this, true, 'Correto! Se depende de mais de um módulo ou persistência (DB), é Integração [cite: 459-461].')">B) Teste de Integração.</button>
-                    <button onclick="verificar(this, false, 'Errado. Sistema simula o usuário na interface completa.')">C) Teste de Sistema.</button>
-                </div>
-            </article>
+        <article class="questao">
+          <span class="tag-tipo">Teste Unitário</span>
+          <p>
+            <strong>4.</strong> Qual das características abaixo
+            <strong>NÃO</strong> pertence a um bom Teste Unitário?
+          </p>
+          <div class="opcoes">
+            <button onclick="verificar(this, false)">
+              A) Determinístico (sempre o mesmo resultado).
+            </button>
+            <button onclick="verificar(this, true)">
+              B) Realiza chamadas reais a APIs externas.
+            </button>
+            <button onclick="verificar(this, false)">
+              C) Execução rápida.
+            </button>
+          </div>
+          <div class="mini-aula-oculta">
+            <h4>💡 Unitários são Isolados</h4>
+            <p>
+              Testes Unitários devem usar <strong>Mocks</strong> (simulações)
+              para dependências externas. Eles nunca devem chamar APIs reais,
+              pois isso os tornaria lentos e instáveis .
+            </p>
+          </div>
+        </article>
 
-            <article class="questao">
-                <span class="tag-tipo">Teste Unitário</span>
-                <p><strong>4.</strong> Qual das características abaixo <strong>NÃO</strong> pertence a um bom Teste Unitário?</p>
-                <div class="opcoes">
-                    <button onclick="verificar(this, false, 'Errado. Unitários devem ser determinísticos.')">A) Determinístico (sempre o mesmo resultado).</button>
-                    [cite_start]<button onclick="verificar(this, true, 'Correto! Unitários NÃO devem chamar APIs externas reais. Devem usar Mocks [cite: 411-412].')">B) Realiza chamadas reais a APIs externas.</button>
-                    <button onclick="verificar(this, false, 'Errado. Unitários devem ser rápidos.')">C) Execução rápida.</button>
-                </div>
-            </article>
+        <article class="questao">
+          <span class="tag-tipo">Asserção e Razão</span>
+          <p><strong>5.</strong> Analise sobre Testes de Sistema:</p>
+          <p>I. Testes de Sistema são os mais caros e lentos de executar.</p>
+          <p>PORQUE</p>
+          <p>
+            II. Eles validam o fluxo completo (end-to-end), simulando a
+            interação real do usuário com todas as camadas (Interface + API +
+            Banco).
+          </p>
+          <div class="opcoes">
+            <button onclick="verificar(this, true)">
+              A) As duas são verdadeiras e a II justifica a I.
+            </button>
+            <button onclick="verificar(this, false)">
+              B) A I é verdadeira e a II é falsa.
+            </button>
+          </div>
+          <div class="mini-aula-oculta">
+            <h4>💡 Testes de Sistema</h4>
+            <p>
+              <strong>Correto!</strong> Testes de Sistema (E2E) exigem o
+              ambiente todo configurado, o que custa caro e demora para rodar.
+              Eles simulam o usuário final .
+            </p>
+          </div>
+        </article>
+      </section>
 
-            <article class="questao">
-                <span class="tag-tipo">Asserção e Razão</span>
-                <p><strong>5.</strong> Analise sobre Testes de Sistema:</p>
-                <p>I. Testes de Sistema são os mais caros e lentos de executar.</p>
-                <p>PORQUE</p>
-                <p>II. Eles validam o fluxo completo (end-to-end), simulando a interação real do usuário com todas as camadas (Interface + API + Banco).</p>
-                <div class="opcoes">
-                    [cite_start]<button onclick="verificar(this, true, 'Correto! Ambas verdadeiras e a II justifica a I. A complexidade do ambiente torna o teste lento e caro [cite: 484-489].')">A) As duas são verdadeiras e a II justifica a I.</button>
-                    <button onclick="verificar(this, false, 'Errado.')">B) A I é verdadeira e a II é falsa.</button>
-                </div>
-            </article>
-        </section>
+      <hr />
 
-        <hr>
+      <section class="bloco-questoes">
+        <h2>Parte 2: Casos de Teste e Técnicas</h2>
 
-        <section class="bloco-questoes">
-            <h2>Parte 2: Casos de Teste e Técnicas</h2>
+        <article class="questao">
+          <span class="tag-tipo">Estrutura</span>
+          <p>
+            <strong>6.</strong> Qual a diferença entre
+            <strong>Plano de Teste</strong> e <strong>Caso de Teste</strong>?
+          </p>
+          <div class="opcoes">
+            <button onclick="verificar(this, true)">
+              A) Plano é o documento estratégico (geral). Caso é a especificação
+              detalhada.
+            </button>
+            <button onclick="verificar(this, false)">
+              B) Caso de Teste é o documento geral e Plano é o passo a passo.
+            </button>
+          </div>
+          <div class="mini-aula-oculta">
+            <h4>💡 Plano vs Caso</h4>
+            <ul>
+              <li>
+                <strong>Plano:</strong> Visão macro (estratégia, escopo,
+                cronograma) .
+              </li>
+              <li>
+                <strong>Caso:</strong> Visão micro (passo a passo, entradas e
+                resultado esperado de um teste específico) .
+              </li>
+            </ul>
+          </div>
+        </article>
 
-            <article class="questao">
-                <span class="tag-tipo">Estrutura</span>
-                <p><strong>6.</strong> Qual a diferença entre <strong>Plano de Teste</strong> e <strong>Caso de Teste</strong>?</p>
-                <div class="opcoes">
-                    [cite_start]<button onclick="verificar(this, true, 'Correto! Plano é a estratégia (macro). Caso é o passo a passo específico (micro) [cite: 582-585].')">A) Plano é o documento estratégico (geral). Caso é a especificação detalhada de uma validação (entradas, passos, resultado).</button>
-                    <button onclick="verificar(this, false, 'Errado. É o contrário.')">B) Caso de Teste é o documento geral e Plano é o passo a passo.</button>
-                </div>
-            </article>
+        <article class="questao">
+          <span class="tag-tipo">Técnica</span>
+          <p>
+            <strong>7.</strong> Qual técnica de teste foca em validar os
+            extremos de um intervalo (ex: testar 0, 1, 100, 101), pois é onde os
+            erros são mais prováveis?
+          </p>
+          <div class="opcoes">
+            <button onclick="verificar(this, false)">
+              A) Classes de Equivalência.
+            </button>
+            <button onclick="verificar(this, true)">
+              B) Análise de Valores Limite.
+            </button>
+            <button onclick="verificar(this, false)">
+              C) Tabela de Decisão.
+            </button>
+          </div>
+          <div class="mini-aula-oculta">
+            <h4>💡 Análise de Valores Limite</h4>
+            <p>
+              Erros costumam acontecer nas bordas (ex: usar um sinal maior que
+              em vez de maior ou igual). Essa técnica foca em testar exatamente
+              esses números de fronteira .
+            </p>
+          </div>
+        </article>
 
-            <article class="questao">
-                <span class="tag-tipo">Técnica</span>
-                <p><strong>7.</strong> Qual técnica de teste foca em validar os extremos de um intervalo (ex: testar 0, 1, 100, 101), pois é onde os erros são mais prováveis?</p>
-                <div class="opcoes">
-                    <button onclick="verificar(this, false, 'Errado. Classes de Equivalência agrupa dados similares.')">A) Classes de Equivalência.</button>
-                    [cite_start]<button onclick="verificar(this, true, 'Correto! Análise de Valores Limite (Boundary Value Analysis) [cite: 610-611].')">B) Análise de Valores Limite.</button>
-                    <button onclick="verificar(this, false, 'Errado.')">C) Tabela de Decisão.</button>
-                </div>
-            </article>
+        <article class="questao">
+          <span class="tag-tipo">Boas Práticas</span>
+          <p>
+            <strong>8.</strong> Segundo o checklist de qualidade do professor, o
+            que deve ser evitado ao criar um Caso de Teste?
+          </p>
+          <div class="opcoes">
+            <button onclick="verificar(this, false)">
+              A) Usar IDs únicos.
+            </button>
+            <button onclick="verificar(this, true)">
+              B) Descrições genéricas e resultados esperados vagos.
+            </button>
+          </div>
+          <div class="mini-aula-oculta">
+            <h4>💡 Evite o Vago</h4>
+            <p>Nunca escreva "Testar Login" ou "Funciona corretamente".</p>
+            <p>O correto é: "Login com senha inválida retorna erro 401" .</p>
+          </div>
+        </article>
 
-            <article class="questao">
-                <span class="tag-tipo">Boas Práticas</span>
-                <p><strong>8.</strong> Segundo o checklist de qualidade do professor, o que deve ser evitado ao criar um Caso de Teste?</p>
-                <div class="opcoes">
-                    <button onclick="verificar(this, false, 'Errado. IDs únicos são obrigatórios.')">A) Usar IDs únicos.</button>
-                    [cite_start]<button onclick="verificar(this, true, 'Correto! Casos genéricos (ex: "Testar Login") e resultados vagos ("Sistema funciona") são proibidos [cite: 735-737].')">B) Descrições genéricas e resultados esperados vagos.</button>
-                </div>
-            </article>
+        <article class="questao">
+          <span class="tag-tipo">Componentes</span>
+          <p>
+            <strong>9.</strong> O que são as <strong>Pré-condições</strong> em
+            um caso de teste?
+          </p>
+          <div class="opcoes">
+            <button onclick="verificar(this, true)">
+              A) O estado do sistema e dados necessários antes da execução do
+              teste.
+            </button>
+            <button onclick="verificar(this, false)">
+              B) A limpeza dos dados após o teste.
+            </button>
+          </div>
+          <div class="mini-aula-oculta">
+            <h4>💡 Pré-condições</h4>
+            <p>
+              É tudo que precisa estar pronto antes de começar. Exemplo:
+              "Usuário 'admin' já cadastrado no banco" .
+            </p>
+          </div>
+        </article>
 
-            <article class="questao">
-                <span class="tag-tipo">Componentes</span>
-                <p><strong>9.</strong> O que são as <strong>Pré-condições</strong> em um caso de teste?</p>
-                <div class="opcoes">
-                    [cite_start]<button onclick="verificar(this, true, 'Correto! O estado necessário ANTES do teste (ex: usuário já cadastrado e logado)[cite: 590].')">A) O estado do sistema e dados necessários antes da execução do teste.</button>
-                    <button onclick="verificar(this, false, 'Errado. Isso é Pós-condição.')">B) A limpeza dos dados após o teste.</button>
-                </div>
-            </article>
+        <article class="questao">
+          <span class="tag-tipo">Rastreabilidade</span>
+          <p>
+            <strong>10.</strong> Para que serve a
+            <strong>Matriz de Rastreabilidade</strong>?
+          </p>
+          <div class="opcoes">
+            <button onclick="verificar(this, false)">
+              A) Para calcular o custo do projeto.
+            </button>
+            <button onclick="verificar(this, true)">
+              B) Conectar requisitos aos casos de teste e ao código, facilitando
+              auditoria.
+            </button>
+          </div>
+          <div class="mini-aula-oculta">
+            <h4>💡 Rastreabilidade</h4>
+            <p>
+              Ela conecta os pontos:
+              <em>Requisito -> Caso de Teste -> Código</em>.
+            </p>
+            <p>
+              Isso garante que todos os requisitos foram testados e ajuda a ver
+              o impacto de mudanças .
+            </p>
+          </div>
+        </article>
+      </section>
 
-            <article class="questao">
-                <span class="tag-tipo">Rastreabilidade</span>
-                <p><strong>10.</strong> Para que serve a <strong>Matriz de Rastreabilidade</strong>?</p>
-                <div class="opcoes">
-                    <button onclick="verificar(this, false, 'Errado.')">A) Para calcular o custo do projeto.</button>
-                    [cite_start]<button onclick="verificar(this, true, 'Correto! Conecta Requisitos -> Casos de Teste -> Código, garantindo que tudo foi testado [cite: 708-710].')">B) Conectar requisitos aos casos de teste e ao código, facilitando auditoria e análise de impacto.</button>
-                </div>
-            </article>
-        </section>
+      <hr />
 
-        <hr>
+      <section class="bloco-questoes">
+        <h2>Parte 3: Automação com Pytest</h2>
 
-        <section class="bloco-questoes">
-            <h2>Parte 3: Automação com Pytest</h2>
+        <article class="questao">
+          <span class="tag-tipo">Pytest Code</span>
+          <p>
+            <strong>11.</strong> Analise o código:
+            <code
+              >@pytest.mark.parametrize("entrada, esperado", [(2, 4), (3,
+              9)])</code
+            >. O que isso faz?
+          </p>
+          <div class="opcoes">
+            <button onclick="verificar(this, false)">
+              A) Define uma fixture.
+            </button>
+            <button onclick="verificar(this, true)">
+              B) Executa a mesma função de teste múltiplas vezes com dados
+              diferentes.
+            </button>
+          </div>
+          <div class="mini-aula-oculta">
+            <h4>💡 Parametrização</h4>
+            <p>
+              Isso permite transformar uma tabela de casos de teste em uma única
+              função. O teste roda várias vezes variando a entrada e o esperado
+              .
+            </p>
+          </div>
+        </article>
 
-            <article class="questao">
-                <span class="tag-tipo">Pytest Code</span>
-                <p><strong>11.</strong> Analise o código: <code>@pytest.mark.parametrize("entrada, esperado", [(2, 4), (3, 9)])</code>. O que isso faz?</p>
-                <div class="opcoes">
-                    <button onclick="verificar(this, false, 'Errado. Fixture é para preparar ambiente.')">A) Define uma fixture para conectar no banco.</button>
-                    [cite_start]<button onclick="verificar(this, true, 'Correto! Executa o MESMO teste várias vezes com dados diferentes (Data Driven Testing) [cite: 661-664].')">B) Executa a mesma função de teste múltiplas vezes, injetando os pares de valores (2,4) e (3,9).</button>
-                </div>
-            </article>
+        <article class="questao">
+          <span class="tag-tipo">Fixtures</span>
+          <p>
+            <strong>12.</strong> Para que serve o decorator
+            <code>@pytest.fixture</code>?
+          </p>
+          <div class="opcoes">
+            <button onclick="verificar(this, true)">
+              A) Preparar e fornecer dados/objetos reutilizáveis (Setup).
+            </button>
+            <button onclick="verificar(this, false)">
+              B) Repetir o teste várias vezes.
+            </button>
+          </div>
+          <div class="mini-aula-oculta">
+            <h4>💡 Fixtures</h4>
+            <p>
+              Elas preparam o terreno. Exemplo: criar um usuário válido antes de
+              cada teste de login para não repetir código .
+            </p>
+          </div>
+        </article>
 
-            <article class="questao">
-                <span class="tag-tipo">Fixtures</span>
-                <p><strong>12.</strong> Para que serve o decorator <code>@pytest.fixture</code>?</p>
-                <div class="opcoes">
-                    [cite_start]<button onclick="verificar(this, true, 'Correto! Cria dados ou configurações reutilizáveis (ex: criar um usuário válido antes de cada teste) [cite: 679-680].')">A) Preparar e fornecer dados/objetos reutilizáveis para os testes (Setup).</button>
-                    <button onclick="verificar(this, false, 'Errado. Isso é o parametrize.')">B) Repetir o teste várias vezes.</button>
-                </div>
-            </article>
+        <article class="questao">
+          <span class="tag-tipo">Marcadores</span>
+          <p>
+            <strong>13.</strong> Se você tem testes muito lentos e quer
+            separá-los dos rápidos, qual recurso do pytest você usa?
+          </p>
+          <div class="opcoes">
+            <button onclick="verificar(this, true)">
+              A) Marcadores (Markers), como @pytest.mark.slow.
+            </button>
+            <button onclick="verificar(this, false)">
+              B) Comentários no código.
+            </button>
+          </div>
+          <div class="mini-aula-oculta">
+            <h4>💡 Marcadores</h4>
+            <p>
+              Você "etiqueta" os testes. Depois pode rodar apenas os rápidos
+              ignorando os que têm a marca de lentos .
+            </p>
+          </div>
+        </article>
 
-            <article class="questao">
-                <span class="tag-tipo">Marcadores</span>
-                <p><strong>13.</strong> Se você tem testes muito lentos e quer separá-los dos rápidos, qual recurso do pytest você usa?</p>
-                <div class="opcoes">
-                    [cite_start]<button onclick="verificar(this, true, 'Correto! Você marca com @pytest.mark.slow e roda só os que não têm essa marca [cite: 692-693].')">A) Marcadores (Markers), como @pytest.mark.slow.</button>
-                    <button onclick="verificar(this, false, 'Errado.')">B) Comentários no código.</button>
-                </div>
-            </article>
+        <article class="questao">
+          <span class="tag-tipo">Code Review</span>
+          <p>
+            <strong>14.</strong> O professor mostrou o princípio
+            <strong>DRY</strong> (Don't Repeat Yourself). Como aplicá-lo na
+            automação?
+          </p>
+          <div class="opcoes">
+            <button onclick="verificar(this, false)">
+              A) Copiando e colando código.
+            </button>
+            <button onclick="verificar(this, true)">
+              B) Usando Fixtures e Parametrização para evitar código duplicado.
+            </button>
+          </div>
+          <div class="mini-aula-oculta">
+            <h4>💡 DRY (Não se Repita)</h4>
+            <p>
+              Em vez de escrever 10 funções de teste iguais, use `parametrize`.
+              Em vez de configurar o banco 10 vezes, use `fixture` .
+            </p>
+          </div>
+        </article>
+      </section>
 
-            <article class="questao">
-                <span class="tag-tipo">Code Review</span>
-                <p><strong>14.</strong> O professor mostrou o princípio <strong>DRY</strong> (Don't Repeat Yourself) na automação. Como aplicá-lo?</p>
-                <div class="opcoes">
-                    <button onclick="verificar(this, false, 'Errado. Isso viola o DRY.')">A) Copiando e colando o código de login em todo teste.</button>
-                    [cite_start]<button onclick="verificar(this, true, 'Correto! Usando Fixtures para setup comum e Parametrize para variar dados[cite: 745].')">B) Usando Fixtures e Parametrização para evitar código duplicado.</button>
-                </div>
-            </article>
-        </section>
+      <hr />
 
-        <hr>
+      <section class="bloco-questoes">
+        <h2>Parte 4: Estudos de Caso (Discursivas)</h2>
 
-        <section class="bloco-questoes">
-            <h2>Parte 4: Estudos de Caso (Discursivas)</h2>
+        <article class="questao">
+          <span class="tag-tipo">Discursiva - Login</span>
+          <p>
+            <strong>15.</strong> Escreva um Caso de Teste (apenas Título e
+            Resultado Esperado) para um cenário <strong>Negativo</strong> de
+            Login.
+          </p>
+          <textarea
+            placeholder="Ex: Título: Login com... | Resultado: ..."
+          ></textarea>
+          <button class="btn-gabarito" onclick="toggleGabarito('gab-15')">
+            Ver Gabarito
+          </button>
+          <div id="gab-15" class="gabarito-oculto">
+            <p><strong>Modelo Ideal:</strong></p>
+            <ul>
+              <li><strong>Título:</strong> Login com senha incorreta.</li>
+              <li>
+                <strong>Resultado Esperado:</strong> Sistema deve retornar False
+                e exibir mensagem "Usuário ou senha inválidos".
+              </li>
+            </ul>
+            <p><em>Nota: Não use resultados vagos como "Dá erro" .</em></p>
+          </div>
+        </article>
 
-            <article class="questao">
-                <span class="tag-tipo">Discursiva - Login</span>
-                <p><strong>15.</strong> Escreva um Caso de Teste (apenas Título e Resultado Esperado) para um cenário <strong>Negativo</strong> de Login.</p>
-                <textarea placeholder="Ex: Título: Login com... | Resultado: ..."></textarea>
-                <button class="btn-gabarito" onclick="toggleGabarito('gab-15')">Ver Gabarito</button>
-                <div id="gab-15" class="gabarito-oculto">
-                    [cite_start]<p><strong>Modelo Ideal[cite: 636]:</strong></p>
-                    <p><strong>Título:</strong> Login com senha incorreta.</p>
-                    <p><strong>Resultado Esperado:</strong> Sistema deve retornar False e exibir mensagem "Usuário ou senha inválidos". (Não pode apenas dizer "Erro").</p>
-                </div>
-            </article>
+        <article class="questao">
+          <span class="tag-tipo">Discursiva - Integração</span>
+          <p>
+            <strong>16.</strong> Por que um teste que valida a comunicação entre
+            <code>Service</code> e <code>Repository</code> é considerado de
+            <strong>Integração</strong>?
+          </p>
+          <textarea placeholder="Sua resposta..."></textarea>
+          <button class="btn-gabarito" onclick="toggleGabarito('gab-16')">
+            Ver Gabarito
+          </button>
+          <div id="gab-16" class="gabarito-oculto">
+            <p><strong>Resposta:</strong></p>
+            <p>
+              Porque ele avalia a interação entre dois módulos diferentes. Se
+              envolver o banco de dados real (repository), ele quebra o
+              isolamento do teste unitário .
+            </p>
+          </div>
+        </article>
 
-            <article class="questao">
-                <span class="tag-tipo">Discursiva - Integração</span>
-                <p><strong>16.</strong> Por que um teste que valida a comunicação entre <code>Service</code> e <code>Repository</code> é considerado de <strong>Integração</strong>?</p>
-                <textarea placeholder="Sua resposta..."></textarea>
-                <button class="btn-gabarito" onclick="toggleGabarito('gab-16')">Ver Gabarito</button>
-                <div id="gab-16" class="gabarito-oculto">
-                    <p><strong>Resposta:</strong> Porque ele avalia a interação entre dois módulos diferentes. [cite_start]Se envolver o banco de dados real (repository), ele quebra o isolamento do teste unitário [cite: 441-443].</p>
-                </div>
-            </article>
+        <article class="questao">
+          <span class="tag-tipo">Discursiva - Valores Limite</span>
+          <p>
+            <strong>17.</strong> Uma função aceita descontos para valores entre
+            1 e 1000 reais. Quais valores você testaria usando a Análise de
+            Valor Limite?
+          </p>
+          <textarea placeholder="Liste os valores..."></textarea>
+          <button class="btn-gabarito" onclick="toggleGabarito('gab-17')">
+            Ver Gabarito
+          </button>
+          <div id="gab-17" class="gabarito-oculto">
+            <p><strong>Valores Críticos:</strong></p>
+            <ul>
+              <li>0 (Inválido - logo abaixo)</li>
+              <li>1 (Mínimo válido)</li>
+              <li>1000 (Máximo válido)</li>
+              <li>1001 (Inválido - logo acima)</li>
+            </ul>
+          </div>
+        </article>
 
-            <article class="questao">
-                <span class="tag-tipo">Discursiva - Valores Limite</span>
-                <p><strong>17.</strong> Uma função aceita descontos para valores entre 1 e 1000 reais. Quais valores você testaria usando a Análise de Valor Limite?</p>
-                <textarea placeholder="Liste os valores..."></textarea>
-                <button class="btn-gabarito" onclick="toggleGabarito('gab-17')">Ver Gabarito</button>
-                <div id="gab-17" class="gabarito-oculto">
-                    [cite_start]<p><strong>Valores Críticos [cite: 655-657]:</strong></p>
-                    <ul>
-                        <li>0 (Inválido - logo abaixo)</li>
-                        <li>1 (Mínimo válido)</li>
-                        <li>1000 (Máximo válido)</li>
-                        <li>1001 (Inválido - logo acima)</li>
-                    </ul>
-                </div>
-            </article>
+        <article class="questao">
+          <span class="tag-tipo">Conceito</span>
+          <p>
+            <strong>18.</strong> Explique o conceito de <strong>Mock</strong> e
+            por que ele é essencial no Teste Unitário.
+          </p>
+          <div class="opcoes">
+            <button onclick="verificar(this, true)">A) Ver Resposta</button>
+          </div>
+          <div class="mini-aula-oculta">
+            <h4>💡 Mocks</h4>
+            <p>
+              Mocks são objetos falsos que simulam o comportamento de
+              dependências complexas (banco, API). Eles são essenciais para
+              manter o teste unitário <strong>isolado</strong>,
+              <strong>rápido</strong> e independente de rede/banco .
+            </p>
+          </div>
+        </article>
 
-            <article class="questao">
-                <span class="tag-tipo">Conceito</span>
-                <p><strong>18.</strong> Explique o conceito de <strong>Mock</strong> e por que ele é essencial no Teste Unitário.</p>
-                <div class="opcoes">
-                    [cite_start]<button onclick="verificar(this, true, 'Correto! Mocks são objetos falsos que simulam o comportamento de dependências complexas (banco, API) para manter o teste isolado e rápido [cite: 424-426].')">A) Ver Resposta</button>
-                </div>
-            </article>
+        <article class="questao">
+          <span class="tag-tipo">Classes de Equivalência</span>
+          <p>
+            <strong>19.</strong> Se um sistema aceita idades de 18 a 60 anos. Se
+            você testar com 20, precisa testar com 21, 22, 23?
+          </p>
+          <div class="opcoes">
+            <button onclick="verificar(this, false)">
+              A) Sim, quanto mais melhor.
+            </button>
+            <button onclick="verificar(this, true)">
+              B) Não. Eles pertencem à mesma classe de equivalência.
+            </button>
+          </div>
+          <div class="mini-aula-oculta">
+            <h4>💡 Classes de Equivalência</h4>
+            <p>
+              Não precisa. 20, 21 e 22 estão na mesma "Classe Válida". Se um
+              funcionar, os outros devem funcionar também. Testar todos seria
+              redundante e desperdício de tempo .
+            </p>
+          </div>
+        </article>
 
-            <article class="questao">
-                <span class="tag-tipo">Classes de Equivalência</span>
-                <p><strong>19.</strong> Se um sistema aceita idades de 18 a 60 anos. Se você testar com 20, precisa testar com 21, 22, 23?</p>
-                <div class="opcoes">
-                    <button onclick="verificar(this, false, 'Errado. Isso seria redundante.')">A) Sim, quanto mais melhor.</button>
-                    [cite_start]<button onclick="verificar(this, true, 'Correto! Não. Segundo as Classes de Equivalência, 20, 21 e 22 pertencem ao mesmo grupo (Válido). Um teste basta [cite: 608-609].')">B) Não. Eles pertencem à mesma classe de equivalência (Válidos).</button>
-                </div>
-            </article>
+        <article class="questao">
+          <span class="tag-tipo">Testes de Regressão</span>
+          <p>
+            <strong>20.</strong> Qual a vantagem de ter os Casos de Teste bem
+            documentados para a <strong>Automação</strong>?
+          </p>
+          <div class="opcoes">
+            <button onclick="verificar(this, true)">
+              A) Facilita a tradução direta para código (Tabela -> Code).
+            </button>
+            <button onclick="verificar(this, false)">
+              B) Nenhuma, automação é independente.
+            </button>
+          </div>
+          <div class="mini-aula-oculta">
+            <h4>💡 Da Tabela ao Código</h4>
+            <p>
+              Uma tabela de casos de teste (entradas e saídas esperadas) pode
+              ser convertida diretamente em parâmetros para o `pytest`. Isso
+              torna a automação natural .
+            </p>
+          </div>
+        </article>
 
-            <article class="questao">
-                <span class="tag-tipo">Testes de Regressão</span>
-                <p><strong>20.</strong> Qual a vantagem de ter os Casos de Teste bem documentados para a <strong>Automação</strong>?</p>
-                <div class="opcoes">
-                    [cite_start]<button onclick="verificar(this, true, 'Correto! A tabela do caso de teste vira diretamente os parâmetros do @pytest.mark.parametrize [cite: 660-661].')">A) Facilita a tradução direta para código (Tabela -> Code).</button>
-                    <button onclick="verificar(this, false, 'Errado.')">B) Nenhuma, automação é independente.</button>
-                </div>
-            </article>
-
-            <article class="questao">
-                <span class="tag-tipo">Conceito Final</span>
-                <p><strong>21.</strong> Um teste falhou. No relatório, o que é essencial incluir como "Evidência"?</p>
-                <div class="opcoes">
-                    [cite_start]<button onclick="verificar(this, true, 'Correto! Sem evidência (prova), o desenvolvedor não consegue corrigir [cite: 715-716].')">A) Screenshots, logs, dumps de banco ou requisições capturadas.</button>
-                    <button onclick="verificar(this, false, 'Errado.')">B) Apenas a palavra "Falhou".</button>
-                </div>
-            </article>
-
-        </section>
-
+        <article class="questao">
+          <span class="tag-tipo">Conceito Final</span>
+          <p>
+            <strong>21.</strong> Um teste falhou. No relatório, o que é
+            essencial incluir como "Evidência"?
+          </p>
+          <div class="opcoes">
+            <button onclick="verificar(this, true)">
+              A) Screenshots, logs, dumps de banco ou requisições capturadas.
+            </button>
+            <button onclick="verificar(this, false)">
+              B) Apenas a palavra "Falhou".
+            </button>
+          </div>
+          <div class="mini-aula-oculta">
+            <h4>💡 Evidências de Falha</h4>
+            <p>
+              Sem prova, não há crime (nem bug!). Você precisa anexar logs,
+              prints ou dumps para que o desenvolvedor consiga reproduzir e
+              corrigir o erro .
+            </p>
+          </div>
+        </article>
+      </section>
     </main>
 
     <div id="modal-alerta" class="modal-overlay" onclick="fecharModal(event)">
-        <div class="modal-box">
-            <div id="modal-header" class="modal-header"></div>
-            <div class="modal-body">
-                <p id="modal-texto"></p>
-            </div>
-            <div class="modal-footer">
-                <button onclick="fecharModal(null)">Continuar</button>
-            </div>
+      <div class="modal-box">
+        <div id="modal-header" class="modal-header"></div>
+        <div class="modal-body">
+          <p id="modal-texto"></p>
         </div>
+        <div class="modal-footer">
+          <button onclick="fecharModal(null)">Continuar</button>
+        </div>
+      </div>
     </div>
 
     <a href="../index.html" class="btn-float">🏠 Menu</a>
 
     <script src="jackson.js"></script>
-
-</body>
+  </body>
 </html>

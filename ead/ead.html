@@ -1,258 +1,532 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Revisão EaD | Paradigmas</title>
-    <link rel="stylesheet" href="ead.css">
-</head>
-<body>
-
+    <link rel="stylesheet" href="ead.css" />
+  </head>
+  <body>
     <header>
-        <div class="container">
-            <h1>Revisão: Paradigmas (EaD)</h1>
-            <p>Foco: Imperativo vs Declarativo, Prolog, Python e Java 8</p>
-            <a href="../index.html" class="btn-voltar">← Voltar ao Menu</a>
-        </div>
+      <div class="container">
+        <h1>Revisão: Paradigmas (EaD)</h1>
+        <p>Foco: Imperativo, Funcional (Python/Java) e Lógico (Prolog)</p>
+        <a href="../index.html" class="btn-voltar">← Voltar ao Menu</a>
+      </div>
     </header>
 
     <main class="container">
+      <section class="bloco-questoes">
+        <h2>Parte 1: Paradigmas e Funcional (Python/Java)</h2>
 
-        <section class="bloco-questoes">
-            <h2>Parte 1: Paradigmas e Funcional (Python/Java)</h2>
+        <article class="questao">
+          <span class="tag-tipo">Paradigmas</span>
+          <p>
+            <strong>1.</strong> O paradigma imperativo foca no 'como' fazer.
+            Qual linguagem abaixo é puramente imperativa/procedural e não
+            suporta nativamente Orientação a Objetos?
+          </p>
+          <div class="opcoes">
+            <button onclick="verificar(this, false)">A) Java</button>
+            <button onclick="verificar(this, true)">B) C (Padrão ANSI)</button>
+            <button onclick="verificar(this, false)">C) Python</button>
+          </div>
+          <div class="mini-aula-oculta">
+            <h4>💡 Linguagem C</h4>
+            <p>
+              <strong>C</strong> é a linguagem base do paradigma imperativo
+              procedural. Java e Python são multiparadigma e orientadas a
+              objetos por natureza.
+            </p>
+          </div>
+        </article>
 
-            <article class="questao">
-                <span class="tag-tipo">Paradigmas</span>
-                <p><strong>1.</strong> O paradigma imperativo foca no 'como' fazer. Qual linguagem abaixo é puramente imperativa/procedural e não suporta nativamente Orientação a Objetos?</p>
-                <div class="opcoes">
-                    <button onclick="verificar(this, false, 'Errado. Java é OO.')">A) Java</button>
-                    <button onclick="verificar(this, true, 'Correto! C é a base do paradigma imperativo procedural. As outras são multiparadigma.')">B) C (Padrão ANSI)</button>
-                    <button onclick="verificar(this, false, 'Errado. Python é multiparadigma.')">C) Python</button>
-                </div>
-            </article>
+        <article class="questao">
+          <span class="tag-tipo">Asserção e Razão</span>
+          <p><strong>2.</strong> Analise as afirmações sobre paradigmas:</p>
+          <p>
+            I. Linguagens declarativas exigem a descrição detalhada do passo a
+            passo (algoritmo).
+          </p>
+          <p>PORQUE</p>
+          <p>
+            II. No paradigma declarativo, o foco é na especificação do resultado
+            ('o que') e não no controle de fluxo.
+          </p>
+          <div class="opcoes">
+            <button onclick="verificar(this, false)">
+              A) As duas são verdadeiras.
+            </button>
+            <button onclick="verificar(this, true)">
+              B) A asserção I é falsa, e a II é verdadeira.
+            </button>
+          </div>
+          <div class="mini-aula-oculta">
+            <h4>💡 Imperativo vs Declarativo</h4>
+            <ul>
+              <li>
+                <strong>Imperativo (I é Falsa):</strong> Foca no COMO (passo a
+                passo).
+              </li>
+              <li>
+                <strong>Declarativo (II é Verdadeira):</strong> Foca no O QUE
+                (resultado desejado, ex: SQL, Prolog).
+              </li>
+            </ul>
+          </div>
+        </article>
 
-            <article class="questao">
-                <span class="tag-tipo">Asserção e Razão</span>
-                <p><strong>2.</strong> Analise as afirmações sobre paradigmas:</p>
-                <p>I. Linguagens declarativas exigem a descrição detalhada do passo a passo (algoritmo).</p>
-                <p>PORQUE</p>
-                <p>II. No paradigma declarativo, o foco é na especificação do resultado ('o que') e não no controle de fluxo.</p>
-                <div class="opcoes">
-                    <button onclick="verificar(this, false, 'Errado.')">A) As duas são verdadeiras.</button>
-                    <button onclick="verificar(this, true, 'Correto! A I é Falsa (isso é paradigma imperativo). A II é Verdadeira (definição correta de declarativo).')">B) A asserção I é falsa, e a II é verdadeira.</button>
-                </div>
-            </article>
+        <article class="questao">
+          <span class="tag-tipo">Python Lambda</span>
+          <p>
+            <strong>3.</strong> Dado o código Python:
+            <code>r = lambda x, y: x * y + 1</code>. Qual o resultado de
+            <code>print(r(3, 3))</code>?
+          </p>
+          <div class="opcoes">
+            <button onclick="verificar(this, true)">A) 10</button>
+            <button onclick="verificar(this, false)">B) 9</button>
+            <button onclick="verificar(this, false)">C) 7</button>
+          </div>
+          <div class="mini-aula-oculta">
+            <h4>💡 Cálculo Lambda</h4>
+            <p>A função recebe x=3 e y=3.</p>
+            <p>
+              Cálculo: <code>(3 * 3) + 1</code> = <code>9 + 1</code> =
+              <strong>10</strong>.
+            </p>
+          </div>
+        </article>
 
-            <article class="questao">
-                <span class="tag-tipo">Python Lambda</span>
-                <p><strong>3.</strong> Dado o código Python: <code>r = lambda x, y: x * y + 1</code>. Qual o resultado de <code>print(r(3, 3))</code>?</p>
-                <div class="opcoes">
-                    <button onclick="verificar(this, true, 'Correto! (3 * 3) + 1 = 10.')">A) 10</button>
-                    <button onclick="verificar(this, false, 'Errado. O cálculo é 9 + 1.')">B) 9</button>
-                    <button onclick="verificar(this, false, 'Errado.')">C) 7</button>
-                </div>
-            </article>
+        <article class="questao">
+          <span class="tag-tipo">Java 8</span>
+          <p>
+            <strong>4.</strong> Em Java, como se chama a interface que possui
+            apenas um método abstrato e é utilizada em expressões Lambda?
+          </p>
+          <div class="opcoes">
+            <button onclick="verificar(this, false)">
+              A) Interface Abstrata.
+            </button>
+            <button onclick="verificar(this, true)">
+              B) Interface Funcional.
+            </button>
+          </div>
+          <div class="mini-aula-oculta">
+            <h4>💡 FunctionalInterface</h4>
+            <p>
+              Para usar Lambdas em Java, a interface deve ser uma
+              <strong>Interface Funcional</strong> (ter apenas um método
+              abstrato, como <code>Runnable</code> ou <code>Comparator</code>).
+            </p>
+          </div>
+        </article>
 
-            <article class="questao">
-                <span class="tag-tipo">Java 8</span>
-                <p><strong>4.</strong> Em Java, como se chama a interface que possui apenas um método abstrato e é utilizada em expressões Lambda?</p>
-                <div class="opcoes">
-                    <button onclick="verificar(this, false, 'Errado.')">A) Interface Abstrata.</button>
-                    <button onclick="verificar(this, true, 'Correto! FunctionalInterface é o termo técnico exigido pela especificação Java.')">B) Interface Funcional.</button>
-                </div>
-            </article>
+        <article class="questao">
+          <span class="tag-tipo">Conceito</span>
+          <p><strong>5.</strong> Por que as Lambdas promovem "código limpo"?</p>
+          <div class="opcoes">
+            <button onclick="verificar(this, true)">
+              A) São funções anônimas definidas inline, reduzindo verbosidade.
+            </button>
+            <button onclick="verificar(this, false)">
+              B) Porque elas impedem o uso de variáveis globais.
+            </button>
+          </div>
+          <div class="mini-aula-oculta">
+            <h4>💡 Concisão</h4>
+            <p>
+              Lambdas permitem passar comportamento (funções) como argumento sem
+              precisar criar classes inteiras ou métodos nomeados, deixando o
+              código muito mais curto.
+            </p>
+          </div>
+        </article>
 
-            <article class="questao">
-                <span class="tag-tipo">Conceito</span>
-                <p><strong>5.</strong> Por que as Lambdas promovem "código limpo"?</p>
-                <div class="opcoes">
-                    <button onclick="verificar(this, true, 'Correto! Elas permitem definir comportamento inline sem criar classes inteiras (anônimas).')">A) São funções anônimas que podem ser definidas inline, reduzindo verbosidade.</button>
-                    <button onclick="verificar(this, false, 'Errado.')">B) Porque elas impedem o uso de variáveis globais.</button>
-                </div>
-            </article>
+        <article class="questao">
+          <span class="tag-tipo">Python Avançado</span>
+          <p>
+            <strong>6.</strong> Analise:
+            <code>func = (lambda a: (lambda b: a + b))(5)</code>. Qual o
+            resultado de <code>print(func(4))</code>?
+          </p>
+          <div class="opcoes">
+            <button onclick="verificar(this, true)">A) 9</button>
+            <button onclick="verificar(this, false)">B) 20</button>
+            <button onclick="verificar(this, false)">C) 5</button>
+          </div>
+          <div class="mini-aula-oculta">
+            <h4>💡 Funções Aninhadas</h4>
+            <ol>
+              <li>
+                A primeira execução <code>(5)</code> fixa <code>a = 5</code>.
+              </li>
+              <li>
+                A variável <code>func</code> agora guarda a função interna:
+                <code>lambda b: 5 + b</code>.
+              </li>
+              <li>
+                Ao chamar <code>func(4)</code>, temos <code>5 + 4 = 9</code>.
+              </li>
+            </ol>
+          </div>
+        </article>
 
-            <article class="questao">
-                <span class="tag-tipo">Python Avançado</span>
-                <p><strong>6.</strong> Analise: <code>func = (lambda a: (lambda b: a + b))(5)</code>. Qual o resultado de <code>print(func(4))</code>?</p>
-                <div class="opcoes">
-                    <button onclick="verificar(this, true, 'Correto! A primeira execução fixa a=5. A segunda passa b=4. Total: 9.')">A) 9</button>
-                    <button onclick="verificar(this, false, 'Errado. Não é 20.')">B) 20</button>
-                    <button onclick="verificar(this, false, 'Errado.')">C) 5</button>
-                </div>
-            </article>
+        <article class="questao">
+          <span class="tag-tipo">Python</span>
+          <p><strong>7.</strong> Python é considerada uma linguagem:</p>
+          <div class="opcoes">
+            <button onclick="verificar(this, false)">
+              A) Puramente Funcional.
+            </button>
+            <button onclick="verificar(this, true)">B) Multiparadigma.</button>
+          </div>
+          <div class="mini-aula-oculta">
+            <h4>💡 Multiparadigma</h4>
+            <p>
+              Python aceita Orientação a Objetos, Programação Imperativa,
+              Procedural e Funcional. Ela não é "pura" em nenhum deles.
+            </p>
+          </div>
+        </article>
+      </section>
 
-            <article class="questao">
-                <span class="tag-tipo">Python</span>
-                <p><strong>7.</strong> Python é considerada uma linguagem:</p>
-                <div class="opcoes">
-                    <button onclick="verificar(this, false, 'Errado. Python aceita OO e scripts.')">A) Puramente Funcional.</button>
-                    <button onclick="verificar(this, true, 'Correto! Aceita OO, Procedural e Funcional.')">B) Multiparadigma.</button>
-                </div>
-            </article>
-        </section>
+      <hr />
 
-        <hr>
+      <section class="bloco-questoes">
+        <h2>Parte 2: Programação Lógica (Prolog)</h2>
 
-        <section class="bloco-questoes">
-            <h2>Parte 2: Programação Lógica (Prolog)</h2>
+        <article class="questao">
+          <span class="tag-tipo">Sintaxe Prolog</span>
+          <p>
+            <strong>8.</strong> Em Prolog, qual símbolo separa a cabeça da regra
+            do corpo (denota a condicional "SE")?
+          </p>
+          <div class="opcoes">
+            <button onclick="verificar(this, false)">A) -></button>
+            <button onclick="verificar(this, true)">B) :-</button>
+            <button onclick="verificar(this, false)">C) =</button>
+          </div>
+          <div class="mini-aula-oculta">
+            <h4>💡 Operador "Se"</h4>
+            <p>O símbolo <code>:-</code> lê-se "é verdade SE...".</p>
+            <p>
+              Exemplo: <code>mortal(X) :- homem(X).</code> (X é mortal SE X for
+              homem).
+            </p>
+          </div>
+        </article>
 
-            <article class="questao">
-                <span class="tag-tipo">Sintaxe Prolog</span>
-                <p><strong>8.</strong> Em Prolog, qual símbolo separa a cabeça da regra do corpo (denota a condicional "SE")?</p>
-                <div class="opcoes">
-                    <button onclick="verificar(this, false, 'Errado. -> é outra coisa.')">A) -></button>
-                    <button onclick="verificar(this, true, 'Correto! O símbolo :- lê-se "é verdade SE...".')">B) :-</button>
-                    <button onclick="verificar(this, false, 'Errado. = é unificação.')">C) =</button>
-                </div>
-            </article>
+        <article class="questao">
+          <span class="tag-tipo">Fatos</span>
+          <p>
+            <strong>9.</strong> Como classificamos a linha:
+            <code>gosta(maria, chocolate).</code> ?
+          </p>
+          <div class="opcoes">
+            <button onclick="verificar(this, true)">A) Fato.</button>
+            <button onclick="verificar(this, false)">B) Regra.</button>
+          </div>
+          <div class="mini-aula-oculta">
+            <h4>💡 Fatos</h4>
+            <p>
+              Como termina com ponto final e não tem condicional (:-), é uma
+              verdade absoluta no sistema, ou seja, um <strong>Fato</strong>.
+            </p>
+          </div>
+        </article>
 
-            <article class="questao">
-                <span class="tag-tipo">Fatos</span>
-                <p><strong>9.</strong> Como classificamos a linha: <code>gosta(maria, chocolate).</code> ?</p>
-                <div class="opcoes">
-                    <button onclick="verificar(this, true, 'Correto! É uma afirmação incondicional (Proposição Atômica).')">A) Fato.</button>
-                    <button onclick="verificar(this, false, 'Errado. Regra precisa ter :-')">B) Regra.</button>
-                </div>
-            </article>
+        <article class="questao">
+          <span class="tag-tipo">Terminologia</span>
+          <p>
+            <strong>10.</strong> Em <code>pai(joao, pedro)</code>, o termo 'pai'
+            é chamado de:
+          </p>
+          <div class="opcoes">
+            <button onclick="verificar(this, false)">A) Átomo.</button>
+            <button onclick="verificar(this, true)">B) Functor.</button>
+          </div>
+          <div class="mini-aula-oculta">
+            <h4>💡 Functor</h4>
+            <p>
+              <strong>Functor</strong> é o nome da relação ou predicado.
+              <code>joao</code> e <code>pedro</code> são os argumentos (átomos).
+            </p>
+          </div>
+        </article>
 
-            <article class="questao">
-                <span class="tag-tipo">Terminologia</span>
-                <p><strong>10.</strong> Em <code>pai(joao, pedro)</code>, o termo 'pai' é chamado de:</p>
-                <div class="opcoes">
-                    <button onclick="verificar(this, false, 'Errado. joao e pedro são átomos.')">A) Átomo.</button>
-                    <button onclick="verificar(this, true, 'Correto! Functor é o nome da relação.')">B) Functor.</button>
-                </div>
-            </article>
+        <article class="questao">
+          <span class="tag-tipo">Sintaxe</span>
+          <p>
+            <strong>11.</strong> Qual a diferença entre <code>joao</code> e
+            <code>Joao</code> no Prolog?
+          </p>
+          <div class="opcoes">
+            <button onclick="verificar(this, true)">
+              A) joao é um Átomo (constante), Joao é uma Variável.
+            </button>
+            <button onclick="verificar(this, false)">
+              B) joao é variável, Joao é constante.
+            </button>
+          </div>
+          <div class="mini-aula-oculta">
+            <h4>💡 Maiúsculas importam!</h4>
+            <ul>
+              <li>
+                <strong>Minúscula (joao):</strong> Átomo (valor fixo,
+                constante).
+              </li>
+              <li>
+                <strong>Maiúscula (Joao):</strong> Variável (pode assumir
+                qualquer valor).
+              </li>
+            </ul>
+          </div>
+        </article>
 
-            <article class="questao">
-                <span class="tag-tipo">Sintaxe</span>
-                <p><strong>11.</strong> Qual a diferença entre <code>joao</code> e <code>Joao</code> no Prolog?</p>
-                <div class="opcoes">
-                    <button onclick="verificar(this, true, 'Correto! Minúscula = Átomo (valor fixo). Maiúscula = Variável.')">A) joao é um Átomo (constante), Joao é uma Variável.</button>
-                    <button onclick="verificar(this, false, 'Errado. É o contrário.')">B) joao é variável, Joao é constante.</button>
-                </div>
-            </article>
+        <article class="questao">
+          <span class="tag-tipo">Conceito Chave</span>
+          <p>
+            <strong>12.</strong> Qual o mecanismo que permite ao Prolog voltar a
+            um ponto anterior de decisão quando encontra uma falha (fail)?
+          </p>
+          <div class="opcoes">
+            <button onclick="verificar(this, false)">A) Recursão.</button>
+            <button onclick="verificar(this, true)">B) Backtracking.</button>
+          </div>
+          <div class="mini-aula-oculta">
+            <h4>💡 Backtracking</h4>
+            <p>
+              O Prolog explora uma árvore de possibilidades. Se ele entra num
+              caminho sem saída, ele faz o <strong>backtracking</strong> (volta
+              atrás) para tentar outra opção.
+            </p>
+          </div>
+        </article>
 
-            <article class="questao">
-                <span class="tag-tipo">Conceito Chave</span>
-                <p><strong>12.</strong> Qual o mecanismo que permite ao Prolog voltar a um ponto anterior de decisão quando encontra uma falha (fail)?</p>
-                <div class="opcoes">
-                    <button onclick="verificar(this, false, 'Errado. Recursão é chamar a si mesmo.')">A) Recursão.</button>
-                    <button onclick="verificar(this, true, 'Correto! Backtracking é a busca em árvore característica do Prolog.')">B) Backtracking.</button>
-                </div>
-            </article>
+        <article class="questao">
+          <span class="tag-tipo">Limitações</span>
+          <p>
+            <strong>13.</strong> O Prolog é recomendado para desenvolvimento de
+            Jogos 3D ou Drivers de Hardware?
+          </p>
+          <div class="opcoes">
+            <button onclick="verificar(this, false)">
+              A) Sim, é muito rápido.
+            </button>
+            <button onclick="verificar(this, true)">
+              B) Não, devido ao alto custo computacional da inferência.
+            </button>
+          </div>
+          <div class="mini-aula-oculta">
+            <h4>💡 Onde não usar Prolog</h4>
+            <p>
+              A inferência lógica consome muita memória e processamento. Para
+              jogos e drivers (que precisam de performance bruta e aritmética
+              rápida), C ou C++ são melhores.
+            </p>
+          </div>
+        </article>
 
-            <article class="questao">
-                <span class="tag-tipo">Limitações</span>
-                <p><strong>13.</strong> O Prolog é recomendado para desenvolvimento de Jogos 3D ou Drivers de Hardware?</p>
-                <div class="opcoes">
-                    <button onclick="verificar(this, false, 'Errado. Ele é lento para cálculos intensivos.')">A) Sim, é muito rápido.</button>
-                    <button onclick="verificar(this, true, 'Correto! Não. A inferência lógica consome muitos recursos e não é otimizada para isso.')">B) Não, devido ao alto custo computacional da inferência.</button>
-                </div>
-            </article>
+        <article class="questao">
+          <span class="tag-tipo">Unificação</span>
+          <p>
+            <strong>14.</strong> Fato: <code>homem(socrates).</code>
+            <br />Regra: <code>mortal(X) :- homem(X).</code> <br />O que retorna
+            a query <code>?- mortal(socrates).</code>?
+          </p>
+          <div class="opcoes">
+            <button onclick="verificar(this, true)">A) true.</button>
+            <button onclick="verificar(this, false)">B) false.</button>
+          </div>
+          <div class="mini-aula-oculta">
+            <h4>💡 Inferência</h4>
+            <p>
+              O Prolog unifica <code>X</code> com <code>socrates</code>. Ele
+              verifica: "Socrates é homem?". Sim, existe o fato. Logo, Socrates
+              é mortal. Resultado: <strong>True</strong>.
+            </p>
+          </div>
+        </article>
 
-            <article class="questao">
-                <span class="tag-tipo">Unificação</span>
-                <p><strong>14.</strong> Fato: <code>homem(socrates).</code> <br>Regra: <code>mortal(X) :- homem(X).</code> <br>O que retorna a query <code>?- mortal(socrates).</code>?</p>
-                <div class="opcoes">
-                    <button onclick="verificar(this, true, 'Correto! Prolog unifica X com socrates, acha o fato e retorna true.')">A) true.</button>
-                    <button onclick="verificar(this, false, 'Errado.')">B) false.</button>
-                </div>
-            </article>
+        <article class="questao">
+          <span class="tag-tipo">Aritmética</span>
+          <p>
+            <strong>15.</strong> Qual operador é usado para comparar valores
+            numéricos calculados (ex: 5+2 igual a 7) em Prolog?
+          </p>
+          <div class="opcoes">
+            <button onclick="verificar(this, false)">A) =</button>
+            <button onclick="verificar(this, false)">B) is</button>
+            <button onclick="verificar(this, true)">C) =:=</button>
+          </div>
+          <div class="mini-aula-oculta">
+            <h4>💡 Comparação Numérica</h4>
+            <ul>
+              <li><code>=</code> Tenta unificar (símbolos).</li>
+              <li><code>is</code> Realiza atribuição matemática.</li>
+              <li>
+                <code>=:=</code> Compara se o resultado numérico dos dois lados
+                é igual.
+              </li>
+            </ul>
+          </div>
+        </article>
 
-            <article class="questao">
-                <span class="tag-tipo">Aritmética</span>
-                <p><strong>15.</strong> Qual operador é usado para comparar valores numéricos calculados (ex: 5+2 igual a 7)?</p>
-                <div class="opcoes">
-                    <button onclick="verificar(this, false, 'Errado. = tenta unificar os termos.')">A) =</button>
-                    <button onclick="verificar(this, false, 'Errado. is é para atribuição.')">B) is</button>
-                    <button onclick="verificar(this, true, 'Correto! O operador =:= força o cálculo aritmético antes de comparar.')">C) =:=</button>
-                </div>
-            </article>
+        <article class="questao">
+          <span class="tag-tipo">Lógica de 1ª Ordem</span>
+          <p>
+            <strong>16.</strong> Como representamos o quantificador universal
+            ("Para todo X...") em Prolog?
+          </p>
+          <div class="opcoes">
+            <button onclick="verificar(this, true)">
+              A) Através de Regras com variáveis.
+            </button>
+            <button onclick="verificar(this, false)">
+              B) Através de Fatos isolados.
+            </button>
+          </div>
+          <div class="mini-aula-oculta">
+            <h4>💡 Quantificador Universal</h4>
+            <p>
+              Quando escrevemos <code>mortal(X) :- humano(X)</code>, o Prolog
+              entende implicitamente: "Para todo X, se X for humano, então X é
+              mortal".
+            </p>
+          </div>
+        </article>
 
-            <article class="questao">
-                <span class="tag-tipo">Lógica de 1ª Ordem</span>
-                <p><strong>16.</strong> Como representamos o quantificador universal ("Para todo X...") em Prolog?</p>
-                <div class="opcoes">
-                    <button onclick="verificar(this, true, 'Correto! Uma regra p(X) :- q(X) implica que vale para qualquer X.')">A) Através de Regras com variáveis.</button>
-                    <button onclick="verificar(this, false, 'Errado. Fatos são casos específicos.')">B) Através de Fatos isolados.</button>
-                </div>
-            </article>
+        <article class="questao">
+          <span class="tag-tipo">Interpretação</span>
+          <p>
+            <strong>17.</strong> Dada a regra:
+            <code>avo(X, Y) :- pai(X, Z), pai(Z, Y).</code> Quem é a variável Z?
+          </p>
+          <div class="opcoes">
+            <button onclick="verificar(this, false)">A) O Avô.</button>
+            <button onclick="verificar(this, true)">
+              B) O elemento intermediário (Pai).
+            </button>
+          </div>
+          <div class="mini-aula-oculta">
+            <h4>💡 Elo de Ligação</h4>
+            <p>
+              Z é a ponte. Para X ser avô de Y, X precisa ser pai de "alguém"
+              (Z), e esse "alguém" (Z) precisa ser pai de Y.
+            </p>
+          </div>
+        </article>
 
-            <article class="questao">
-                <span class="tag-tipo">Interpretação</span>
-                <p><strong>17.</strong> Dada a regra: <code>avo(X, Y) :- pai(X, Z), pai(Z, Y).</code> Quem é a variável Z?</p>
-                <div class="opcoes">
-                    <button onclick="verificar(this, false, 'Errado.')">A) O Avô.</button>
-                    <button onclick="verificar(this, true, 'Correto! Z é a ponte intermediária (o pai do neto e filho do avô).')">B) O elemento intermediário (Pai).</button>
-                </div>
-            </article>
+        <article class="questao">
+          <span class="tag-tipo">Ordem de Execução</span>
+          <p>
+            <strong>18.</strong> A ordem em que escrevemos as regras no arquivo
+            Prolog importa?
+          </p>
+          <div class="opcoes">
+            <button onclick="verificar(this, true)">
+              A) Sim, altera a ordem da busca e das respostas.
+            </button>
+            <button onclick="verificar(this, false)">
+              B) Não, ele acha a resposta de qualquer jeito.
+            </button>
+          </div>
+          <div class="mini-aula-oculta">
+            <h4>💡 Execução Top-Down</h4>
+            <p>
+              Sim! O Prolog lê o arquivo de cima para baixo. Se houver duas
+              regras que satisfazem a pergunta, ele vai usar a que aparecer
+              primeiro no arquivo.
+            </p>
+          </div>
+        </article>
 
-            <article class="questao">
-                <span class="tag-tipo">Ordem de Execução</span>
-                <p><strong>18.</strong> A ordem em que escrevemos as regras no arquivo Prolog importa?</p>
-                <div class="opcoes">
-                    <button onclick="verificar(this, true, 'Correto! O Prolog varre a base de cima para baixo (top-down). Mudar a ordem muda a resposta.')">A) Sim, altera a ordem da busca e das respostas.</button>
-                    <button onclick="verificar(this, false, 'Errado. Prolog é procedural na execução.')">B) Não, ele acha a resposta de qualquer jeito.</button>
-                </div>
-            </article>
+        <article class="questao">
+          <span class="tag-tipo">Listas</span>
+          <p>
+            <strong>19.</strong> Como representamos uma lista vazia em Prolog?
+          </p>
+          <div class="opcoes">
+            <button onclick="verificar(this, true)">A) [ ]</button>
+            <button onclick="verificar(this, false)">B) ( )</button>
+          </div>
+          <div class="mini-aula-oculta">
+            <h4>💡 Sintaxe de Listas</h4>
+            <p>
+              Listas em Prolog usam colchetes. <code>[1, 2, 3]</code>. A lista
+              vazia é <code>[]</code>.
+            </p>
+          </div>
+        </article>
 
-            <article class="questao">
-                <span class="tag-tipo">Listas</span>
-                <p><strong>19.</strong> Como representamos uma lista vazia em Prolog?</p>
-                <div class="opcoes">
-                    <button onclick="verificar(this, true, 'Correto! Colchetes vazios.')">A) [ ]</button>
-                    <button onclick="verificar(this, false, 'Errado.')">B) ( )</button>
-                </div>
-            </article>
+        <article class="questao">
+          <span class="tag-tipo">Conceito</span>
+          <p><strong>20.</strong> O que é "Unificação"?</p>
+          <div class="opcoes">
+            <button onclick="verificar(this, false)">
+              A) Copiar o valor de uma variável para outra.
+            </button>
+            <button onclick="verificar(this, true)">
+              B) Processo de tornar dois termos idênticos instanciando
+              variáveis.
+            </button>
+          </div>
+          <div class="mini-aula-oculta">
+            <h4>💡 O Coração do Prolog</h4>
+            <p>
+              Unificação é o "Pattern Matching". O Prolog tenta fazer com que
+              <code>X = socrates</code> para que a regra funcione. Se conseguir,
+              unificou. Se não, falha.
+            </p>
+          </div>
+        </article>
 
-            <article class="questao">
-                <span class="tag-tipo">Conceito</span>
-                <p><strong>20.</strong> O que é "Unificação"?</p>
-                <div class="opcoes">
-                    <button onclick="verificar(this, false, 'Errado. Isso é atribuição.')">A) Copiar o valor de uma variável para outra.</button>
-                    <button onclick="verificar(this, true, 'Correto! É o processo de verificar se dois termos podem se tornar idênticos (casamento de padrões).')">B) Processo de tornar dois termos idênticos instanciando variáveis.</button>
-                </div>
-            </article>
+        <hr />
 
-            <hr>
-            
-            <article class="questao">
-                <span class="tag-tipo">Discursiva - Paradigmas</span>
-                <p><strong>21.</strong> Explique a diferença fundamental entre o Paradigma Imperativo e o Lógico.</p>
-                <textarea placeholder="Sua resposta..."></textarea>
-                <button class="btn-gabarito" onclick="toggleGabarito('gab-21')">Ver Resposta</button>
-                <div id="gab-21" class="gabarito-oculto">
-                    <p><strong>Resposta Ideal:</strong></p>
-                    <ul>
-                        <li><strong>Imperativo (C, Pascal):</strong> Foca no <em>COMO</em> fazer. O programador descreve o controle de fluxo e as mudanças de estado da memória passo a passo.</li>
-                        <li><strong>Lógico (Prolog):</strong> Foca no <em>O QUE</em> é o problema. O programador descreve fatos e regras, e o motor da linguagem busca a solução.</li>
-                    </ul>
-                </div>
-            </article>
-
-        </section>
-
+        <article class="questao">
+          <span class="tag-tipo">Discursiva - Paradigmas</span>
+          <p>
+            <strong>21.</strong> Explique a diferença fundamental entre o
+            Paradigma Imperativo e o Lógico.
+          </p>
+          <textarea placeholder="Sua resposta..."></textarea>
+          <button class="btn-gabarito" onclick="toggleGabarito('gab-21')">
+            Ver Resposta
+          </button>
+          <div id="gab-21" class="gabarito-oculto">
+            <h4>💡 Diferença Fundamental</h4>
+            <ul>
+              <li>
+                <strong>Imperativo (C, Java):</strong> Foca no
+                <em>COMO</em> fazer. Você dá ordens: "Faça isso, depois calcule
+                aquilo, depois imprima".
+              </li>
+              <li>
+                <strong>Lógico (Prolog):</strong> Foca no <em>O QUE</em> é
+                verdade. Você define fatos e regras, e o computador descobre
+                como chegar na resposta.
+              </li>
+            </ul>
+          </div>
+        </article>
+      </section>
     </main>
 
     <div id="modal-alerta" class="modal-overlay" onclick="fecharModal(event)">
-        <div class="modal-box">
-            <div id="modal-header" class="modal-header"></div>
-            <div class="modal-body">
-                <p id="modal-texto"></p>
-            </div>
-            <div class="modal-footer">
-                <button onclick="fecharModal(null)">Continuar</button>
-            </div>
+      <div class="modal-box">
+        <div id="modal-header" class="modal-header"></div>
+        <div class="modal-body">
+          <p id="modal-texto"></p>
         </div>
+        <div class="modal-footer">
+          <button onclick="fecharModal(null)">Continuar</button>
+        </div>
+      </div>
     </div>
 
-    <a href="../index.html" class="btn-float">🏠 Inicio</a>
-    <footer>
-      <p>Desenvolvedor: Gilvan Daniel 2025</p>
-    </footer>
+    <a href="../index.html" class="btn-float">🏠 Menu</a>
 
     <script src="ead.js"></script>
-
-</body>
+  </body>
 </html>

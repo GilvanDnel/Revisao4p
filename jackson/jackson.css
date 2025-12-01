@@ -5,48 +5,35 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "Segoe UI", sans-serif;
 }
 
 body {
-  background-color: #f0f2f5; /* Fundo cinza claro para não cansar a vista */
+  background-color: #f0f2f5;
   color: #333;
   line-height: 1.6;
   padding-bottom: 50px;
 }
 
-/* Centraliza o conteúdo e limita a largura máxima */
 .container {
   max-width: 800px;
   margin: 0 auto;
   padding: 0 20px;
 }
 
-/* 2. CABEÇALHO (HEADER) */
+/* HEADER */
 header {
-  background: linear-gradient(
-    135deg,
-    #005bea 0%,
-    #00c6fb 100%
-  ); /* Gradiente Azul */
+  background: linear-gradient(135deg, #005bea 0%, #00c6fb 100%);
   color: white;
   padding: 40px 0;
   text-align: center;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   margin-bottom: 40px;
 }
-
 header h1 {
   font-size: 2.2rem;
   margin-bottom: 10px;
 }
-
-header p {
-  font-size: 1.1rem;
-  opacity: 0.9;
-}
-
-/* Botão de voltar */
 .btn-voltar {
   display: inline-block;
   margin-top: 20px;
@@ -56,28 +43,18 @@ header p {
   text-decoration: none;
   border-radius: 30px;
   border: 1px solid rgba(255, 255, 255, 0.5);
-  transition: background 0.3s;
-  font-weight: bold;
 }
 
-.btn-voltar:hover {
-  background-color: rgba(255, 255, 255, 0.4);
-}
-
-/* 3. ESTRUTURA DOS BLOCOS DE QUESTÕES */
+/* QUESTÕES */
 .bloco-questoes {
-  margin-bottom: 60px; /* Espaço entre a Parte 1, 2 e 3 */
+  margin-bottom: 60px;
 }
-
 .bloco-questoes h2 {
   color: #005bea;
   border-bottom: 2px solid #e0e0e0;
   padding-bottom: 10px;
   margin-bottom: 25px;
-  font-size: 1.5rem;
 }
-
-/* Divisória visual entre os blocos */
 hr {
   border: 0;
   height: 1px;
@@ -85,23 +62,13 @@ hr {
   margin: 40px 0;
 }
 
-/* 4. CARTÕES DAS QUESTÕES */
 .questao {
   background: white;
   padding: 25px;
   margin-bottom: 25px;
   border-radius: 12px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05); /* Sombra suave */
-  border-left: 5px solid transparent; /* Prepara para borda colorida se precisar */
-  transition: transform 0.2s;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
 }
-
-.questao:hover {
-  transform: translateY(-2px); /* Leve efeito ao passar o mouse */
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-}
-
-/* Tags (ex: Múltipla Escolha, Discursiva) */
 .tag-tipo {
   display: inline-block;
   background-color: #e9ecef;
@@ -110,23 +77,15 @@ hr {
   border-radius: 12px;
   font-size: 0.75rem;
   font-weight: bold;
-  text-transform: uppercase;
-  margin-bottom: 15px;
-  letter-spacing: 0.5px;
-}
-
-.questao p {
-  font-size: 1.05rem;
   margin-bottom: 15px;
 }
 
-/* 5. BOTÕES DE RESPOSTA (OPÇÕES) */
+/* BOTÕES DE RESPOSTA */
 .opcoes {
   display: flex;
   flex-direction: column;
   gap: 12px;
 }
-
 .opcoes button {
   background-color: #f8f9fa;
   border: 1px solid #ced4da;
@@ -136,131 +95,49 @@ hr {
   cursor: pointer;
   font-size: 1rem;
   color: #333;
-  transition: all 0.2s ease;
 }
-
 .opcoes button:hover {
   background-color: #e2e6ea;
   border-color: #adb5bd;
 }
-
-/* Estados de Acerto/Erro (adicionados pelo JS) */
 .btn-correto {
   background-color: #d1e7dd !important;
   border-color: #badbcc !important;
   color: #0f5132 !important;
-  font-weight: bold;
 }
-
 .btn-errado {
   background-color: #f8d7da !important;
   border-color: #f5c2c7 !important;
   color: #842029 !important;
 }
 
-/* 6. ÁREA DE ESTUDO DE CASO E DISCURSIVAS */
-.box-caso {
-  background-color: #fff3cd; /* Amarelo clarinho */
-  border: 1px solid #ffecb5;
-  color: #664d03;
-  padding: 20px;
-  border-radius: 8px;
-  margin-bottom: 30px;
-  line-height: 1.8;
+/* MINI AULA OCULTA (O SEGREDO) */
+.mini-aula-oculta {
+  display: none; /* Garante que não apareça na página, só no modal */
 }
 
-textarea {
-  width: 100%;
-  height: 100px;
-  padding: 15px;
-  margin: 10px 0;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  font-family: inherit;
-  resize: vertical; /* Permite aumentar altura */
-}
-
-/* Botão de Ver Gabarito */
-.btn-gabarito {
-  background-color: #6c757d;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 6px;
-  cursor: pointer;
-  font-size: 0.9rem;
-  margin-top: 5px;
-  transition: background 0.3s;
-}
-
-.btn-gabarito:hover {
-  background-color: #5a6268;
-}
-
-/* Caixa do Gabarito (inicialmente oculta) */
-.gabarito-oculto {
-  display: none; /* JS vai mudar isso para block */
-  margin-top: 15px;
-  padding: 15px;
-  background-color: #d1e7dd; /* Verde bem claro */
-  border-left: 4px solid #198754;
-  border-radius: 4px;
-  color: #146c43;
-}
-
-/* 7. RESPONSIVIDADE PARA CELULARES */
-@media (max-width: 600px) {
-  header {
-    padding: 30px 0;
-  }
-
-  header h1 {
-    font-size: 1.8rem;
-  }
-
-  .container {
-    padding: 0 15px;
-  }
-
-  .questao {
-    padding: 20px;
-  }
-
-  .opcoes button {
-    padding: 12px;
-    font-size: 0.95rem;
-  }
-}
-
-/* --- ESTILO DO MODAL CUSTOMIZADO (Adicione ao final do CSS) --- */
-
-/* Fundo escuro atrás do modal */
+/* MODAL CUSTOMIZADO */
 .modal-overlay {
-  display: none; /* Começa invisível */
+  display: none;
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.6); /* Preto transparente */
+  background: rgba(0, 0, 0, 0.6);
   z-index: 1000;
   justify-content: center;
   align-items: center;
-  backdrop-filter: blur(3px); /* Efeito de desfoque no fundo */
+  backdrop-filter: blur(3px);
 }
-
-/* A caixinha do alerta */
 .modal-box {
   background: white;
   width: 90%;
   max-width: 400px;
   border-radius: 15px;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
   overflow: hidden;
   animation: slideIn 0.3s ease;
 }
-
-/* Animação de entrada suave */
 @keyframes slideIn {
   from {
     transform: translateY(-20px);
@@ -271,7 +148,6 @@ textarea {
     opacity: 1;
   }
 }
-
 .modal-header {
   padding: 20px;
   text-align: center;
@@ -279,29 +155,23 @@ textarea {
   font-size: 1.2rem;
   font-weight: bold;
 }
-
-/* Cores dinâmicas para cabeçalho */
 .header-sucesso {
-  background: #28a745; /* Verde */
+  background: #28a745;
 }
-
 .header-erro {
-  background: #dc3545; /* Vermelho */
+  background: #dc3545;
 }
-
 .modal-body {
   padding: 20px;
-  text-align: center;
+  text-align: left;
   font-size: 1rem;
   color: #333;
 }
-
 .modal-footer {
   padding: 15px;
   text-align: center;
   background: #f8f9fa;
 }
-
 .modal-footer button {
   background-color: #333;
   color: white;
@@ -309,55 +179,55 @@ textarea {
   padding: 10px 30px;
   border-radius: 20px;
   cursor: pointer;
-  font-weight: bold;
-  transition: 0.2s;
 }
 
-.modal-footer button:hover {
-  transform: scale(1.05);
-  opacity: 0.9;
-}
-
-footer {
-  width: 100%;
-  padding: 10px 0;
-  text-align: center;
-  color: #777;
-  font-size: 0.8em;
-  margin-top: 20px;
-}
-
-/* --- BOTÃO FLUTUANTE DE VOLTAR --- */
+/* BOTÃO FLUTUANTE */
 .btn-float {
   position: fixed;
   bottom: 20px;
   right: 20px;
-  background-color: #333; /* Cor escura neutra */
+  background-color: #333;
   color: white;
   padding: 12px 20px;
-  border-radius: 50px; /* Borda redondinha */
+  border-radius: 50px;
   text-decoration: none;
   font-weight: bold;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); /* Sombra para destacar */
-  z-index: 2000; /* Garante que fique por cima de tudo */
-  transition: all 0.3s ease;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  font-size: 0.9rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  z-index: 2000;
 }
 
-.btn-float:hover {
-  background-color: #000;
-  transform: translateY(-3px); /* Leve subida ao passar o mouse */
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
+/* ÁREA DE ESTUDO DE CASO E DISCURSIVAS */
+.box-caso {
+  background-color: #fff3cd;
+  border: 1px solid #ffecb5;
+  color: #664d03;
+  padding: 20px;
+  border-radius: 8px;
+  margin-bottom: 30px;
 }
-
-/* Ajuste para não atrapalhar em telas muito pequenas */
-@media (max-width: 480px) {
-  .btn-float {
-    padding: 10px 15px;
-    bottom: 15px;
-    right: 15px;
-  }
+textarea {
+  width: 100%;
+  height: 100px;
+  padding: 15px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+.btn-gabarito {
+  background-color: #6c757d;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-top: 5px;
+}
+.gabarito-oculto {
+  display: none;
+  margin-top: 15px;
+  padding: 15px;
+  background-color: #d1e7dd;
+  border-left: 4px solid #198754;
+  border-radius: 4px;
+  color: #146c43;
 }

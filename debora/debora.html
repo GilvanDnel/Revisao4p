@@ -16,6 +16,36 @@
     </header>
 
     <main class="container">
+      <section class="resumo-box">
+        <h2>⚡ Resumo Rápido (Pontos Chave)</h2>
+        <div class="cards-teoria">
+          <div class="card">
+            <h3>ISOs Importantes</h3>
+            <ul>
+              <li><strong>ISO 27000:</strong> Segurança da Informação.</li>
+              <li><strong>ISO 12207:</strong> Ciclo de vida (Processos).</li>
+              <li>
+                <strong>ISO 33000 (15504):</strong> Avaliação de
+                Capacidade/Maturidade.
+              </li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>MPS.BR</h3>
+            <ul>
+              <li><strong>Projeto:</strong> Único e temporário.</li>
+              <li><strong>Processo:</strong> Repetitivo e contínuo.</li>
+              <li>
+                <strong>Nível G:</strong> Gerência de Projetos e Requisitos.
+              </li>
+              <li><strong>Nível F:</strong> Configuração e Medição.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <hr />
+
       <section class="bloco-questoes">
         <h2>Part 1: Normas ISO (1-5)</h2>
 
@@ -27,26 +57,27 @@
             para proteger dados sensíveis?
           </p>
           <div class="opcoes">
-            <button
-              onclick="verificar(this, false, 'Incorreto. A 12207 é sobre ciclo de vida do software.')"
-            >
-              A) ISO 12207
-            </button>
-            <button
-              onclick="verificar(this, true, 'Correto! A família ISO 27000 trata da segurança da informação.')"
-            >
-              B) ISO 27000
-            </button>
-            <button
-              onclick="verificar(this, false, 'Incorreto. A 33000/15504 trata de avaliação de processos.')"
-            >
-              C) ISO 33000
-            </button>
-            <button
-              onclick="verificar(this, false, 'Incorreto. MPS.BR é um modelo brasileiro, não ISO.')"
-            >
-              D) MPS.BR
-            </button>
+            <button onclick="verificar(this, false)">A) ISO 12207</button>
+            <button onclick="verificar(this, true)">B) ISO 27000</button>
+            <button onclick="verificar(this, false)">C) ISO 33000</button>
+            <button onclick="verificar(this, false)">D) MPS.BR</button>
+          </div>
+          <div class="mini-aula-oculta">
+            <h4>💡 Explicação: ISOs</h4>
+            <p>A resposta correta é a <strong>ISO 27000</strong>.</p>
+            <ul>
+              <li>
+                <strong>ISO 27000:</strong> Família de normas sobre Segurança da
+                Informação.
+              </li>
+              <li>
+                <strong>ISO 12207:</strong> Trata do Ciclo de Vida do Software.
+              </li>
+              <li>
+                <strong>ISO 33000 (SPICE):</strong> Trata da Avaliação de
+                Processos.
+              </li>
+            </ul>
           </div>
         </article>
 
@@ -58,21 +89,18 @@
             de software, qual a norma de referência?
           </p>
           <div class="opcoes">
-            <button
-              onclick="verificar(this, true, 'Correto! A ISO 12207 define os processos do ciclo de vida do software.')"
-            >
-              A) ISO 12207
-            </button>
-            <button
-              onclick="verificar(this, false, 'Incorreto. A 27000 é sobre segurança.')"
-            >
-              B) ISO 27000
-            </button>
-            <button
-              onclick="verificar(this, false, 'Incorreto. A 9001 é gestão da qualidade genérica.')"
-            >
-              C) ISO 9001
-            </button>
+            <button onclick="verificar(this, true)">A) ISO 12207</button>
+            <button onclick="verificar(this, false)">B) ISO 27000</button>
+            <button onclick="verificar(this, false)">C) ISO 9001</button>
+          </div>
+          <div class="mini-aula-oculta">
+            <h4>💡 Explicação: Ciclo de Vida</h4>
+            <p>A resposta correta é a <strong>ISO 12207</strong>.</p>
+            <p>
+              Ela define a arquitetura do ciclo de vida, estabelecendo os
+              processos principais (Aquisição, Fornecimento, Desenvolvimento,
+              Operação e Manutenção).
+            </p>
           </div>
         </article>
 
@@ -89,21 +117,24 @@
             a organização pode receber um nível de capacidade/maturidade.
           </p>
           <div class="opcoes">
-            <button
-              onclick="verificar(this, true, 'Correto! Ambas são verdadeiras e a II justifica a I. A avaliação serve para classificar o nível.')"
-            >
+            <button onclick="verificar(this, true)">
               A) As duas são verdadeiras e a II justifica a I.
             </button>
-            <button
-              onclick="verificar(this, false, 'Incorreto. Ambas são verdadeiras.')"
-            >
+            <button onclick="verificar(this, false)">
               B) A I é verdadeira e a II é falsa.
             </button>
-            <button
-              onclick="verificar(this, false, 'Incorreto. A ISO 33000 serve exatamente para isso.')"
-            >
+            <button onclick="verificar(this, false)">
               C) Ambas são falsas.
             </button>
+          </div>
+          <div class="mini-aula-oculta">
+            <h4>💡 Explicação: Avaliação</h4>
+            <p><strong>Ambas são verdadeiras.</strong></p>
+            <p>
+              A ISO 33000 (evolução da 15504/SPICE) serve justamente para
+              avaliar processos. O resultado dessa avaliação é a atribuição de
+              um nível de maturidade ou capacidade.
+            </p>
           </div>
         </article>
 
@@ -115,21 +146,20 @@
             baseada na:
           </p>
           <div class="opcoes">
-            <button
-              onclick="verificar(this, false, 'Incorreto. Foca em ciclo de vida.')"
-            >
-              A) ISO 12207
-            </button>
-            <button
-              onclick="verificar(this, true, 'Correto! A ISO 33000/15504 foca na Avaliação de Processos (SPICE).')"
-            >
+            <button onclick="verificar(this, false)">A) ISO 12207</button>
+            <button onclick="verificar(this, true)">
               B) ISO 33000 / 15504
             </button>
-            <button
-              onclick="verificar(this, false, 'Incorreto. Foca em segurança.')"
-            >
-              C) ISO 27001
-            </button>
+            <button onclick="verificar(this, false)">C) ISO 27001</button>
+          </div>
+          <div class="mini-aula-oculta">
+            <h4>💡 Explicação</h4>
+            <p>A resposta é <strong>ISO 33000 / 15504</strong>.</p>
+            <p>
+              Sempre que falar em "Avaliação", "Medir quão bem é feito" ou
+              "Nível de Capacidade", estamos falando da ISO 33000 (ou do modelo
+              MPS.BR que se baseia nela).
+            </p>
           </div>
         </article>
 
@@ -140,17 +170,26 @@
             33000?
           </p>
           <div class="opcoes">
-            <button
-              onclick="verificar(this, true, 'Correto! 12207 diz O QUE fazer (processos), 33000 avalia O QUÃO BEM é feito.')"
-            >
+            <button onclick="verificar(this, true)">
               A) A 12207 define os processos (o que fazer), enquanto a 33000
               avalia a capacidade (quão bem é feito).
             </button>
-            <button
-              onclick="verificar(this, false, 'Incorreto. Ambas são aplicáveis a software.')"
-            >
+            <button onclick="verificar(this, false)">
               B) A 12207 é para hardware e a 33000 para software.
             </button>
+          </div>
+          <div class="mini-aula-oculta">
+            <h4>💡 Resumo da Diferença</h4>
+            <ul>
+              <li>
+                <strong>12207:</strong> Define O QUE deve ser feito (os
+                processos padrão).
+              </li>
+              <li>
+                <strong>33000:</strong> Avalia QUÃO BEM a empresa executa esses
+                processos.
+              </li>
+            </ul>
           </div>
         </article>
       </section>
@@ -167,16 +206,23 @@
             <strong>Projeto</strong>?
           </p>
           <div class="opcoes">
-            <button
-              onclick="verificar(this, true, 'Correto! Projeto é temporário e único.')"
-            >
+            <button onclick="verificar(this, true)">
               A) Atividade única que não se repete, com início e fim definidos.
             </button>
-            <button
-              onclick="verificar(this, false, 'Incorreto. Isso é a definição de Processo.')"
-            >
+            <button onclick="verificar(this, false)">
               B) Conjunto de atividades que se repetem continuamente.
             </button>
+          </div>
+          <div class="mini-aula-oculta">
+            <h4>💡 Projeto vs Processo</h4>
+            <p>
+              <strong>Projeto:</strong> É um esforço temporário e único (ex:
+              criar o Windows 11).
+            </p>
+            <p>
+              <strong>Processo:</strong> É contínuo e repetitivo (ex: o
+              procedimento de reportar bugs).
+            </p>
           </div>
         </article>
 
@@ -187,17 +233,20 @@
             <strong>Processo</strong>?
           </p>
           <div class="opcoes">
-            <button
-              onclick="verificar(this, false, 'Incorreto. Isso é Projeto.')"
-            >
+            <button onclick="verificar(this, false)">
               A) Esforço temporário para criar um produto exclusivo.
             </button>
-            <button
-              onclick="verificar(this, true, 'Correto! Processos são repetitivos e contínuos.')"
-            >
+            <button onclick="verificar(this, true)">
               B) Conjunto de atividades inter-relacionadas que se repetem para
               transformar entradas em saídas.
             </button>
+          </div>
+          <div class="mini-aula-oculta">
+            <h4>💡 Definição de Processo</h4>
+            <p>
+              Processo é aquilo que a empresa faz repetidamente. É o "como
+              trabalhamos aqui". Não tem data para acabar, é o dia a dia.
+            </p>
           </div>
         </article>
 
@@ -213,16 +262,23 @@
             sendo realizado (ex: AP 1.1 a AP 3.2).
           </p>
           <div class="opcoes">
-            <button
-              onclick="verificar(this, false, 'Incorreto. A asserção I é falsa.')"
-            >
+            <button onclick="verificar(this, false)">
               A) As duas são verdadeiras.
             </button>
-            <button
-              onclick="verificar(this, true, 'Correto! A I é falsa porque Capacidade é COMO é feito. O QUE é feito é o Processo.')"
-            >
+            <button onclick="verificar(this, true)">
               B) A I é falsa e a II é verdadeira.
             </button>
+          </div>
+          <div class="mini-aula-oculta">
+            <h4>💡 Processo vs Capacidade</h4>
+            <ul>
+              <li><strong>Processo:</strong> Diz O QUE fazer.</li>
+              <li>
+                <strong>Capacidade:</strong> Diz COMO fazer e quão bem está
+                sendo feito.
+              </li>
+            </ul>
+            <p>Por isso a Asserção I é falsa.</p>
           </div>
         </article>
 
@@ -233,19 +289,33 @@
             Quais são?
           </p>
           <div class="opcoes">
-            <button
-              onclick="verificar(this, true, 'Correto! Fundamentais, Organizacionais e de Apoio.')"
-            >
+            <button onclick="verificar(this, true)">
               A) Fundamentais, Organizacionais e de Apoio.
             </button>
-            <button
-              onclick="verificar(this, false, 'Incorreto. Isso são níveis de maturidade.')"
-            >
+            <button onclick="verificar(this, false)">
               B) Iniciais, Repetitivos e Otimizados.
             </button>
-            <button onclick="verificar(this, false, 'Incorreto.')">
+            <button onclick="verificar(this, false)">
               C) Gerenciais, Técnicos e Financeiros.
             </button>
+          </div>
+          <div class="mini-aula-oculta">
+            <h4>💡 Categorias de Processos</h4>
+            <p>No MPS.BR, os processos são:</p>
+            <ol>
+              <li>
+                <strong>Fundamentais:</strong> Ligados à produção (Requisitos,
+                Projeto, Implementação).
+              </li>
+              <li>
+                <strong>Organizacionais:</strong> Ligados à empresa (Gerência de
+                Recursos, Melhoria).
+              </li>
+              <li>
+                <strong>Apoio:</strong> Suporte (Garantia de Qualidade, Gerência
+                de Configuração).
+              </li>
+            </ol>
           </div>
         </article>
 
@@ -257,19 +327,26 @@
             são o foco principal?
           </p>
           <div class="opcoes">
-            <button
-              onclick="verificar(this, true, 'Correto! O Nível G foca no básico: Gerência de Projetos e Requisitos.')"
-            >
+            <button onclick="verificar(this, true)">
               A) Gerência de Projetos e Gerência de Requisitos.
             </button>
-            <button
-              onclick="verificar(this, false, 'Incorreto. Isso é nível F ou superior.')"
-            >
+            <button onclick="verificar(this, false)">
               B) Gerência de Riscos e Aquisição.
             </button>
-            <button onclick="verificar(this, false, 'Incorreto.')">
+            <button onclick="verificar(this, false)">
               C) Inovação e Análise Causal.
             </button>
+          </div>
+          <div class="mini-aula-oculta">
+            <h4>💡 Foco do Nível G</h4>
+            <p>
+              O Nível G é a porta de entrada. Ele foca apenas em colocar ordem
+              na casa:
+            </p>
+            <ul>
+              <li>Gerência de Projetos (controlar prazos).</li>
+              <li>Gerência de Requisitos (saber o que o cliente quer).</li>
+            </ul>
           </div>
         </article>
 
@@ -280,54 +357,70 @@
             "Gerenciado". O que ele adiciona em relação ao Nível G?
           </p>
           <div class="opcoes">
-            <button
-              onclick="verificar(this, false, 'Incorreto. Otimização é níveis altos (A/B).')"
-            >
+            <button onclick="verificar(this, false)">
               A) Otimização contínua de processos.
             </button>
-            <button
-              onclick="verificar(this, true, 'Correto! Nível F introduz Medição, Configuração, Garantia de Qualidade, Aquisição e Gerência de Portfólio.')"
-            >
+            <button onclick="verificar(this, true)">
               B) Medição, Gerência de Configuração, Garantia de Qualidade e
               Aquisição.
             </button>
           </div>
+          <div class="mini-aula-oculta">
+            <h4>💡 Evolução para o Nível F</h4>
+            <p>
+              No nível F, a empresa deixa de apenas gerenciar o projeto e passa
+              a ter suporte:
+            </p>
+            <ul>
+              <li>
+                <strong>Garantia de Qualidade (QA):</strong> Alguém verificando.
+              </li>
+              <li>
+                <strong>Gerência de Configuração:</strong> Controle de versão.
+              </li>
+              <li><strong>Medição:</strong> Métricas básicas.</li>
+            </ul>
+          </div>
         </article>
 
         <article class="questao">
-          <span class="tag-tipo">Múltipla Escolha</span>
+          <span class="tag-tipo">Atributos de Processo</span>
           <p>
             <strong>12.</strong> Qual atributo de processo (AP) verifica se o
             processo é executado?
           </p>
           <div class="opcoes">
-            <button
-              onclick="verificar(this, true, 'Correto! AP 1.1 é a execução do processo.')"
-            >
-              A) AP 1.1
-            </button>
-            <button
-              onclick="verificar(this, false, 'Incorreto. AP 2.1 é sobre gerenciamento.')"
-            >
-              B) AP 2.1
-            </button>
+            <button onclick="verificar(this, true)">A) AP 1.1</button>
+            <button onclick="verificar(this, false)">B) AP 2.1</button>
+          </div>
+          <div class="mini-aula-oculta">
+            <h4>💡 Atributo AP 1.1</h4>
+            <p>
+              <strong>AP 1.1 (O processo é executado):</strong> É o nível mais
+              básico. Significa apenas que a empresa realiza as atividades,
+              mesmo que de forma caótica.
+            </p>
           </div>
         </article>
 
         <article class="questao">
-          <span class="tag-tipo">Múltipla Escolha</span>
+          <span class="tag-tipo">Atributos de Processo</span>
           <p><strong>13.</strong> O atributo AP 2.1 refere-se a:</p>
           <div class="opcoes">
-            <button
-              onclick="verificar(this, true, 'Correto! AP 2.1 é o gerenciamento da execução.')"
-            >
+            <button onclick="verificar(this, true)">
               A) O processo é gerenciado.
             </button>
-            <button
-              onclick="verificar(this, false, 'Incorreto. Isso é AP 2.2 (Produtos de trabalho gerenciados).')"
-            >
+            <button onclick="verificar(this, false)">
               B) Os produtos de trabalho são gerenciados.
             </button>
+          </div>
+          <div class="mini-aula-oculta">
+            <h4>💡 Atributo AP 2.1</h4>
+            <p>
+              <strong>AP 2.1 (O processo é gerenciado):</strong> Significa que
+              além de executar, existe planejamento, monitoramento e ajustes na
+              execução do processo.
+            </p>
           </div>
         </article>
 
@@ -338,14 +431,20 @@
             do MPS.BR, do menor para o maior?
           </p>
           <div class="opcoes">
-            <button onclick="verificar(this, false, 'Incorreto.')">
+            <button onclick="verificar(this, false)">
               A) A, B, C, D, E, F, G
             </button>
-            <button
-              onclick="verificar(this, true, 'Correto! G é o inicial e A é o topo.')"
-            >
+            <button onclick="verificar(this, true)">
               B) G, F, E, D, C, B, A
             </button>
+          </div>
+          <div class="mini-aula-oculta">
+            <h4>💡 Ordem MPS.BR</h4>
+            <p>
+              A escala vai de G (mais baixo, "Gente, socorro") até A (mais alto,
+              "Avançado/Top").
+            </p>
+            <p>G -> F -> E -> D -> C -> B -> A.</p>
           </div>
         </article>
 
@@ -356,14 +455,18 @@
           <p>PORQUE</p>
           <p>II. O Nível G exige apenas Gerência de Projetos e Requisitos.</p>
           <div class="opcoes">
-            <button onclick="verificar(this, false, 'Incorreto.')">
-              A) I é verdadeira.
-            </button>
-            <button
-              onclick="verificar(this, true, 'Correto! A I é Falsa (Configuração é Nível F) e a II é Verdadeira.')"
-            >
+            <button onclick="verificar(this, false)">A) I é verdadeira.</button>
+            <button onclick="verificar(this, true)">
               B) A I é falsa e a II é verdadeira.
             </button>
+          </div>
+          <div class="mini-aula-oculta">
+            <h4>💡 Requisitos do Nível G</h4>
+            <p>Configuração e Medição só entram no <strong>Nível F</strong>.</p>
+            <p>
+              O Nível G é apenas Projetos e Requisitos. Por isso a afirmação I é
+              falsa.
+            </p>
           </div>
         </article>
       </section>
@@ -375,8 +478,8 @@
         <div class="box-caso">
           <p>
             <strong>Contexto TechSaúde:</strong> A empresa tem "Atrasos
-            recorrentes e inconsistências nas entregas"[cite: 3]. O cliente está
-            insatisfeito. O gerente usará Ishikawa e BPMN[cite: 5, 6].
+            recorrentes e inconsistências nas entregas". O cliente está
+            insatisfeito.
           </p>
         </div>
 
@@ -388,17 +491,22 @@
             desta ferramenta neste caso?
           </p>
           <div class="opcoes">
-            <button
-              onclick="verificar(this, false, 'Incorreto. Isso é cronograma/Gantt.')"
-            >
+            <button onclick="verificar(this, false)">
               A) Definir as datas de entrega do projeto.
             </button>
-            <button
-              onclick="verificar(this, true, 'Correto! Identificar a causa raiz dos atrasos olhando 6 categorias (6M).')"
-            >
+            <button onclick="verificar(this, true)">
               B) Identificar as possíveis causas raízes do problema "Atrasos e
               Inconsistências".
             </button>
+          </div>
+          <div class="mini-aula-oculta">
+            <h4>💡 Diagrama de Ishikawa</h4>
+            <p>Também conhecido como Espinha de Peixe ou 6M.</p>
+            <p>
+              Ele serve para quebrar um problema grande em categorias (Método,
+              Máquina, Mão de obra...) para encontrar a
+              <strong>Causa Raiz</strong>.
+            </p>
           </div>
         </article>
 
@@ -409,17 +517,20 @@
             <strong>AS IS</strong>?
           </p>
           <div class="opcoes">
-            <button
-              onclick="verificar(this, true, 'Correto! AS IS mostra a realidade atual com falhas.')"
-            >
+            <button onclick="verificar(this, true)">
               A) Representar como o fluxo de trabalho é realizado ATUALMENTE,
               identificando gargalos.
             </button>
-            <button
-              onclick="verificar(this, false, 'Incorreto. Isso é o TO BE.')"
-            >
+            <button onclick="verificar(this, false)">
               B) Representar como o processo será no futuro após melhorias.
             </button>
+          </div>
+          <div class="mini-aula-oculta">
+            <h4>💡 AS IS (Como É)</h4>
+            <p>
+              É a fotografia do momento atual. Mapeia-se o processo com todos os
+              seus defeitos e gargalos para entender onde melhorar.
+            </p>
           </div>
         </article>
 
@@ -430,14 +541,19 @@
             processo <strong>TO BE</strong>. Qual o objetivo?
           </p>
           <div class="opcoes">
-            <button
-              onclick="verificar(this, true, 'Correto! TO BE é o processo futuro ideal.')"
-            >
+            <button onclick="verificar(this, true)">
               A) Propor um processo ideal com melhorias para otimizar entregas.
             </button>
-            <button onclick="verificar(this, false, 'Incorreto.')">
+            <button onclick="verificar(this, false)">
               B) Documentar os erros do passado apenas.
             </button>
+          </div>
+          <div class="mini-aula-oculta">
+            <h4>💡 TO BE (Como Será)</h4>
+            <p>
+              É o desenho do futuro. O processo otimizado, sem os gargalos
+              encontrados no AS IS.
+            </p>
           </div>
         </article>
 
@@ -446,7 +562,7 @@
           <p>
             <strong>19. (Estudo de Caso)</strong> Qual é o
             <strong>Problema Central</strong> identificado na TechSaúde que deve
-            ser colocado na "cabeça" do peixe no Diagrama de Ishikawa? [cite: 8]
+            ser colocado na "cabeça" do peixe no Diagrama de Ishikawa?
           </p>
           <textarea placeholder="Sua resposta..."></textarea>
           <button class="btn-gabarito" onclick="toggleGabarito('gab-19')">
@@ -464,27 +580,25 @@
           <span class="tag-tipo">Discursiva - Causa Raiz</span>
           <p>
             <strong>20.</strong> Cite pelo menos 3 categorias do Ishikawa (6M)
-            que poderiam explicar os atrasos na TechSaúde (ex: Método, Mão de
-            Obra...).
+            que poderiam explicar os atrasos na TechSaúde.
           </p>
           <textarea placeholder="Sua resposta..."></textarea>
           <button class="btn-gabarito" onclick="toggleGabarito('gab-20')">
             Ver Resposta
           </button>
           <div id="gab-20" class="gabarito-oculto">
-            <p><strong>Sugestões:</strong></p>
+            <p><strong>Sugestões (6M):</strong></p>
             <ul>
               <li>
                 <strong>Método:</strong> Processo de desenvolvimento mal
-                definido ou falta de revisão.
+                definido.
               </li>
               <li>
-                <strong>Mão de Obra:</strong> Equipe sobrecarregada ou falta de
-                capacitação.
+                <strong>Mão de Obra:</strong> Equipe sobrecarregada ou sem
+                treinamento.
               </li>
               <li>
-                <strong>Medida:</strong> Estimativas de tempo incorretas (prazos
-                irreais).
+                <strong>Medida:</strong> Prazos estimados de forma irreal.
               </li>
             </ul>
           </div>
@@ -494,22 +608,15 @@
           <span class="tag-tipo">Discursiva - Plano de Ação</span>
           <p>
             <strong>21.</strong> O exercício pede um Plano de Ação
-            <strong>5W2H</strong>[cite: 7]. O que significam os 5 Ws?
+            <strong>5W2H</strong>. O que significam os 5 Ws?
           </p>
           <textarea placeholder="Sua resposta..."></textarea>
           <button class="btn-gabarito" onclick="toggleGabarito('gab-21')">
             Ver Resposta
           </button>
           <div id="gab-21" class="gabarito-oculto">
-            <p><strong>5W:</strong></p>
-            <ul>
-              <li><strong>What:</strong> O que será feito?</li>
-              <li><strong>Why:</strong> Por que será feito?</li>
-              <li><strong>Where:</strong> Onde será feito?</li>
-              <li><strong>When:</strong> Quando será feito?</li>
-              <li><strong>Who:</strong> Quem fará?</li>
-            </ul>
-            <p><em>(2H: How / How Much)</em></p>
+            <p><strong>5W (What, Why, Where, When, Who):</strong></p>
+            <p>O que fazer? Por que fazer? Onde? Quando? Quem fará?</p>
           </div>
         </article>
       </section>
@@ -519,7 +626,7 @@
       <div class="modal-box">
         <div id="modal-header" class="modal-header"></div>
         <div class="modal-body">
-          <p id="modal-texto">Mensagem aqui...</p>
+          <p id="modal-texto"></p>
         </div>
         <div class="modal-footer">
           <button onclick="fecharModal(null)">Continuar</button>
@@ -527,10 +634,7 @@
       </div>
     </div>
 
-    <a href="../index.html" class="btn-float">🏠 Inicio</a>
-    <footer>
-      <p>Desenvolvedor: Gilvan Daniel 2025</p>
-    </footer>
+    <a href="../index.html" class="btn-float">🏠 Menu</a>
 
     <script src="debora.js"></script>
   </body>

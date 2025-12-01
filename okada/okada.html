@@ -1,267 +1,534 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Revisão IA e Ética | Prof. Okada</title>
-    <link rel="stylesheet" href="okada.css">
-</head>
-<body>
-
+    <link rel="stylesheet" href="okada.css" />
+  </head>
+  <body>
     <header>
-        <div class="container">
-            <h1>Revisão: Tópicos Especiais (IA)</h1>
-            <p>Foco: Ética, LGPD, Viés Algorítmico e Paradigmas de IA</p>
-            <a href="../index.html" class="btn-voltar">← Voltar ao Menu</a>
-        </div>
+      <div class="container">
+        <h1>Revisão: Tópicos Especiais (IA)</h1>
+        <p>Foco: Ética, LGPD, Viés Algorítmico e Paradigmas de IA</p>
+        <a href="../index.html" class="btn-voltar">← Voltar ao Menu</a>
+      </div>
     </header>
 
     <main class="container">
+      <section class="bloco-questoes">
+        <h2>Parte 1: Ética e Explicabilidade</h2>
 
-        <section class="bloco-questoes">
-            <h2>Parte 1: Ética e Explicabilidade (Floridi & Whitby)</h2>
+        <article class="questao">
+          <span class="tag-tipo">Asserção e Razão</span>
+          <p><strong>1.</strong> Sobre a explicabilidade em IA:</p>
+          <p>
+            I. A explicabilidade é essencial para compreender decisões
+            automatizadas.
+          </p>
+          <p>PORQUE</p>
+          <p>
+            II. A ausência de explicabilidade ("caixas-pretas") pode gerar
+            decisões injustas e incontestáveis.
+          </p>
+          <div class="opcoes">
+            <button onclick="verificar(this, true)">
+              A) As duas são verdadeiras e a II justifica a I.
+            </button>
+            <button onclick="verificar(this, false)">
+              B) A I é verdadeira, e a II é falsa.
+            </button>
+          </div>
+          <div class="mini-aula-oculta">
+            <h4>💡 Explicabilidade</h4>
+            <p>
+              Se você não sabe POR QUE a IA negou seu crédito, você não pode se
+              defender. Por isso, evitar "caixas-pretas" é essencial para a
+              justiça.
+            </p>
+          </div>
+        </article>
 
-            <article class="questao">
-                <span class="tag-tipo">Asserção e Razão (Q1 do PDF)</span>
-                <p><strong>1.</strong> Sobre a explicabilidade em IA:</p>
-                <p>I. A explicabilidade dos algoritmos é essencial para que usuários compreendam as razões por trás das decisões automatizadas.</p>
-                <p>PORQUE</p>
-                <p>II. A ausência de explicabilidade ("caixas-pretas") pode gerar decisões injustas e impossíveis de contestar.</p>
-                <div class="opcoes">
-                    [cite_start]<button onclick="verificar(this, true, 'Correto! Ambas são verdadeiras e a II justifica a I. Sem entender como a IA decidiu, não há justiça social [cite: 217-226].')">A) As asserções I e II são verdadeiras, e a II é uma justificativa correta da I.</button>
-                    <button onclick="verificar(this, false, 'Errado.')">B) A asserção I é verdadeira, e a II é falsa.</button>
-                </div>
-            </article>
+        <article class="questao">
+          <span class="tag-tipo">Conceito</span>
+          <p>
+            <strong>2.</strong> Segundo Floridi, o que evita que a sociedade
+            dependa de "caixas-pretas"?
+          </p>
+          <div class="opcoes">
+            <button onclick="verificar(this, false)">
+              A) Consciência moral na máquina.
+            </button>
+            <button onclick="verificar(this, true)">
+              B) Rastreabilidade das decisões e transparência lógica.
+            </button>
+          </div>
+          <div class="mini-aula-oculta">
+            <h4>💡 Transparência</h4>
+            <p>
+              Não precisamos de máquinas com sentimentos, precisamos de máquinas
+              auditáveis. Rastreabilidade = Saber o caminho que levou à decisão.
+            </p>
+          </div>
+        </article>
 
-            <article class="questao">
-                <span class="tag-tipo">Conceito</span>
-                <p><strong>2.</strong> Segundo Luciano Floridi (2019), o que é necessário para evitar que a sociedade dependa de "caixas-pretas" digitais?</p>
-                <div class="opcoes">
-                    <button onclick="verificar(this, false, 'Errado. A IA não precisa ter consciência.')">A) Dotar a IA de consciência moral autônoma.</button>
-                    [cite_start]<button onclick="verificar(this, true, 'Correto! É necessário rastreabilidade das decisões e transparência das lógicas internas[cite: 213].')">B) Garantir a rastreabilidade das decisões e a transparência de suas lógicas internas.</button>
-                </div>
-            </article>
+        <article class="questao">
+          <span class="tag-tipo">Responsabilidade</span>
+          <p><strong>3.</strong> Sobre autonomia moral de sistemas (Whitby):</p>
+          <div class="opcoes">
+            <button onclick="verificar(this, false)">
+              A) A IA deve ser punida criminalmente.
+            </button>
+            <button onclick="verificar(this, true)">
+              B) A responsabilidade ética é exclusivamente humana
+              (desenvolvedor/gestor).
+            </button>
+          </div>
+          <div class="mini-aula-oculta">
+            <h4>💡 Quem paga a conta?</h4>
+            <p>
+              Máquinas não vão presas. A responsabilidade final é sempre de quem
+              criou, treinou ou implantou a IA.
+            </p>
+          </div>
+        </article>
 
-            <article class="questao">
-                <span class="tag-tipo">Responsabilidade (Q6 do PDF)</span>
-                <p><strong>3.</strong> Blay Whitby argumenta sobre a autonomia moral de sistemas artificiais. Qual a conclusão correta?</p>
-                <div class="opcoes">
-                    <button onclick="verificar(this, false, 'Errado. A máquina não tem intencionalidade.')">A) A IA deve ser punida criminalmente por seus erros.</button>
-                    [cite_start]<button onclick="verificar(this, true, 'Correto! A ética não busca criar máquinas morais, mas orientar humanos. A responsabilidade final é do desenvolvedor/gestor [cite: 314-316].')">B) A responsabilidade ética no uso da IA é exclusivamente humana.</button>
-                </div>
-            </article>
+        <article class="questao">
+          <span class="tag-tipo">Conceito</span>
+          <p><strong>4.</strong> O que propõe o "Ethics by Design"?</p>
+          <div class="opcoes">
+            <button onclick="verificar(this, true)">
+              A) Integrar valores éticos desde a concepção do software.
+            </button>
+            <button onclick="verificar(this, false)">
+              B) Analisar a ética só depois de pronto.
+            </button>
+          </div>
+          <div class="mini-aula-oculta">
+            <h4>💡 Ética desde o Berço</h4>
+            <p>
+              Não adianta tentar consertar o viés depois que o software já
+              discriminou milhares de pessoas. A ética deve ser um requisito
+              inicial do projeto.
+            </p>
+          </div>
+        </article>
+      </section>
 
-            <article class="questao">
-                <span class="tag-tipo">Ethics by Design (Q7 do PDF)</span>
-                <p><strong>4.</strong> O conceito de "Ethics by Design" (Elaine Rich) propõe que:</p>
-                <div class="opcoes">
-                    [cite_start]<button onclick="verificar(this, true, 'Correto! A ética deve ser um componente técnico previsto desde o planejamento e modelagem [cite: 328-330].')">A) Valores éticos devem ser integrados no processo de criação da tecnologia, desde a concepção.</button>
-                    <button onclick="verificar(this, false, 'Errado. Deve ser preventivo, não corretivo.')">B) A ética deve ser analisada apenas após o software estar pronto.</button>
-                </div>
-            </article>
-        </section>
+      <hr />
 
-        <hr>
+      <section class="bloco-questoes">
+        <h2>Parte 2: LGPD e Viés</h2>
 
-        <section class="bloco-questoes">
-            <h2>Parte 2: LGPD e Viés (O'Neil & Filgueiras)</h2>
+        <article class="questao">
+          <span class="tag-tipo">Asserção e Razão</span>
+          <p><strong>5.</strong> Sobre a LGPD:</p>
+          <p>I. A LGPD garante revisão de decisões automatizadas.</p>
+          <p>PORQUE</p>
+          <p>II. A revisão humana é sempre perfeita e livre de erros.</p>
+          <div class="opcoes">
+            <button onclick="verificar(this, false)">
+              A) As duas são verdadeiras.
+            </button>
+            <button onclick="verificar(this, true)">
+              B) A I é Verdadeira, mas a II é Falsa.
+            </button>
+          </div>
+          <div class="mini-aula-oculta">
+            <h4>💡 Falibilidade Humana</h4>
+            <p>
+              A lei exige revisão humana, mas isso não garante perfeição.
+              Humanos também têm preconceitos. A ideia é ter alguém responsável
+              para "desempatar".
+            </p>
+          </div>
+        </article>
 
-            <article class="questao">
-                <span class="tag-tipo">Asserção e Razão (Q2 do PDF)</span>
-                <p><strong>5.</strong> Sobre a LGPD e IA:</p>
-                <p>I. A LGPD estabelece o direito à revisão de decisões automatizadas que afetem direitos fundamentais.</p>
-                <p>PORQUE</p>
-                <p>II. A revisão humana garante, em todos os casos, decisões mais precisas e justas que as automatizadas.</p>
-                <div class="opcoes">
-                    <button onclick="verificar(this, false, 'Errado. A II é falsa.')">A) As duas são verdadeiras.</button>
-                    [cite_start]<button onclick="verificar(this, true, 'Correto! A I é Verdadeira (LGPD exige revisão). A II é Falsa, pois humanos também falham e têm preconceitos[cite: 246].')">B) A asserção I é verdadeira, e a II é falsa.</button>
-                </div>
-            </article>
+        <article class="questao">
+          <span class="tag-tipo">Legislação</span>
+          <p>
+            <strong>6.</strong> Qual lei brasileira regula o uso de dados e IA?
+          </p>
+          <div class="opcoes">
+            <button onclick="verificar(this, true)">
+              A) Lei Geral de Proteção de Dados (LGPD).
+            </button>
+            <button onclick="verificar(this, false)">
+              B) Marco Civil da Internet.
+            </button>
+          </div>
+          <div class="mini-aula-oculta">
+            <h4>💡 LGPD (Lei 13.709/2018)</h4>
+            <p>
+              É a lei que obriga as empresas a serem transparentes sobre como
+              usam nossos dados, inclusive em decisões por IA.
+            </p>
+          </div>
+        </article>
 
-            <article class="questao">
-                <span class="tag-tipo">Legislação</span>
-                <p><strong>6.</strong> Qual lei brasileira estabelece princípios de transparência e revisão para decisões tomadas por IA?</p>
-                <div class="opcoes">
-                    [cite_start]<button onclick="verificar(this, true, 'Correto! Lei Geral de Proteção de Dados[cite: 229].')">A) Lei nº 13.709/2018 (LGPD).</button>
-                    <button onclick="verificar(this, false, 'Errado.')">B) Marco Civil da Internet.</button>
-                </div>
-            </article>
+        <article class="questao">
+          <span class="tag-tipo">Viés</span>
+          <p>
+            <strong>7.</strong> O que causa o viés discriminatório em sistemas
+            de IA?
+          </p>
+          <div class="opcoes">
+            <button onclick="verificar(this, true)">
+              A) Falta de diversidade nos dados de treinamento.
+            </button>
+            <button onclick="verificar(this, false)">
+              B) Apenas a programação do algoritmo.
+            </button>
+          </div>
+          <div class="mini-aula-oculta">
+            <h4>💡 Dados Enviesados</h4>
+            <p>
+              Se você treinar uma IA apenas com fotos de homens brancos, ela vai
+              falhar ao reconhecer mulheres negras. O problema está na
+              <strong>base de dados</strong>.
+            </p>
+          </div>
+        </article>
 
-            <article class="questao">
-                <span class="tag-tipo">Viés (Q5 do PDF)</span>
-                <p><strong>7.</strong> Cathy O'Neil chama sistemas opacos e sem auditoria de "Armas de Destruição Matemática". O que causa o viés nesses sistemas?</p>
-                <div class="opcoes">
-                    [cite_start]<button onclick="verificar(this, true, 'Correto! I, II e III do PDF. A falta de diversidade nos dados gera discriminação [cite: 292-295].')">A) Falta de diversidade nos dados de treinamento e ausência de auditorias éticas.</button>
-                    <button onclick="verificar(this, false, 'Errado. Bases enviesadas impactam SIM o algoritmo.')">B) Apenas a programação, pois os dados são sempre neutros.</button>
-                </div>
-            </article>
+        <article class="questao">
+          <span class="tag-tipo">Estudo de Caso</span>
+          <p>
+            <strong>8.</strong> A pesquisadora Joy Buolamwini provou que
+            reconhecimento facial errava mais em:
+          </p>
+          <div class="opcoes">
+            <button onclick="verificar(this, false)">A) Homens brancos.</button>
+            <button onclick="verificar(this, true)">B) Mulheres negras.</button>
+          </div>
+          <div class="mini-aula-oculta">
+            <h4>💡 Caso Joy Buolamwini</h4>
+            <p>
+              Este é um caso clássico. Softwares famosos (IBM, Microsoft) tinham
+              taxas de erro altíssimas para mulheres de pele escura por falta de
+              representatividade nos dados.
+            </p>
+          </div>
+        </article>
+      </section>
 
-            <article class="questao">
-                <span class="tag-tipo">Estudo de Caso</span>
-                <p><strong>8.</strong> O caso da pesquisadora Joy Buolamwini (MIT) demonstrou que algoritmos de reconhecimento facial erravam mais em:</p>
-                <div class="opcoes">
-                    <button onclick="verificar(this, false, 'Errado.')">A) Homens brancos.</button>
-                    [cite_start]<button onclick="verificar(this, true, 'Correto! Devido à baixa representatividade dessas pessoas nos bancos de dados[cite: 292].')">B) Mulheres negras.</button>
-                </div>
-            </article>
-        </section>
+      <hr />
 
-        <hr>
+      <section class="bloco-questoes">
+        <h2>Parte 3: Paradigmas de IA</h2>
 
-        <section class="bloco-questoes">
-            <h2>Parte 3: Paradigmas de IA (Simbólico, Conexionista...)</h2>
+        <article class="questao">
+          <span class="tag-tipo">Conceito</span>
+          <p>
+            <strong>9.</strong> Qual a diferença entre "Pensar como Humano" e
+            "Agir Racionalmente"?
+          </p>
+          <div class="opcoes">
+            <button onclick="verificar(this, true)">
+              A) Pensar = Cognitivo/Psicológico. Agir = Maximizar resultado
+              (Matemático).
+            </button>
+            <button onclick="verificar(this, false)">
+              B) Agir racionalmente tenta imitar emoções.
+            </button>
+          </div>
+          <div class="mini-aula-oculta">
+            <h4>💡 Abordagens de IA</h4>
+            <ul>
+              <li>
+                <strong>Pensar como Humano:</strong> Tenta imitar os neurônios e
+                a psicologia.
+              </li>
+              <li>
+                <strong>Agir Racionalmente:</strong> Foca apenas no resultado
+                matemático ótimo (ganhar o jogo de xadrez), não importa como.
+              </li>
+            </ul>
+          </div>
+        </article>
 
-            <article class="questao">
-                <span class="tag-tipo">Conceito (Q3 do PDF)</span>
-                <p><strong>9.</strong> Russell e Norvig distinguem abordagens de IA. Qual a diferença entre "Pensar como Humano" e "Agir Racionalmente"?</p>
-                <div class="opcoes">
-                    [cite_start]<button onclick="verificar(this, true, 'Correto! Pensar = Cognitivo/Psicológico. Agir = Maximizar resultado (Matemático) [cite: 257-258].')">A) "Pensar como humano" foca na modelagem cognitiva. "Agir racionalmente" foca em obter o melhor resultado (metas).</button>
-                    <button onclick="verificar(this, false, 'Errado.')">B) "Agir racionalmente" tenta imitar as emoções humanas.</button>
-                </div>
-            </article>
+        <article class="questao">
+          <span class="tag-tipo">Paradigmas</span>
+          <p>
+            <strong>10.</strong> Associe: I. Simbólico | II. Conexionista | III.
+            Swarm
+          </p>
+          <div class="opcoes">
+            <button onclick="verificar(this, true)">
+              A) I=Regras, II=Redes Neurais, III=Coletivo (formigas).
+            </button>
+            <button onclick="verificar(this, false)">
+              B) I=Neural, II=Regras.
+            </button>
+          </div>
+          <div class="mini-aula-oculta">
+            <h4>💡 Resumo dos Paradigmas</h4>
+            <ul>
+              <li><strong>Simbólico:</strong> Lógica, Regras (Se... Então).</li>
+              <li>
+                <strong>Conexionista:</strong> Cérebro, Neurônios (Aprendizado
+                de Máquina).
+              </li>
+              <li>
+                <strong>Swarm:</strong> Inteligência de Enxame (Natureza).
+              </li>
+            </ul>
+          </div>
+        </article>
 
-            <article class="questao">
-                <span class="tag-tipo">Paradigmas (Q4 do PDF)</span>
-                <p><strong>10.</strong> Associe o paradigma à sua característica:</p>
-                <p>I. Simbólico: Regras e lógica formal.</p>
-                <p>II. Conexionista: Inspirado em neurônios (Redes Neurais).</p>
-                <p>III. Swarm: Comportamento coletivo (formigas/abelhas).</p>
-                <div class="opcoes">
-                    [cite_start]<button onclick="verificar(this, true, 'Correto! Todas as definições acima estão corretas [cite: 278-280].')">A) I, II e III estão corretas.</button>
-                    <button onclick="verificar(this, false, 'Errado. Swarm não é redes neurais.')">B) Apenas I e II.</button>
-                </div>
-            </article>
+        <article class="questao">
+          <span class="tag-tipo">Paradigma Simbólico</span>
+          <p>
+            <strong>11.</strong> Qual paradigma é ideal para problemas de
+            raciocínio lógico e alta explicabilidade?
+          </p>
+          <div class="opcoes">
+            <button onclick="verificar(this, true)">
+              A) Paradigma Simbólico.
+            </button>
+            <button onclick="verificar(this, false)">
+              B) Paradigma Conexionista.
+            </button>
+          </div>
+          <div class="mini-aula-oculta">
+            <h4>💡 Simbólico = Transparente</h4>
+            <p>
+              Como é baseado em regras escritas ("SE tem febre ENTÃO está
+              doente"), é muito fácil explicar por que o sistema tomou a
+              decisão.
+            </p>
+          </div>
+        </article>
 
-            <article class="questao">
-                <span class="tag-tipo">Paradigma Simbólico</span>
-                <p><strong>11.</strong> Qual paradigma é ideal para problemas que exigem raciocínio lógico, dedutivo e alta explicabilidade (Sistemas Especialistas)?</p>
-                <div class="opcoes">
-                    [cite_start]<button onclick="verificar(this, true, 'Correto! Baseado em regras "Se... Então"[cite: 270].')">A) Paradigma Simbólico.</button>
-                    <button onclick="verificar(this, false, 'Errado. Conexionista é "caixa-preta", difícil de explicar.')">B) Paradigma Conexionista.</button>
-                </div>
-            </article>
+        <article class="questao">
+          <span class="tag-tipo">Paradigma Conexionista</span>
+          <p>
+            <strong>12.</strong> Qual paradigma é usado em Deep Learning e
+            reconhecimento de imagem?
+          </p>
+          <div class="opcoes">
+            <button onclick="verificar(this, false)">A) Simbólico.</button>
+            <button onclick="verificar(this, true)">B) Conexionista.</button>
+          </div>
+          <div class="mini-aula-oculta">
+            <h4>💡 Conexionista = Poderoso</h4>
+            <p>
+              Redes Neurais são ótimas para reconhecer padrões complexos
+              (rostos, voz), mas são "caixas-pretas" difíceis de explicar.
+            </p>
+          </div>
+        </article>
 
-            <article class="questao">
-                <span class="tag-tipo">Paradigma Conexionista</span>
-                <p><strong>12.</strong> Qual paradigma é mais adequado para reconhecimento de padrões, voz e imagem (Deep Learning)?</p>
-                <div class="opcoes">
-                    <button onclick="verificar(this, false, 'Errado.')">A) Paradigma Simbólico.</button>
-                    [cite_start]<button onclick="verificar(this, true, 'Correto! Inspirado no funcionamento neural biológico[cite: 271].')">B) Paradigma Conexionista.</button>
-                </div>
-            </article>
+        <article class="questao">
+          <span class="tag-tipo">Paradigma Evolucionista</span>
+          <p>
+            <strong>13.</strong> O paradigma Evolucionista resolve que tipo de
+            problema?
+          </p>
+          <div class="opcoes">
+            <button onclick="verificar(this, true)">
+              A) Otimização e busca (seleção natural).
+            </button>
+            <button onclick="verificar(this, false)">B) Dedução lógica.</button>
+          </div>
+          <div class="mini-aula-oculta">
+            <h4>💡 Evolução</h4>
+            <p>
+              Ele cria várias soluções aleatórias, seleciona as melhores e
+              "cruza" elas, imitando a evolução das espécies para chegar na
+              solução ideal.
+            </p>
+          </div>
+        </article>
 
-            <article class="questao">
-                <span class="tag-tipo">Paradigma Evolucionista</span>
-                <p><strong>13.</strong> O paradigma Evolucionista aplica princípios biológicos (seleção natural, mutação) para resolver que tipo de problema?</p>
-                <div class="opcoes">
-                    [cite_start]<button onclick="verificar(this, true, 'Correto! Busca a melhor solução em um grande espaço de possibilidades[cite: 272].')">A) Problemas de otimização e busca.</button>
-                    <button onclick="verificar(this, false, 'Errado.')">B) Problemas de dedução lógica estrita.</button>
-                </div>
-            </article>
+        <article class="questao">
+          <span class="tag-tipo">Técnica</span>
+          <p>
+            <strong>14.</strong> O que é a abordagem <strong>Ensemble</strong>?
+          </p>
+          <div class="opcoes">
+            <button onclick="verificar(this, true)">
+              A) Combinar vários modelos para melhorar a precisão.
+            </button>
+            <button onclick="verificar(this, false)">
+              B) Usar apenas um algoritmo.
+            </button>
+          </div>
+          <div class="mini-aula-oculta">
+            <h4>💡 A União faz a Força</h4>
+            <p>
+              Ensemble junta a opinião de várias IAs diferentes. Se 3 IAs dizem
+              que é um gato e 1 diz que é um cachorro, o sistema confia na
+              maioria.
+            </p>
+          </div>
+        </article>
 
-            <article class="questao">
-                <span class="tag-tipo">Técnica Ensemble</span>
-                <p><strong>14.</strong> O que significa a abordagem <strong>Ensemble</strong>?</p>
-                <div class="opcoes">
-                    <button onclick="verificar(this, false, 'Errado.')">A) Usar apenas um algoritmo muito poderoso.</button>
-                    [cite_start]<button onclick="verificar(this, true, 'Correto! Une vários modelos para melhorar a decisão final[cite: 273].')">B) Combinar diferentes técnicas/modelos para aumentar a precisão e reduzir erros.</button>
-                </div>
-            </article>
+        <article class="questao">
+          <span class="tag-tipo">Paradigma Swarm</span>
+          <p><strong>15.</strong> O Paradigma Swarm (Enxame) é inspirado em:</p>
+          <div class="opcoes">
+            <button onclick="verificar(this, true)">
+              A) Insetos sociais (formigas, abelhas).
+            </button>
+            <button onclick="verificar(this, false)">B) Cérebro humano.</button>
+          </div>
+          <div class="mini-aula-oculta">
+            <h4>💡 Inteligência Coletiva</h4>
+            <p>
+              Uma formiga sozinha é burra, mas o formigueiro é inteligente. O
+              Swarm usa agentes simples que, juntos, resolvem problemas
+              complexos.
+            </p>
+          </div>
+        </article>
+      </section>
 
-            <article class="questao">
-                <span class="tag-tipo">Paradigma Swarm</span>
-                <p><strong>15.</strong> O Paradigma Swarm (Enxame) é inspirado em:</p>
-                <div class="opcoes">
-                    [cite_start]<button onclick="verificar(this, true, 'Correto! Inteligência coletiva descentralizada[cite: 272].')">A) Comportamento social de insetos e animais (formigas, pássaros).</button>
-                    <button onclick="verificar(this, false, 'Errado.')">B) Estrutura do cérebro humano.</button>
-                </div>
-            </article>
-        </section>
+      <hr />
 
-        <hr>
+      <section class="bloco-questoes">
+        <h2>Parte 4: Estudos de Caso</h2>
 
-        <section class="bloco-questoes">
-            <h2>Parte 4: Estudos de Caso (Discursivas)</h2>
+        <article class="questao">
+          <span class="tag-tipo">Discursiva - RH</span>
+          <p>
+            <strong>16.</strong> Uma IA de seleção penalizou mulheres. Isso foi
+            erro da máquina? Justifique.
+          </p>
+          <textarea placeholder="Sua resposta..."></textarea>
+          <button class="btn-gabarito" onclick="toggleGabarito('gab-16')">
+            Ver Resposta
+          </button>
+          <div id="gab-16" class="gabarito-oculto">
+            <h4>💡 Resposta</h4>
+            <p>
+              Não foi erro da máquina. Foi falha humana ao usar dados históricos
+              enviesados (onde homens eram maioria contratada) e não auditar o
+              modelo.
+            </p>
+          </div>
+        </article>
 
-            <article class="questao">
-                <span class="tag-tipo">Discursiva - RH</span>
-                <p><strong>16. (Caso Ético)</strong> Uma IA de seleção de currículos penalizou mulheres. Isso foi um "erro da máquina" ou falha humana? Justifique.</p>
-                <textarea placeholder="Sua resposta..."></textarea>
-                <button class="btn-gabarito" onclick="toggleGabarito('gab-16')">Ver Resposta</button>
-                <div id="gab-16" class="gabarito-oculto">
-                    [cite_start]<p><strong>Resposta:</strong> Não foi erro da máquina. Foi falha humana devido à <strong>falta de diversidade nos dados</strong> históricos (que já continham viés de contratação) e falta de auditoria ética[cite: 345].</p>
-                </div>
-            </article>
+        <article class="questao">
+          <span class="tag-tipo">Discursiva - Híbrido</span>
+          <p>
+            <strong>17.</strong> Para prever umidade (padrão) e otimizar água
+            (ajuste), qual combinação usar?
+          </p>
+          <textarea placeholder="Sua resposta..."></textarea>
+          <button class="btn-gabarito" onclick="toggleGabarito('gab-17')">
+            Ver Resposta
+          </button>
+          <div id="gab-17" class="gabarito-oculto">
+            <h4>💡 Híbrido</h4>
+            <p>
+              <strong>Conexionista</strong> (Redes Neurais) para reconhecer os
+              padrões de clima e <strong>Evolucionista</strong> para testar
+              combinações e otimizar o uso da água.
+            </p>
+          </div>
+        </article>
 
-            <article class="questao">
-                <span class="tag-tipo">Discursiva - Agricultura</span>
-                <p><strong>17. (Caso Agricultura)</strong> Para um sistema que precisa prever umidade do solo (padrões) E otimizar o uso da água (melhor ajuste), qual combinação de paradigmas é ideal?</p>
-                <textarea placeholder="Sua resposta..."></textarea>
-                <button class="btn-gabarito" onclick="toggleGabarito('gab-17')">Ver Resposta</button>
-                <div id="gab-17" class="gabarito-oculto">
-                    [cite_start]<p><strong>Resposta:</strong> Uma abordagem híbrida: <strong>Conexionista</strong> (Redes Neurais) para reconhecer os padrões de umidade e <strong>Evolucionista</strong> para otimizar os parâmetros de irrigação [cite: 365-367].</p>
-                </div>
-            </article>
+        <article class="questao">
+          <span class="tag-tipo">Conceito</span>
+          <p><strong>18.</strong> Diferença entre Deep Learning e Simbólico?</p>
+          <div class="opcoes">
+            <button onclick="verificar(this, true)">
+              A) Deep Learning aprende sozinho com dados; Simbólico usa regras
+              humanas.
+            </button>
+            <button onclick="verificar(this, false)">
+              B) Deep Learning não é IA.
+            </button>
+          </div>
+          <div class="mini-aula-oculta">
+            <h4>💡 Aprendizado vs Regras</h4>
+            <p>
+              No Simbólico, você ensina: "Se tem bigode, é gato". No Deep
+              Learning, você mostra 1000 fotos de gatos e a máquina descobre
+              sozinha o que é um gato.
+            </p>
+          </div>
+        </article>
 
-            <article class="questao">
-                <span class="tag-tipo">Conceito</span>
-                <p><strong>18.</strong> O que distingue o "Aprendizado Profundo" (Deep Learning) da abordagem simbólica tradicional?</p>
-                <div class="opcoes">
-                    [cite_start]<button onclick="verificar(this, true, 'Correto! Deep Learning aprende sozinho com exemplos. Simbólico precisa que humanos escrevam as regras[cite: 252].')">A) Deep Learning aprende com dados sem intervenção explícita de regras; Simbólico depende de regras criadas por humanos.</button>
-                    <button onclick="verificar(this, false, 'Errado. Ambos são IA.')">B) Deep Learning não é IA.</button>
-                </div>
-            </article>
+        <article class="questao">
+          <span class="tag-tipo">Ética</span>
+          <p><strong>19.</strong> Como corrigir vieses em produção?</p>
+          <div class="opcoes">
+            <button onclick="verificar(this, true)">
+              A) Auditoria contínua, revisão humana e diversidade de dados.
+            </button>
+            <button onclick="verificar(this, false)">
+              B) Aumentando a velocidade.
+            </button>
+          </div>
+          <div class="mini-aula-oculta">
+            <h4>💡 Correção Ativa</h4>
+            <p>
+              Não existe IA neutra. É preciso monitorar sempre e colocar humanos
+              diversos para avaliar se as decisões estão justas.
+            </p>
+          </div>
+        </article>
 
-            <article class="questao">
-                <span class="tag-tipo">Ética</span>
-                <p><strong>19.</strong> Como podemos corrigir vieses em sistemas já em produção?</p>
-                <div class="opcoes">
-                    [cite_start]<button onclick="verificar(this, true, 'Correto! Auditoria contínua e inclusão de humanos no loop de decisão[cite: 300].')">A) Através de auditorias éticas, revisão humana e diversificação dos dados.</button>
-                    <button onclick="verificar(this, false, 'Errado.')">B) Aumentando a velocidade de processamento.</button>
-                </div>
-            </article>
+        <article class="questao">
+          <span class="tag-tipo">Conceito</span>
+          <p><strong>20.</strong> O que é Transparência Algorítmica?</p>
+          <div class="opcoes">
+            <button onclick="verificar(this, true)">
+              A) Informar critérios usados e permitir entendimento.
+            </button>
+            <button onclick="verificar(this, false)">
+              B) Mostrar o código binário.
+            </button>
+          </div>
+          <div class="mini-aula-oculta">
+            <h4>💡 Clareza</h4>
+            <p>
+              É explicar para o cidadão: "Sua nota foi baixa porque você atrasou
+              contas", em vez de apenas dizer "Negado pelo Sistema 42".
+            </p>
+          </div>
+        </article>
 
-            <article class="questao">
-                <span class="tag-tipo">Conceito</span>
-                <p><strong>20.</strong> Qual a definição de "Transparência" no contexto ético da IA?</p>
-                <div class="opcoes">
-                    <button onclick="verificar(this, false, 'Errado. Código aberto ajuda, mas transparência ética é sobre a lógica da decisão.')">A) Ter o código fonte aberto no GitHub.</button>
-                    [cite_start]<button onclick="verificar(this, true, 'Correto! Permitir que cidadãos saibam quais critérios foram usados pelo algoritmo para tomar uma decisão[cite: 232].')">B) Informar os critérios utilizados pelo algoritmo e permitir entendimento da decisão.</button>
-                </div>
-            </article>
-
-             <article class="questao">
-                <span class="tag-tipo">Responsabilidade</span>
-                <p><strong>21.</strong> Se um carro autônomo comete um erro, a culpa é "do algoritmo"?</p>
-                <div class="opcoes">
-                    [cite_start]<button onclick="verificar(this, true, 'Correto! A responsabilidade é sempre das pessoas/empresas por trás da máquina[cite: 316].')">A) Não. A responsabilidade é compartilhada entre desenvolvedores, gestores e a empresa.</button>
-                    <button onclick="verificar(this, false, 'Errado. Máquinas não têm responsabilidade jurídica ou moral.')">B) Sim, a máquina deve ser julgada.</button>
-                </div>
-            </article>
-
-        </section>
-
+        <article class="questao">
+          <span class="tag-tipo">Responsabilidade</span>
+          <p>
+            <strong>21.</strong> Se um carro autônomo erra, a culpa é do
+            algoritmo?
+          </p>
+          <div class="opcoes">
+            <button onclick="verificar(this, true)">
+              A) Não. É da empresa/desenvolvedores.
+            </button>
+            <button onclick="verificar(this, false)">
+              B) Sim, a máquina paga.
+            </button>
+          </div>
+          <div class="mini-aula-oculta">
+            <h4>💡 Responsabilidade Civil</h4>
+            <p>
+              Juridicamente, a máquina é um produto. Se o produto falha e causa
+              dano, o fabricante (ou quem configurou) responde.
+            </p>
+          </div>
+        </article>
+      </section>
     </main>
 
     <div id="modal-alerta" class="modal-overlay" onclick="fecharModal(event)">
-        <div class="modal-box">
-            <div id="modal-header" class="modal-header"></div>
-            <div class="modal-body">
-                <p id="modal-texto"></p>
-            </div>
-            <div class="modal-footer">
-                <button onclick="fecharModal(null)">Continuar</button>
-            </div>
+      <div class="modal-box">
+        <div id="modal-header" class="modal-header"></div>
+        <div class="modal-body">
+          <p id="modal-texto"></p>
         </div>
+        <div class="modal-footer">
+          <button onclick="fecharModal(null)">Continuar</button>
+        </div>
+      </div>
     </div>
 
-
-    <a href="../index.html" class="btn-float">🏠 Inicio</a>
-    <footer>
-      <p>Desenvolvedor: Gilvan Daniel 2025</p>
-    </footer>
+    <a href="../index.html" class="btn-float">🏠 Menu</a>
 
     <script src="okada.js"></script>
-
-</body>
+  </body>
 </html>

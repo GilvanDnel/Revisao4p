@@ -3,43 +3,78 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Ferramenta de Revisão | Início</title>
+    <title>Portal de Revisão | ADS</title>
     <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
     <header>
-      <h1>Ferramenta de Revisão</h1>
+      <div class="header-content">
+        <h1>Portal de Revisão 🚀</h1>
+        <p>Análise e Desenvolvimento de Sistemas</p>
+        <span class="badge">4º Período - Noturno</span>
+      </div>
     </header>
 
     <main>
-      <section class="boas-vindas">
-        <h2>Olá, seja bem-vindo!</h2>
-        <p>
-          Essa é uma ferramenta de revisão desenvolvida por estudantes e busca
-          auxiliá-los para alcance da nota desejada!
-        </p>
+      <section class="intro">
+        <h2>O que vamos estudar hoje?</h2>
+        <p>Selecione uma disciplina para iniciar sua bateria de exercícios.</p>
       </section>
 
-      <section class="materias">
-        <h3>Escolha a matéria que deseja revisar:</h3>
+      <div class="grid-materias">
+        <a href="debora/debora.html" class="card materia-processos">
+          <div class="icon">⚙️</div>
+          <h3>Processos de Software</h3>
+          <p>ISOs, MPS.BR, Ishikawa e Ciclo de Vida.</p>
+          <span class="btn-card">Iniciar Revisão →</span>
+        </a>
 
-        <nav class="menu-materias">
-          <ul>
-            <li><a href="ronilson/ronilson.html">Mobile</a></li>
-            <li>
-              <a href="debora/debora.html">Processos de Software</a>
-            </li>
-            <li><a href="manfredo/manfredo.html">Gestão de Projetos</a></li>
-            <li><a href="okada/okada.html">Tópicos Especiais</a></li>
-            <li><a href="jackson/jackson.html">Testes de Software</a></li>
-            <li><a href="ead/ead.html">EaD Paradigmas</a></li>
-          </ul>
-        </nav>
-      </section>
+        <a href="ronilson/ronilson.html" class="card materia-mobile">
+          <div class="icon">📱</div>
+          <h3>Dispositivos Móveis</h3>
+          <p>React Native, APIs, Hooks e Assincronismo.</p>
+          <span class="btn-card">Iniciar Revisão →</span>
+        </a>
+
+        <a href="manfredo/manfredo.html" class="card materia-gestao">
+          <div class="icon">📊</div>
+          <h3>Gestão de Projetos</h3>
+          <p>PMBOK, Viabilidade, Escopo, Riscos e EAP.</p>
+          <span class="btn-card">Iniciar Revisão →</span>
+        </a>
+
+        <a href="jackson/jackson.html" class="card materia-testes">
+          <div class="icon">🧪</div>
+          <h3>Teste e Qualidade</h3>
+          <p>Pirâmide de Testes, TDD, Unitários e Pytest.</p>
+          <span class="btn-card">Iniciar Revisão →</span>
+        </a>
+
+        <a href="okada/okada.html" class="card materia-ia">
+          <div class="icon">🤖</div>
+          <h3>Tópicos Especiais (IA)</h3>
+          <p>Ética, LGPD, Vieses e Paradigmas de IA.</p>
+          <span class="btn-card">Iniciar Revisão →</span>
+        </a>
+
+        <a href="ead/ead.html" class="card materia-ead">
+          <div class="icon">🎓</div>
+          <h3>EaD: Paradigmas</h3>
+          <p>Lógico (Prolog), Funcional e Imperativo.</p>
+          <span class="btn-card">Iniciar Revisão →</span>
+        </a>
+      </div>
     </main>
 
     <footer>
-      <p>Desenvolvedor: Gilvan Daniel 2025</p>
+      <p>Desenvolvido por <strong>Gilvan Daniel da Silva</strong> | 2025</p>
+      <p>
+        UNI ESBAM - Centro Universitário Escola Superior Batista do Amazonas
+      </p>
     </footer>
   </body>
 </html>
