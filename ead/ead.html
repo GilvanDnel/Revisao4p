@@ -2,531 +2,617 @@
 <html lang="pt-BR">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Revisão EaD | Paradigmas</title>
-    <link rel="stylesheet" href="ead.css" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <title>Revisão: Paradigmas de Programação</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      body {
+        font-family: "Inter", sans-serif;
+      }
+
+      /* Animação do Modal */
+      .modal-enter {
+        animation: popIn 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      }
+      @keyframes popIn {
+        from {
+          opacity: 0;
+          transform: scale(0.9);
+        }
+        to {
+          opacity: 1;
+          transform: scale(1);
+        }
+      }
+
+      /* Utilitários */
+      .hidden {
+        display: none !important;
+      }
+      .no-select {
+        user-select: none;
+        -webkit-user-select: none;
+      }
+
+      /* Scrollbar personalizada */
+      .custom-scrollbar::-webkit-scrollbar {
+        width: 6px;
+      }
+      .custom-scrollbar::-webkit-scrollbar-track {
+        background: #f0fdfa;
+      }
+      .custom-scrollbar::-webkit-scrollbar-thumb {
+        background: #2dd4bf;
+        border-radius: 10px;
+      }
+    </style>
   </head>
-  <body>
-    <header>
-      <div class="container">
-        <h1>Revisão: Paradigmas (EaD)</h1>
-        <p>Foco: Imperativo, Funcional (Python/Java) e Lógico (Prolog)</p>
-        <a href="../index.html" class="btn-voltar">← Voltar ao Menu</a>
+
+  <body
+    class="bg-slate-100 text-slate-800 min-h-screen flex flex-col overflow-hidden"
+  >
+    <header class="bg-indigo-700 text-white p-4 shadow-lg z-10 shrink-0">
+      <div class="container mx-auto max-w-xl flex justify-between items-center">
+        <div class="flex items-center gap-3">
+          <a
+            href="../index.html"
+            onclick="location.reload()"
+            class="opacity-80 hover:opacity-100 transition"
+            ><i class="fa-solid fa-code"></i
+          ></a>
+          <h1 class="font-bold text-lg">
+            <i class="fa-solid fa-network-wired mr-2"></i>Inicio do Quiz
+          </h1>
+        </div>
+        <div
+          class="text-xs font-bold bg-indigo-800 px-3 py-1 rounded-full border border-indigo-500 shadow-inner"
+        >
+          <span id="score-display">Pontos: 0</span>
+        </div>
       </div>
     </header>
 
-    <main class="container">
-      <section class="bloco-questoes">
-        <h2>Parte 1: Paradigmas e Funcional (Python/Java)</h2>
+    <main
+      class="flex-grow flex flex-col items-center justify-center p-4 w-full relative overflow-y-auto"
+    >
+      <div
+        id="quiz-card"
+        class="w-full max-w-md bg-white rounded-2xl shadow-xl overflow-hidden border border-slate-200 flex flex-col max-h-full"
+      >
+        <div class="w-full bg-slate-100 h-1.5">
+          <div
+            id="progress-bar"
+            class="bg-indigo-500 h-1.5 transition-all duration-500 ease-out"
+            style="width: 0%"
+          ></div>
+        </div>
 
-        <article class="questao">
-          <span class="tag-tipo">Paradigmas</span>
-          <p>
-            <strong>1.</strong> O paradigma imperativo foca no 'como' fazer.
-            Qual linguagem abaixo é puramente imperativa/procedural e não
-            suporta nativamente Orientação a Objetos?
-          </p>
-          <div class="opcoes">
-            <button onclick="verificar(this, false)">A) Java</button>
-            <button onclick="verificar(this, true)">B) C (Padrão ANSI)</button>
-            <button onclick="verificar(this, false)">C) Python</button>
+        <div class="p-6 overflow-y-auto custom-scrollbar">
+          <div class="flex justify-between items-center mb-4">
+            <span
+              id="q-category"
+              class="bg-indigo-50 text-indigo-700 text-[10px] uppercase font-bold px-2 py-1 rounded tracking-wider border border-indigo-100"
+            >
+              Categoria
+            </span>
+            <span id="q-count" class="text-xs font-bold text-slate-400">
+              1/21
+            </span>
           </div>
-          <div class="mini-aula-oculta">
-            <h4>💡 Linguagem C</h4>
-            <p>
-              <strong>C</strong> é a linguagem base do paradigma imperativo
-              procedural. Java e Python são multiparadigma e orientadas a
-              objetos por natureza.
-            </p>
-          </div>
-        </article>
 
-        <article class="questao">
-          <span class="tag-tipo">Asserção e Razão</span>
-          <p><strong>2.</strong> Analise as afirmações sobre paradigmas:</p>
-          <p>
-            I. Linguagens declarativas exigem a descrição detalhada do passo a
-            passo (algoritmo).
-          </p>
-          <p>PORQUE</p>
-          <p>
-            II. No paradigma declarativo, o foco é na especificação do resultado
-            ('o que') e não no controle de fluxo.
-          </p>
-          <div class="opcoes">
-            <button onclick="verificar(this, false)">
-              A) As duas são verdadeiras.
-            </button>
-            <button onclick="verificar(this, true)">
-              B) A asserção I é falsa, e a II é verdadeira.
-            </button>
-          </div>
-          <div class="mini-aula-oculta">
-            <h4>💡 Imperativo vs Declarativo</h4>
-            <ul>
-              <li>
-                <strong>Imperativo (I é Falsa):</strong> Foca no COMO (passo a
-                passo).
-              </li>
-              <li>
-                <strong>Declarativo (II é Verdadeira):</strong> Foca no O QUE
-                (resultado desejado, ex: SQL, Prolog).
-              </li>
-            </ul>
-          </div>
-        </article>
+          <h2
+            id="q-text"
+            class="text-lg md:text-xl font-semibold text-slate-800 mb-6 leading-relaxed"
+          >
+            ...
+          </h2>
 
-        <article class="questao">
-          <span class="tag-tipo">Python Lambda</span>
-          <p>
-            <strong>3.</strong> Dado o código Python:
-            <code>r = lambda x, y: x * y + 1</code>. Qual o resultado de
-            <code>print(r(3, 3))</code>?
-          </p>
-          <div class="opcoes">
-            <button onclick="verificar(this, true)">A) 10</button>
-            <button onclick="verificar(this, false)">B) 9</button>
-            <button onclick="verificar(this, false)">C) 7</button>
-          </div>
-          <div class="mini-aula-oculta">
-            <h4>💡 Cálculo Lambda</h4>
-            <p>A função recebe x=3 e y=3.</p>
-            <p>
-              Cálculo: <code>(3 * 3) + 1</code> = <code>9 + 1</code> =
-              <strong>10</strong>.
-            </p>
-          </div>
-        </article>
+          <div id="options-container" class="space-y-3 pb-2"></div>
+        </div>
+      </div>
 
-        <article class="questao">
-          <span class="tag-tipo">Java 8</span>
-          <p>
-            <strong>4.</strong> Em Java, como se chama a interface que possui
-            apenas um método abstrato e é utilizada em expressões Lambda?
-          </p>
-          <div class="opcoes">
-            <button onclick="verificar(this, false)">
-              A) Interface Abstrata.
-            </button>
-            <button onclick="verificar(this, true)">
-              B) Interface Funcional.
-            </button>
-          </div>
-          <div class="mini-aula-oculta">
-            <h4>💡 FunctionalInterface</h4>
-            <p>
-              Para usar Lambdas em Java, a interface deve ser uma
-              <strong>Interface Funcional</strong> (ter apenas um método
-              abstrato, como <code>Runnable</code> ou <code>Comparator</code>).
-            </p>
-          </div>
-        </article>
+      <div
+        id="result-screen"
+        class="hidden w-full max-w-md bg-white rounded-2xl shadow-xl p-8 text-center modal-enter"
+      >
+        <div
+          class="w-20 h-20 bg-indigo-100 text-indigo-600 rounded-full flex items-center justify-center mx-auto mb-6 text-4xl shadow-inner"
+        >
+          <i class="fa-solid fa-graduation-cap"></i>
+        </div>
+        <h2 class="text-2xl font-bold text-slate-800 mb-2">
+          Revisão Concluída!
+        </h2>
+        <p class="text-slate-500 mb-6">Seu desempenho nos Paradigmas:</p>
 
-        <article class="questao">
-          <span class="tag-tipo">Conceito</span>
-          <p><strong>5.</strong> Por que as Lambdas promovem "código limpo"?</p>
-          <div class="opcoes">
-            <button onclick="verificar(this, true)">
-              A) São funções anônimas definidas inline, reduzindo verbosidade.
-            </button>
-            <button onclick="verificar(this, false)">
-              B) Porque elas impedem o uso de variáveis globais.
-            </button>
-          </div>
-          <div class="mini-aula-oculta">
-            <h4>💡 Concisão</h4>
-            <p>
-              Lambdas permitem passar comportamento (funções) como argumento sem
-              precisar criar classes inteiras ou métodos nomeados, deixando o
-              código muito mais curto.
-            </p>
-          </div>
-        </article>
+        <div
+          class="text-5xl font-black text-indigo-600 mb-2 tracking-tighter"
+          id="final-score-big"
+        >
+          0
+        </div>
+        <div
+          class="text-sm font-bold text-slate-400 uppercase tracking-widest mb-8"
+        >
+          Pontos Totais
+        </div>
 
-        <article class="questao">
-          <span class="tag-tipo">Python Avançado</span>
-          <p>
-            <strong>6.</strong> Analise:
-            <code>func = (lambda a: (lambda b: a + b))(5)</code>. Qual o
-            resultado de <code>print(func(4))</code>?
-          </p>
-          <div class="opcoes">
-            <button onclick="verificar(this, true)">A) 9</button>
-            <button onclick="verificar(this, false)">B) 20</button>
-            <button onclick="verificar(this, false)">C) 5</button>
-          </div>
-          <div class="mini-aula-oculta">
-            <h4>💡 Funções Aninhadas</h4>
-            <ol>
-              <li>
-                A primeira execução <code>(5)</code> fixa <code>a = 5</code>.
-              </li>
-              <li>
-                A variável <code>func</code> agora guarda a função interna:
-                <code>lambda b: 5 + b</code>.
-              </li>
-              <li>
-                Ao chamar <code>func(4)</code>, temos <code>5 + 4 = 9</code>.
-              </li>
-            </ol>
-          </div>
-        </article>
-
-        <article class="questao">
-          <span class="tag-tipo">Python</span>
-          <p><strong>7.</strong> Python é considerada uma linguagem:</p>
-          <div class="opcoes">
-            <button onclick="verificar(this, false)">
-              A) Puramente Funcional.
-            </button>
-            <button onclick="verificar(this, true)">B) Multiparadigma.</button>
-          </div>
-          <div class="mini-aula-oculta">
-            <h4>💡 Multiparadigma</h4>
-            <p>
-              Python aceita Orientação a Objetos, Programação Imperativa,
-              Procedural e Funcional. Ela não é "pura" em nenhum deles.
-            </p>
-          </div>
-        </article>
-      </section>
-
-      <hr />
-
-      <section class="bloco-questoes">
-        <h2>Parte 2: Programação Lógica (Prolog)</h2>
-
-        <article class="questao">
-          <span class="tag-tipo">Sintaxe Prolog</span>
-          <p>
-            <strong>8.</strong> Em Prolog, qual símbolo separa a cabeça da regra
-            do corpo (denota a condicional "SE")?
-          </p>
-          <div class="opcoes">
-            <button onclick="verificar(this, false)">A) -></button>
-            <button onclick="verificar(this, true)">B) :-</button>
-            <button onclick="verificar(this, false)">C) =</button>
-          </div>
-          <div class="mini-aula-oculta">
-            <h4>💡 Operador "Se"</h4>
-            <p>O símbolo <code>:-</code> lê-se "é verdade SE...".</p>
-            <p>
-              Exemplo: <code>mortal(X) :- homem(X).</code> (X é mortal SE X for
-              homem).
-            </p>
-          </div>
-        </article>
-
-        <article class="questao">
-          <span class="tag-tipo">Fatos</span>
-          <p>
-            <strong>9.</strong> Como classificamos a linha:
-            <code>gosta(maria, chocolate).</code> ?
-          </p>
-          <div class="opcoes">
-            <button onclick="verificar(this, true)">A) Fato.</button>
-            <button onclick="verificar(this, false)">B) Regra.</button>
-          </div>
-          <div class="mini-aula-oculta">
-            <h4>💡 Fatos</h4>
-            <p>
-              Como termina com ponto final e não tem condicional (:-), é uma
-              verdade absoluta no sistema, ou seja, um <strong>Fato</strong>.
-            </p>
-          </div>
-        </article>
-
-        <article class="questao">
-          <span class="tag-tipo">Terminologia</span>
-          <p>
-            <strong>10.</strong> Em <code>pai(joao, pedro)</code>, o termo 'pai'
-            é chamado de:
-          </p>
-          <div class="opcoes">
-            <button onclick="verificar(this, false)">A) Átomo.</button>
-            <button onclick="verificar(this, true)">B) Functor.</button>
-          </div>
-          <div class="mini-aula-oculta">
-            <h4>💡 Functor</h4>
-            <p>
-              <strong>Functor</strong> é o nome da relação ou predicado.
-              <code>joao</code> e <code>pedro</code> são os argumentos (átomos).
-            </p>
-          </div>
-        </article>
-
-        <article class="questao">
-          <span class="tag-tipo">Sintaxe</span>
-          <p>
-            <strong>11.</strong> Qual a diferença entre <code>joao</code> e
-            <code>Joao</code> no Prolog?
-          </p>
-          <div class="opcoes">
-            <button onclick="verificar(this, true)">
-              A) joao é um Átomo (constante), Joao é uma Variável.
-            </button>
-            <button onclick="verificar(this, false)">
-              B) joao é variável, Joao é constante.
-            </button>
-          </div>
-          <div class="mini-aula-oculta">
-            <h4>💡 Maiúsculas importam!</h4>
-            <ul>
-              <li>
-                <strong>Minúscula (joao):</strong> Átomo (valor fixo,
-                constante).
-              </li>
-              <li>
-                <strong>Maiúscula (Joao):</strong> Variável (pode assumir
-                qualquer valor).
-              </li>
-            </ul>
-          </div>
-        </article>
-
-        <article class="questao">
-          <span class="tag-tipo">Conceito Chave</span>
-          <p>
-            <strong>12.</strong> Qual o mecanismo que permite ao Prolog voltar a
-            um ponto anterior de decisão quando encontra uma falha (fail)?
-          </p>
-          <div class="opcoes">
-            <button onclick="verificar(this, false)">A) Recursão.</button>
-            <button onclick="verificar(this, true)">B) Backtracking.</button>
-          </div>
-          <div class="mini-aula-oculta">
-            <h4>💡 Backtracking</h4>
-            <p>
-              O Prolog explora uma árvore de possibilidades. Se ele entra num
-              caminho sem saída, ele faz o <strong>backtracking</strong> (volta
-              atrás) para tentar outra opção.
-            </p>
-          </div>
-        </article>
-
-        <article class="questao">
-          <span class="tag-tipo">Limitações</span>
-          <p>
-            <strong>13.</strong> O Prolog é recomendado para desenvolvimento de
-            Jogos 3D ou Drivers de Hardware?
-          </p>
-          <div class="opcoes">
-            <button onclick="verificar(this, false)">
-              A) Sim, é muito rápido.
-            </button>
-            <button onclick="verificar(this, true)">
-              B) Não, devido ao alto custo computacional da inferência.
-            </button>
-          </div>
-          <div class="mini-aula-oculta">
-            <h4>💡 Onde não usar Prolog</h4>
-            <p>
-              A inferência lógica consome muita memória e processamento. Para
-              jogos e drivers (que precisam de performance bruta e aritmética
-              rápida), C ou C++ são melhores.
-            </p>
-          </div>
-        </article>
-
-        <article class="questao">
-          <span class="tag-tipo">Unificação</span>
-          <p>
-            <strong>14.</strong> Fato: <code>homem(socrates).</code>
-            <br />Regra: <code>mortal(X) :- homem(X).</code> <br />O que retorna
-            a query <code>?- mortal(socrates).</code>?
-          </p>
-          <div class="opcoes">
-            <button onclick="verificar(this, true)">A) true.</button>
-            <button onclick="verificar(this, false)">B) false.</button>
-          </div>
-          <div class="mini-aula-oculta">
-            <h4>💡 Inferência</h4>
-            <p>
-              O Prolog unifica <code>X</code> com <code>socrates</code>. Ele
-              verifica: "Socrates é homem?". Sim, existe o fato. Logo, Socrates
-              é mortal. Resultado: <strong>True</strong>.
-            </p>
-          </div>
-        </article>
-
-        <article class="questao">
-          <span class="tag-tipo">Aritmética</span>
-          <p>
-            <strong>15.</strong> Qual operador é usado para comparar valores
-            numéricos calculados (ex: 5+2 igual a 7) em Prolog?
-          </p>
-          <div class="opcoes">
-            <button onclick="verificar(this, false)">A) =</button>
-            <button onclick="verificar(this, false)">B) is</button>
-            <button onclick="verificar(this, true)">C) =:=</button>
-          </div>
-          <div class="mini-aula-oculta">
-            <h4>💡 Comparação Numérica</h4>
-            <ul>
-              <li><code>=</code> Tenta unificar (símbolos).</li>
-              <li><code>is</code> Realiza atribuição matemática.</li>
-              <li>
-                <code>=:=</code> Compara se o resultado numérico dos dois lados
-                é igual.
-              </li>
-            </ul>
-          </div>
-        </article>
-
-        <article class="questao">
-          <span class="tag-tipo">Lógica de 1ª Ordem</span>
-          <p>
-            <strong>16.</strong> Como representamos o quantificador universal
-            ("Para todo X...") em Prolog?
-          </p>
-          <div class="opcoes">
-            <button onclick="verificar(this, true)">
-              A) Através de Regras com variáveis.
-            </button>
-            <button onclick="verificar(this, false)">
-              B) Através de Fatos isolados.
-            </button>
-          </div>
-          <div class="mini-aula-oculta">
-            <h4>💡 Quantificador Universal</h4>
-            <p>
-              Quando escrevemos <code>mortal(X) :- humano(X)</code>, o Prolog
-              entende implicitamente: "Para todo X, se X for humano, então X é
-              mortal".
-            </p>
-          </div>
-        </article>
-
-        <article class="questao">
-          <span class="tag-tipo">Interpretação</span>
-          <p>
-            <strong>17.</strong> Dada a regra:
-            <code>avo(X, Y) :- pai(X, Z), pai(Z, Y).</code> Quem é a variável Z?
-          </p>
-          <div class="opcoes">
-            <button onclick="verificar(this, false)">A) O Avô.</button>
-            <button onclick="verificar(this, true)">
-              B) O elemento intermediário (Pai).
-            </button>
-          </div>
-          <div class="mini-aula-oculta">
-            <h4>💡 Elo de Ligação</h4>
-            <p>
-              Z é a ponte. Para X ser avô de Y, X precisa ser pai de "alguém"
-              (Z), e esse "alguém" (Z) precisa ser pai de Y.
-            </p>
-          </div>
-        </article>
-
-        <article class="questao">
-          <span class="tag-tipo">Ordem de Execução</span>
-          <p>
-            <strong>18.</strong> A ordem em que escrevemos as regras no arquivo
-            Prolog importa?
-          </p>
-          <div class="opcoes">
-            <button onclick="verificar(this, true)">
-              A) Sim, altera a ordem da busca e das respostas.
-            </button>
-            <button onclick="verificar(this, false)">
-              B) Não, ele acha a resposta de qualquer jeito.
-            </button>
-          </div>
-          <div class="mini-aula-oculta">
-            <h4>💡 Execução Top-Down</h4>
-            <p>
-              Sim! O Prolog lê o arquivo de cima para baixo. Se houver duas
-              regras que satisfazem a pergunta, ele vai usar a que aparecer
-              primeiro no arquivo.
-            </p>
-          </div>
-        </article>
-
-        <article class="questao">
-          <span class="tag-tipo">Listas</span>
-          <p>
-            <strong>19.</strong> Como representamos uma lista vazia em Prolog?
-          </p>
-          <div class="opcoes">
-            <button onclick="verificar(this, true)">A) [ ]</button>
-            <button onclick="verificar(this, false)">B) ( )</button>
-          </div>
-          <div class="mini-aula-oculta">
-            <h4>💡 Sintaxe de Listas</h4>
-            <p>
-              Listas em Prolog usam colchetes. <code>[1, 2, 3]</code>. A lista
-              vazia é <code>[]</code>.
-            </p>
-          </div>
-        </article>
-
-        <article class="questao">
-          <span class="tag-tipo">Conceito</span>
-          <p><strong>20.</strong> O que é "Unificação"?</p>
-          <div class="opcoes">
-            <button onclick="verificar(this, false)">
-              A) Copiar o valor de uma variável para outra.
-            </button>
-            <button onclick="verificar(this, true)">
-              B) Processo de tornar dois termos idênticos instanciando
-              variáveis.
-            </button>
-          </div>
-          <div class="mini-aula-oculta">
-            <h4>💡 O Coração do Prolog</h4>
-            <p>
-              Unificação é o "Pattern Matching". O Prolog tenta fazer com que
-              <code>X = socrates</code> para que a regra funcione. Se conseguir,
-              unificou. Se não, falha.
-            </p>
-          </div>
-        </article>
-
-        <hr />
-
-        <article class="questao">
-          <span class="tag-tipo">Discursiva - Paradigmas</span>
-          <p>
-            <strong>21.</strong> Explique a diferença fundamental entre o
-            Paradigma Imperativo e o Lógico.
-          </p>
-          <textarea placeholder="Sua resposta..."></textarea>
-          <button class="btn-gabarito" onclick="toggleGabarito('gab-21')">
-            Ver Resposta
-          </button>
-          <div id="gab-21" class="gabarito-oculto">
-            <h4>💡 Diferença Fundamental</h4>
-            <ul>
-              <li>
-                <strong>Imperativo (C, Java):</strong> Foca no
-                <em>COMO</em> fazer. Você dá ordens: "Faça isso, depois calcule
-                aquilo, depois imprima".
-              </li>
-              <li>
-                <strong>Lógico (Prolog):</strong> Foca no <em>O QUE</em> é
-                verdade. Você define fatos e regras, e o computador descobre
-                como chegar na resposta.
-              </li>
-            </ul>
-          </div>
-        </article>
-      </section>
+        <button
+          onclick="location.reload()"
+          class="w-full bg-slate-800 text-white font-bold py-4 rounded-xl hover:bg-slate-900 transition shadow-lg transform active:scale-95"
+        >
+          <i class="fa-solid fa-rotate-right mr-2"></i> Refazer Revisão
+        </button>
+      </div>
     </main>
 
-    <div id="modal-alerta" class="modal-overlay" onclick="fecharModal(event)">
-      <div class="modal-box">
-        <div id="modal-header" class="modal-header"></div>
-        <div class="modal-body">
-          <p id="modal-texto"></p>
+    <div
+      id="feedback-modal"
+      class="fixed inset-0 bg-slate-900/80 backdrop-blur-sm z-50 flex items-center justify-center hidden p-6 transition-opacity duration-200"
+    >
+      <div
+        class="bg-white rounded-2xl shadow-2xl w-full max-w-sm overflow-hidden modal-enter transform transition-all scale-100"
+      >
+        <div
+          id="modal-header"
+          class="p-6 text-center transition-colors duration-300"
+        >
+          <div
+            id="modal-icon"
+            class="text-5xl mb-2 drop-shadow-sm scale-110 transform transition-transform duration-500"
+          ></div>
+          <h3 id="modal-title" class="text-xl font-bold text-white mt-2"></h3>
         </div>
-        <div class="modal-footer">
-          <button onclick="fecharModal(null)">Continuar</button>
+
+        <div class="p-6 text-center">
+          <div
+            id="modal-message"
+            class="text-slate-600 mb-6 text-sm font-medium leading-relaxed text-left bg-slate-50 p-3 rounded-lg border border-slate-100"
+          ></div>
+
+          <div class="flex flex-col gap-3">
+            <button
+              id="btn-retry"
+              class="hidden w-full py-3.5 px-4 rounded-xl font-bold border-2 border-slate-200 text-slate-600 hover:bg-slate-50 hover:border-slate-300 transition focus:outline-none"
+            >
+              <i class="fa-solid fa-rotate-left mr-2"></i> Tentar Novamente
+            </button>
+            <button
+              id="btn-next"
+              class="w-full py-3.5 px-4 rounded-xl font-bold text-white shadow-lg transition transform active:scale-95 focus:outline-none"
+            >
+              Próxima <i class="fa-solid fa-arrow-right ml-2"></i>
+            </button>
+          </div>
         </div>
       </div>
     </div>
 
-    <a href="../index.html" class="btn-float">🏠 Menu</a>
+    <script>
+      // === BANCO DE QUESTÕES (PARADIGMAS - REVISÃO UNIVERSITÁRIA) ===
+      const questions = [
+        {
+          id: 1,
+          category: "Arquitetura de Software (Netflix)",
+          q: "Em um sistema de streaming como a Netflix, onde o <strong>Paradigma Lógico (Prolog)</strong> seria mais bem aplicado, considerando suas características de inferência?",
+          options: [
+            "Na renderização gráfica dos vídeos em 4K.",
+            "No motor de recomendação ('Se usuário gosta de X e X é similar a Y, então sugerir Y').",
+            "No banco de dados que armazena os cartões de crédito.",
+            "Na interface visual (frontend) do aplicativo mobile.",
+            "No processamento paralelo de download de pacotes.",
+          ],
+          correct: 1,
+          explanation:
+            "<strong>Sistemas Especialistas:</strong> O Prolog brilha quando precisamos definir regras e relações (fatos) para deduzir novas informações. Sistemas de recomendação baseados em gosto e categorias são essencialmente motores de inferência lógica.",
+        },
+        {
+          id: 2,
+          category: "Arquitetura de Software (Netflix)",
+          q: "Ainda no cenário Netflix: Para processar milhões de requisições de vídeo simultâneas sem travar o sistema (concorrência), qual paradigma é preferível e por quê?",
+          options: [
+            "Lógico, pois o backtracking encontra o caminho mais rápido de rede.",
+            "Imperativo, pois o controle manual de memória é mais seguro.",
+            "Funcional, pois a imutabilidade e funções puras facilitam o paralelismo seguro.",
+            "Orientado a Objetos, pois a herança resolve problemas de rede.",
+            "Lógico, pois ele calcula a velocidade da internet com precisão.",
+          ],
+          correct: 2,
+          explanation:
+            "<strong>Concorrência e Imutabilidade:</strong> O Paradigma Funcional evita 'efeitos colaterais' (mudança de estado). Isso significa que vários processadores podem trabalhar nos dados ao mesmo tempo sem risco de um interferir no outro, ideal para streaming de alta demanda.",
+        },
+        {
+          id: 3,
+          category: "Conceito: Cidadãos de 1ª Classe",
+          q: "Em linguagens modernas (JS, Python, Java 8+), dizemos que as funções são 'Cidadãos de Primeira Classe' (First-Class Citizens). O que isso significa?",
+          options: [
+            "Que as funções têm prioridade de execução sobre as variáveis.",
+            "Que funções podem ser passadas como argumento, retornadas e atribuídas a variáveis.",
+            "Que as funções são compiladas antes de qualquer outra estrutura.",
+            "Que apenas administradores do sistema podem editar essas funções.",
+            "Que a função não precisa de parâmetros para rodar.",
+          ],
+          correct: 1,
+          explanation:
+            "<strong>Definição Chave:</strong> Ser 'Cidadão de Primeira Classe' significa ser tratado como um valor comum (como um número ou string). Isso permite criar <em>Higher-Order Functions</em> (funções que recebem outras funções), base do paradigma funcional.",
+        },
+        {
+          id: 4,
+          category: "Limitações do Paradigma Lógico",
+          q: "O Prolog é poderoso para lógica simbólica, mas possui uma deficiência histórica grave que o torna inadequado para jogos 3D ou simulações físicas. Qual é?",
+          options: [
+            "Não suporta recursão.",
+            "Ineficiência em cálculos aritméticos intensivos/complexos.",
+            "Não permite o uso de variáveis.",
+            "O código é muito extenso para escrever.",
+            "Não roda em computadores Windows.",
+          ],
+          correct: 1,
+          explanation:
+            "<strong>Matemática vs. Símbolo:</strong> O Prolog foi feito para manipular símbolos e relações, não para 'mastigar números'. Para calcular física ou renderizar 3D (matemática pesada), linguagens imperativas (C, C++) são ordens de magnitude mais rápidas.",
+        },
+        {
+          id: 5,
+          category: "Sintaxe Prolog: Functors",
+          q: "Na proposição lógica `gosta(joao, filmes).`, qual é o termo técnico para a palavra <strong>'gosta'</strong>?",
+          options: [
+            "Átomo.",
+            "Variável.",
+            "Functor.",
+            "Argumento.",
+            "Cláusula de Horn.",
+          ],
+          correct: 2,
+          explanation:
+            "<strong>Anatomia do Fato:</strong><br>• <strong>Functor:</strong> O nome da relação (gosta).<br>• <strong>Argumentos/Parâmetros:</strong> Os objetos dentro do parêntese (joao, filmes).",
+        },
+        {
+          id: 6,
+          category: "Java 8 e Funcional",
+          q: "O Java 8 introduziu expressões Lambda para modernizar a linguagem. Para que uma interface possa ser usada com uma Lambda, ela deve ser uma:",
+          options: [
+            "Interface Associativa.",
+            "Interface Abstrata Total.",
+            "Interface Funcional (apenas um método abstrato).",
+            "Interface de Marcação.",
+            "Interface Privada.",
+          ],
+          correct: 2,
+          explanation:
+            "<strong>Interface Funcional:</strong> É a regra de ouro do Java. Para usar `x -> x + 1`, a interface por trás deve ter APENAS UM método a ser implementado (ex: Runnable, Callable, Comparator).",
+        },
+        {
+          id: 7,
+          category: "Conceito: Backtracking",
+          q: "No Prolog, quando o sistema tenta provar uma meta, falha, e retorna ao ponto de decisão anterior para tentar um caminho alternativo, chamamos isso de:",
+          options: [
+            "Loop Infinito.",
+            "Recursão de Cauda.",
+            "Backtracking.",
+            "Unificação.",
+            "Compilação JIT.",
+          ],
+          correct: 2,
+          explanation:
+            "<strong>Mecanismo de Busca:</strong> O Backtracking é a 'marca registrada' do Prolog. Ele explora a árvore de possibilidades. Se bater na parede (fail), ele volta (backtrack) e tenta outra porta.",
+        },
+        {
+          id: 8,
+          category: "Sintaxe Python: Lambda",
+          q: "Analise o código funcional em Python: <br><code>dobro = lambda x: x * 2</code><br><code>print(dobro(5))</code><br>Qual o resultado?",
+          options: ["5", "10", "Erro de Sintaxe", "x * 2", "25"],
+          correct: 1,
+          explanation:
+            "<strong>Sintaxe Lambda:</strong> Em Python, `lambda argumentos: retorno` cria uma função anônima. Aqui, passamos 5 para x, e a função retorna 5 * 2 = 10.",
+        },
+        {
+          id: 9,
+          category: "Prolog: Fato vs Regra",
+          q: "Qual a diferença sintática fundamental entre um Fato e uma Regra no Prolog?",
+          options: [
+            "Fatos usam letras maiúsculas; Regras usam minúsculas.",
+            "Fatos terminam com ponto; Regras não terminam.",
+            "Regras possuem o operador `:-` (SE), Fatos são incondicionais.",
+            "Fatos contêm variáveis; Regras contêm apenas constantes.",
+            "Não há diferença, são sinônimos.",
+          ],
+          correct: 2,
+          explanation:
+            "<strong>Estrutura Lógica:</strong><br>• Fato: `homem(socrates).` (É verdade e ponto).<br>• Regra: `mortal(X) :- homem(X).` (É verdade SE X for homem). O `:-` é o divisor de águas.",
+        },
+        {
+          id: 10,
+          category: "Prolog: Variáveis",
+          q: "Como o Prolog diferencia um objeto específico (ex: joao) de uma variável genérica (ex: Alguém)?",
+          options: [
+            "Pelo tipo declarado (int vs string).",
+            "Pela inicialização (Variável começa com letra Maiúscula ou _).",
+            "Pelo uso de aspas.",
+            "Pela posição dentro do parêntese.",
+            "O Prolog não diferencia.",
+          ],
+          correct: 1,
+          explanation:
+            "<strong>Caixa Alta vs. Baixa:</strong><br>• `joao` (minúscula) = Átomo (constante, uma pessoa específica).<br>• `Joao` ou `X` (Maiúscula) = Variável (um espaço a ser preenchido).",
+        },
+        {
+          id: 11,
+          category: "Paradigma Declarativo",
+          q: "Tanto o Prolog (Lógico) quanto SQL são declarativos. O que isso significa em contraste com o Imperativo?",
+          options: [
+            "Focam no 'COMO' fazer o algoritmo passo-a-passo.",
+            "Focam no 'O QUE' se deseja como resultado, deixando o controle para a linguagem.",
+            "São linguagens que não aceitam funções.",
+            "São linguagens exclusivas para bancos de dados.",
+            "Exigem que o programador gerencie a memória manualmente.",
+          ],
+          correct: 1,
+          explanation:
+            "<strong>O Que vs. Como:</strong> No imperativo (C, Java clássico), você dita os passos. No declarativo (Prolog, SQL), você pede o resultado ('Quero todos os usuários ativos') e o sistema se vira para achar.",
+        },
+        {
+          id: 12,
+          category: "Aplicação: Filtros (Netflix)",
+          q: "Se você precisasse criar um filtro parental que bloqueia filmes +18 para usuários < 18 anos baseando-se em leis complexas, qual abordagem seria mais limpa?",
+          options: [
+            "Criar vários `if/else` aninhados em Java.",
+            "Usar uma base de regras Lógicas (Prolog) definindo permissões.",
+            "Usar um loop `while` em C.",
+            "Criar uma classe abstrata em Python.",
+            "Usar CSS para esconder o filme.",
+          ],
+          correct: 1,
+          explanation:
+            "<strong>Regras de Negócio:</strong> Quando a lógica é complexa e baseada em leis/normas ('pode isso SE aquilo E aquilo outro'), o Paradigma Lógico simplifica a manutenção. Basta escrever a regra legal, e o motor aplica.",
+        },
+        {
+          id: 13,
+          category: "Interpretação de Código",
+          q: "Dada a regra: `avo(X, Y) :- pai(X, Z), pai(Z, Y).` Quem é o elemento `Z` nesta relação?",
+          options: [
+            "O avô.",
+            "O neto.",
+            "O elemento intermediário (filho de X, pai de Y).",
+            "Uma variável inútil.",
+            "O bisavô.",
+          ],
+          correct: 2,
+          explanation:
+            "<strong>Elo de Ligação:</strong> Para X ser avô de Y, precisa existir alguém (Z) no meio. X é pai de Z, e esse mesmo Z é pai de Y. O Z conecta as gerações.",
+        },
+        {
+          id: 14,
+          category: "Conceito: Imutabilidade",
+          q: "No paradigma funcional, evita-se alterar o valor de uma variável depois que ela foi criada. Como se chama esse conceito?",
+          options: [
+            "Encapsulamento.",
+            "Polimorfismo.",
+            "Imutabilidade.",
+            "Herança.",
+            "Recursividade.",
+          ],
+          correct: 2,
+          explanation:
+            "<strong>Segurança de Dados:</strong> A imutabilidade garante que, se `x = 10`, ele será 10 para sempre naquela execução. Se você quer `11`, cria-se uma nova variável. Isso elimina bugs de 'estado compartilhado'.",
+        },
+        {
+          id: 15,
+          category: "Comparação de Paradigmas",
+          q: "Qual destas linguagens NÃO é considerada multiparadigma (ou seja, foi desenhada para ser puramente de um tipo)?",
+          options: [
+            "Python (Imperativo + OO + Funcional).",
+            "Java (OO + Imperativo + Funcional).",
+            "Prolog (Lógico).",
+            "C++ (Imperativo + OO).",
+            "JavaScript (Imperativo + Funcional + OO).",
+          ],
+          correct: 2,
+          explanation:
+            "<strong>Pureza:</strong> Enquanto as outras misturam conceitos para serem flexíveis no mercado, o Prolog é uma linguagem de nicho, puramente Lógica (baseada em Cláusulas de Horn).",
+        },
+        {
+          id: 16,
+          category: "Sintaxe: Lambda Aninhada",
+          q: "Qual o resultado de `((lambda x: x + 1)(5))`?",
+          options: ["5", "6", "1", "Erro", "Função"],
+          correct: 1,
+          explanation:
+            "<strong>Execução Imediata:</strong> A lambda define `x + 1`. O segundo parêntese `(5)` executa a função imediatamente passando 5. Resultado: 5 + 1 = 6.",
+        },
+        {
+          id: 17,
+          category: "Lógica de Predicados",
+          q: "O símbolo ∀ (Quantificador Universal) em lógica ('Para todo...') é representado no Prolog através de:",
+          options: [
+            "Queries simples.",
+            "Fatos isolados.",
+            "Regras com variáveis (ex: `mortal(X) :- humano(X)`).",
+            "Comentários.",
+            "Operadores matemáticos.",
+          ],
+          correct: 2,
+          explanation:
+            "<strong>Generalização:</strong> Quando você escreve `mortal(X) :- humano(X)`, o Prolog entende: 'PARA TODO X, se X é humano, então X é mortal'. A variável X generaliza a regra.",
+        },
+        {
+          id: 18,
+          category: "Definição Técnica",
+          q: "O que é 'Inferência' no contexto do Paradigma Lógico?",
+          options: [
+            "É o processo de desenhar a interface gráfica.",
+            "É o ato de adivinhar aleatoriamente a resposta.",
+            "É o processo de deduzir novos fatos a partir de fatos e regras conhecidos.",
+            "É a compilação do código para Binário.",
+            "É a conexão com a internet.",
+          ],
+          correct: 2,
+          explanation:
+            "<strong>Motor de Inferência:</strong> É o cérebro do Prolog. Se ele sabe que A implica B, e sabe que A é verdade, ele infere (deduz) que B também é verdade.",
+        },
+        {
+          id: 19,
+          category: "Java: Stream API",
+          q: "Em Java, o uso de `.filter()`, `.map()` e `.reduce()` em listas é um exemplo clássico de empréstimo de qual paradigma?",
+          options: [
+            "Paradigma Orientado a Objetos.",
+            "Paradigma Lógico.",
+            "Paradigma Funcional.",
+            "Paradigma Estruturado.",
+            "Paradigma de Eventos.",
+          ],
+          correct: 2,
+          explanation:
+            "<strong>Pipeline Funcional:</strong> Essas operações tratam dados como fluxo, usam lambdas como argumento e não alteram a lista original (imutabilidade), características puras do funcional.",
+        },
+        {
+          id: 20,
+          category: "Limitações",
+          q: "Por que não usamos Paradigma Funcional para tudo?",
+          options: [
+            "Porque é muito lento para processar dados.",
+            "Porque às vezes modelar o mundo como objetos (OO) ou passos (Imperativo) é mais intuitivo para o humano.",
+            "Porque não funciona na Web.",
+            "Porque não permite matemática.",
+            "Porque é uma tecnologia ultrapassada.",
+          ],
+          correct: 1,
+          explanation:
+            "<strong>A Ferramenta Certa:</strong> Não existe 'bala de prata'. Funcional é ótimo para dados, mas difícil para criar, por exemplo, um personagem de jogo com vida e inventário (onde OO é mais natural).",
+        },
+        {
+          id: 21,
+          category: "Operadores Prolog",
+          q: "Para verificar se dois números são matematicamente iguais em Prolog (ex: 3+2 e 5), usamos:",
+          options: ["=", "==", "is", "=:=\n", ":-"],
+          correct: 3,
+          explanation:
+            "<strong>Comparação Numérica:</strong><br>• `=` verifica se os termos são idênticos visualmente (Unificação).<br>• `=:=` resolve a conta dos dois lados e compara o valor numérico.",
+        },
+      ];
 
-    <script src="ead.js"></script>
+      // === VARIÁVEIS DE CONTROLE ===
+      let currentIndex = 0;
+      let score = 0;
+      let attempts = 0;
+
+      // === UI ELEMENTS ===
+      const ui = {
+        card: document.getElementById("quiz-card"),
+        resultScreen: document.getElementById("result-screen"),
+        qCategory: document.getElementById("q-category"),
+        qCount: document.getElementById("q-count"),
+        qText: document.getElementById("q-text"),
+        optsContainer: document.getElementById("options-container"),
+        progressBar: document.getElementById("progress-bar"),
+        scoreDisplay: document.getElementById("score-display"),
+        finalScore: document.getElementById("final-score-big"),
+        modal: document.getElementById("feedback-modal"),
+        modalHeader: document.getElementById("modal-header"),
+        modalIcon: document.getElementById("modal-icon"),
+        modalTitle: document.getElementById("modal-title"),
+        modalMsg: document.getElementById("modal-message"),
+        btnRetry: document.getElementById("btn-retry"),
+        btnNext: document.getElementById("btn-next"),
+      };
+
+      // === FUNÇÕES ===
+      function init() {
+        currentIndex = 0;
+        score = 0;
+        loadQuestion();
+      }
+
+      function loadQuestion() {
+        const q = questions[currentIndex];
+        attempts = 0;
+        ui.qCategory.innerText = q.category;
+        ui.qCount.innerText = `${currentIndex + 1}/${questions.length}`;
+        ui.qText.innerHTML = q.q;
+        ui.scoreDisplay.innerText = `Pontos: ${score}`;
+
+        const pct = (currentIndex / questions.length) * 100;
+        ui.progressBar.style.width = `${pct}%`;
+
+        ui.optsContainer.innerHTML = "";
+        q.options.forEach((opt, idx) => {
+          const btn = document.createElement("button");
+          btn.className = `w-full text-left p-4 rounded-xl border-2 border-slate-100 bg-slate-50 hover:bg-white hover:border-indigo-300 hover:shadow-md transition-all duration-200 flex items-center group no-select`;
+          btn.innerHTML = `
+            <span class="w-8 h-8 rounded-full bg-white text-slate-500 font-bold flex items-center justify-center text-xs mr-4 border border-slate-200 group-hover:bg-indigo-600 group-hover:text-white group-hover:border-indigo-600 transition-colors">
+              ${String.fromCharCode(65 + idx)}
+            </span>
+            <span class="text-sm font-medium text-slate-700 group-hover:text-slate-900">${opt}</span>
+          `;
+          btn.onclick = () => handleAnswer(idx);
+          ui.optsContainer.appendChild(btn);
+        });
+      }
+
+      function handleAnswer(selectedIndex) {
+        const q = questions[currentIndex];
+        const isCorrect = selectedIndex === q.correct;
+
+        ui.modal.classList.remove("hidden");
+        if (isCorrect) {
+          if (attempts === 0) score += 20; // Pontuação ajustada
+          configureModal("success");
+          ui.modalTitle.innerText = "Resposta Certa!";
+          ui.modalMsg.innerHTML = `<span class="text-emerald-600 font-bold">Excelente!</span><br><br>${q.explanation}`;
+          ui.btnRetry.classList.add("hidden");
+        } else {
+          attempts++;
+          configureModal("error");
+          ui.modalTitle.innerText = "Resposta Incorreta";
+          ui.modalMsg.innerHTML = `<span class="text-rose-600 font-bold">Conceito Importante:</span><br><br>${q.explanation}`;
+          ui.btnRetry.classList.remove("hidden");
+        }
+      }
+
+      function configureModal(type) {
+        if (type === "success") {
+          ui.modalHeader.className = "p-6 text-center bg-emerald-500";
+          ui.modalIcon.innerHTML =
+            '<i class="fa-solid fa-check text-white"></i>';
+          ui.btnNext.className =
+            "w-full py-3.5 px-4 rounded-xl font-bold bg-emerald-600 text-white hover:bg-emerald-700 shadow-lg transition";
+        } else {
+          ui.modalHeader.className = "p-6 text-center bg-rose-500";
+          ui.modalIcon.innerHTML =
+            '<i class="fa-solid fa-xmark text-white"></i>';
+          ui.btnNext.className =
+            "w-full py-3.5 px-4 rounded-xl font-bold bg-slate-800 text-white hover:bg-slate-900 shadow-lg transition";
+        }
+        ui.btnNext.focus();
+      }
+
+      ui.btnRetry.onclick = () => ui.modal.classList.add("hidden");
+      ui.btnNext.onclick = () => {
+        ui.modal.classList.add("hidden");
+        currentIndex++;
+        if (currentIndex < questions.length) loadQuestion();
+        else showResults();
+      };
+
+      function showResults() {
+        ui.card.classList.add("hidden");
+        ui.resultScreen.classList.remove("hidden");
+        ui.finalScore.innerText = score;
+        ui.scoreDisplay.innerText = `Final: ${score}`;
+      }
+
+      init();
+    </script>
   </body>
 </html>
