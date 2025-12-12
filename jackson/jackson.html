@@ -2,592 +2,646 @@
 <html lang="pt-BR">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Revisão Testes | Prof. Jackson</title>
-    <link rel="stylesheet" href="jackson.css" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <title>Teste de Software - Preparatório</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      body {
+        font-family: "Inter", sans-serif;
+      }
+
+      /* Animação do Modal */
+      .modal-enter {
+        animation: popIn 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      }
+      @keyframes popIn {
+        from {
+          opacity: 0;
+          transform: scale(0.9);
+        }
+        to {
+          opacity: 1;
+          transform: scale(1);
+        }
+      }
+
+      /* Utilitários */
+      .hidden {
+        display: none !important;
+      }
+      .no-select {
+        user-select: none;
+        -webkit-user-select: none;
+      }
+
+      /* Scrollbar personalizada */
+      .custom-scrollbar::-webkit-scrollbar {
+        width: 6px;
+      }
+      .custom-scrollbar::-webkit-scrollbar-track {
+        background: #f0fdfa;
+      }
+      .custom-scrollbar::-webkit-scrollbar-thumb {
+        background: #2dd4bf;
+        border-radius: 10px;
+      }
+
+      /* Destaque de código */
+      code {
+        background-color: #e0f2fe; /* Azul claro para contraste com o teal */
+        color: #0f766e;
+        padding: 2px 4px;
+        border-radius: 4px;
+        font-family: monospace;
+        font-size: 0.95em;
+        font-weight: bold;
+      }
+    </style>
   </head>
-  <body>
-    <header>
-      <div class="container">
-        <h1>Revisão: Teste e Qualidade</h1>
-        <p>Foco: Pirâmide de Testes, Casos de Teste e Automação (Pytest)</p>
-        <a href="../index.html" class="btn-voltar">← Voltar ao Menu</a>
+
+  <body
+    class="bg-slate-100 text-slate-800 min-h-screen flex flex-col overflow-hidden"
+  >
+    <header class="bg-teal-700 text-white p-4 shadow-lg z-10 shrink-0">
+      <div class="container mx-auto max-w-xl flex justify-between items-center">
+        <div class="flex items-center gap-3">
+          <a
+            href="../index.html"
+            onclick="location.reload()"
+            class="opacity-80 hover:opacity-100 transition"
+            ><i class="fa-solid fa-code"></i
+          ></a>
+          <h1 class="font-bold text-lg">
+            <i class="fa-solid fa-bug mr-2"></i>Menu Inicial
+          </h1>
+        </div>
+        <div
+          class="text-xs font-bold bg-teal-800 px-3 py-1 rounded-full border border-teal-500 shadow-inner"
+        >
+          <span id="score-display">Pontos: 0</span>
+        </div>
       </div>
     </header>
 
-    <main class="container">
-      <section class="bloco-questoes">
-        <h2>Parte 1: A Pirâmide e Conceitos Básicos</h2>
+    <main
+      class="flex-grow flex flex-col items-center justify-center p-4 w-full relative overflow-y-auto"
+    >
+      <div
+        id="quiz-card"
+        class="w-full max-w-md bg-white rounded-2xl shadow-xl overflow-hidden border border-slate-200 flex flex-col max-h-full"
+      >
+        <div class="w-full bg-slate-100 h-1.5">
+          <div
+            id="progress-bar"
+            class="bg-teal-500 h-1.5 transition-all duration-500 ease-out"
+            style="width: 0%"
+          ></div>
+        </div>
 
-        <article class="questao">
-          <span class="tag-tipo">Conceito Fundamental</span>
-          <p>
-            <strong>1.</strong> Jackson enfatizou a diferença entre Erro,
-            Defeito e Falha. Qual a definição correta de
-            <strong>Defeito</strong>?
-          </p>
-          <div class="opcoes">
-            <button onclick="verificar(this, false)">
-              A) O engano humano cometido durante o desenvolvimento.
-            </button>
-            <button onclick="verificar(this, true)">
-              B) O problema concreto no código-fonte (o bug escrito).
-            </button>
-            <button onclick="verificar(this, false)">
-              C) O comportamento incorreto percebido pelo usuário durante a
-              execução.
-            </button>
+        <div class="p-6 overflow-y-auto custom-scrollbar">
+          <div class="flex justify-between items-center mb-4">
+            <span
+              id="q-category"
+              class="bg-teal-50 text-teal-700 text-[10px] uppercase font-bold px-2 py-1 rounded tracking-wider border border-teal-100"
+            >
+              Categoria
+            </span>
+            <span id="q-count" class="text-xs font-bold text-slate-400">
+              1/21
+            </span>
           </div>
-          <div class="mini-aula-oculta">
-            <h4>💡 Diferença: Erro vs Defeito vs Falha</h4>
-            <ul>
-              <li>
-                <strong>Erro:</strong> Ação humana (equívoco mental do
-                programador) .
-              </li>
-              <li>
-                <strong>Defeito (Bug):</strong> O resultado do erro no código (o
-                trecho escrito errado) .
-              </li>
-              <li>
-                <strong>Falha:</strong> O sistema parando ou agindo errado na
-                frente do usuário .
-              </li>
-            </ul>
-          </div>
-        </article>
 
-        <article class="questao">
-          <span class="tag-tipo">Pirâmide de Testes</span>
-          <p>
-            <strong>2.</strong> Sobre a Pirâmide de Testes, qual nível deve ter
-            a <strong>maior quantidade</strong> de testes e ser o mais rápido?
-          </p>
-          <div class="opcoes">
-            <button onclick="verificar(this, false)">
-              A) Teste de Sistema (E2E).
-            </button>
-            <button onclick="verificar(this, false)">
-              B) Teste de Integração.
-            </button>
-            <button onclick="verificar(this, true)">C) Teste Unitário.</button>
-          </div>
-          <div class="mini-aula-oculta">
-            <h4>💡 A Base da Pirâmide</h4>
-            <p>A resposta é <strong>Teste Unitário</strong>.</p>
-            <p>
-              Eles formam a base da pirâmide: são muitos, rápidos, baratos e
-              isolados. Testes de Sistema (topo) devem ser poucos porque são
-              lentos e caros .
-            </p>
-          </div>
-        </article>
+          <h2
+            id="q-text"
+            class="text-lg md:text-xl font-semibold text-slate-800 mb-6 leading-relaxed"
+          >
+            ...
+          </h2>
 
-        <article class="questao">
-          <span class="tag-tipo">Identificação</span>
-          <p>
-            <strong>3.</strong> Você escreveu um teste que valida uma função de
-            cálculo, mas para funcionar ele precisa consultar uma tabela no
-            banco de dados real. Que tipo de teste é esse?
-          </p>
-          <div class="opcoes">
-            <button onclick="verificar(this, false)">A) Teste Unitário.</button>
-            <button onclick="verificar(this, true)">
-              B) Teste de Integração.
-            </button>
-            <button onclick="verificar(this, false)">
-              C) Teste de Sistema.
-            </button>
-          </div>
-          <div class="mini-aula-oculta">
-            <h4>💡 Por que Integração?</h4>
-            <p>
-              Se o teste depende de um recurso externo (Banco de Dados, API) ou
-              comunica dois módulos, ele <strong>NÃO</strong> é unitário. É um
-              <strong>Teste de Integração</strong> .
-            </p>
-          </div>
-        </article>
+          <div id="options-container" class="space-y-3 pb-2"></div>
+        </div>
+      </div>
 
-        <article class="questao">
-          <span class="tag-tipo">Teste Unitário</span>
-          <p>
-            <strong>4.</strong> Qual das características abaixo
-            <strong>NÃO</strong> pertence a um bom Teste Unitário?
-          </p>
-          <div class="opcoes">
-            <button onclick="verificar(this, false)">
-              A) Determinístico (sempre o mesmo resultado).
-            </button>
-            <button onclick="verificar(this, true)">
-              B) Realiza chamadas reais a APIs externas.
-            </button>
-            <button onclick="verificar(this, false)">
-              C) Execução rápida.
-            </button>
-          </div>
-          <div class="mini-aula-oculta">
-            <h4>💡 Unitários são Isolados</h4>
-            <p>
-              Testes Unitários devem usar <strong>Mocks</strong> (simulações)
-              para dependências externas. Eles nunca devem chamar APIs reais,
-              pois isso os tornaria lentos e instáveis .
-            </p>
-          </div>
-        </article>
+      <div
+        id="result-screen"
+        class="hidden w-full max-w-md bg-white rounded-2xl shadow-xl p-8 text-center modal-enter"
+      >
+        <div
+          class="w-20 h-20 bg-teal-100 text-teal-600 rounded-full flex items-center justify-center mx-auto mb-6 text-4xl shadow-inner"
+        >
+          <i class="fa-solid fa-trophy"></i>
+        </div>
+        <h2 class="text-2xl font-bold text-slate-800 mb-2">
+          Módulo Concluído!
+        </h2>
+        <p class="text-slate-500 mb-6">Seu desempenho técnico:</p>
 
-        <article class="questao">
-          <span class="tag-tipo">Asserção e Razão</span>
-          <p><strong>5.</strong> Analise sobre Testes de Sistema:</p>
-          <p>I. Testes de Sistema são os mais caros e lentos de executar.</p>
-          <p>PORQUE</p>
-          <p>
-            II. Eles validam o fluxo completo (end-to-end), simulando a
-            interação real do usuário com todas as camadas (Interface + API +
-            Banco).
-          </p>
-          <div class="opcoes">
-            <button onclick="verificar(this, true)">
-              A) As duas são verdadeiras e a II justifica a I.
-            </button>
-            <button onclick="verificar(this, false)">
-              B) A I é verdadeira e a II é falsa.
-            </button>
-          </div>
-          <div class="mini-aula-oculta">
-            <h4>💡 Testes de Sistema</h4>
-            <p>
-              <strong>Correto!</strong> Testes de Sistema (E2E) exigem o
-              ambiente todo configurado, o que custa caro e demora para rodar.
-              Eles simulam o usuário final .
-            </p>
-          </div>
-        </article>
-      </section>
+        <div
+          class="text-5xl font-black text-teal-600 mb-2 tracking-tighter"
+          id="final-score-big"
+        >
+          0
+        </div>
+        <div
+          class="text-sm font-bold text-slate-400 uppercase tracking-widest mb-8"
+        >
+          Pontos Totais
+        </div>
 
-      <hr />
-
-      <section class="bloco-questoes">
-        <h2>Parte 2: Casos de Teste e Técnicas</h2>
-
-        <article class="questao">
-          <span class="tag-tipo">Estrutura</span>
-          <p>
-            <strong>6.</strong> Qual a diferença entre
-            <strong>Plano de Teste</strong> e <strong>Caso de Teste</strong>?
-          </p>
-          <div class="opcoes">
-            <button onclick="verificar(this, true)">
-              A) Plano é o documento estratégico (geral). Caso é a especificação
-              detalhada.
-            </button>
-            <button onclick="verificar(this, false)">
-              B) Caso de Teste é o documento geral e Plano é o passo a passo.
-            </button>
-          </div>
-          <div class="mini-aula-oculta">
-            <h4>💡 Plano vs Caso</h4>
-            <ul>
-              <li>
-                <strong>Plano:</strong> Visão macro (estratégia, escopo,
-                cronograma) .
-              </li>
-              <li>
-                <strong>Caso:</strong> Visão micro (passo a passo, entradas e
-                resultado esperado de um teste específico) .
-              </li>
-            </ul>
-          </div>
-        </article>
-
-        <article class="questao">
-          <span class="tag-tipo">Técnica</span>
-          <p>
-            <strong>7.</strong> Qual técnica de teste foca em validar os
-            extremos de um intervalo (ex: testar 0, 1, 100, 101), pois é onde os
-            erros são mais prováveis?
-          </p>
-          <div class="opcoes">
-            <button onclick="verificar(this, false)">
-              A) Classes de Equivalência.
-            </button>
-            <button onclick="verificar(this, true)">
-              B) Análise de Valores Limite.
-            </button>
-            <button onclick="verificar(this, false)">
-              C) Tabela de Decisão.
-            </button>
-          </div>
-          <div class="mini-aula-oculta">
-            <h4>💡 Análise de Valores Limite</h4>
-            <p>
-              Erros costumam acontecer nas bordas (ex: usar um sinal maior que
-              em vez de maior ou igual). Essa técnica foca em testar exatamente
-              esses números de fronteira .
-            </p>
-          </div>
-        </article>
-
-        <article class="questao">
-          <span class="tag-tipo">Boas Práticas</span>
-          <p>
-            <strong>8.</strong> Segundo o checklist de qualidade do professor, o
-            que deve ser evitado ao criar um Caso de Teste?
-          </p>
-          <div class="opcoes">
-            <button onclick="verificar(this, false)">
-              A) Usar IDs únicos.
-            </button>
-            <button onclick="verificar(this, true)">
-              B) Descrições genéricas e resultados esperados vagos.
-            </button>
-          </div>
-          <div class="mini-aula-oculta">
-            <h4>💡 Evite o Vago</h4>
-            <p>Nunca escreva "Testar Login" ou "Funciona corretamente".</p>
-            <p>O correto é: "Login com senha inválida retorna erro 401" .</p>
-          </div>
-        </article>
-
-        <article class="questao">
-          <span class="tag-tipo">Componentes</span>
-          <p>
-            <strong>9.</strong> O que são as <strong>Pré-condições</strong> em
-            um caso de teste?
-          </p>
-          <div class="opcoes">
-            <button onclick="verificar(this, true)">
-              A) O estado do sistema e dados necessários antes da execução do
-              teste.
-            </button>
-            <button onclick="verificar(this, false)">
-              B) A limpeza dos dados após o teste.
-            </button>
-          </div>
-          <div class="mini-aula-oculta">
-            <h4>💡 Pré-condições</h4>
-            <p>
-              É tudo que precisa estar pronto antes de começar. Exemplo:
-              "Usuário 'admin' já cadastrado no banco" .
-            </p>
-          </div>
-        </article>
-
-        <article class="questao">
-          <span class="tag-tipo">Rastreabilidade</span>
-          <p>
-            <strong>10.</strong> Para que serve a
-            <strong>Matriz de Rastreabilidade</strong>?
-          </p>
-          <div class="opcoes">
-            <button onclick="verificar(this, false)">
-              A) Para calcular o custo do projeto.
-            </button>
-            <button onclick="verificar(this, true)">
-              B) Conectar requisitos aos casos de teste e ao código, facilitando
-              auditoria.
-            </button>
-          </div>
-          <div class="mini-aula-oculta">
-            <h4>💡 Rastreabilidade</h4>
-            <p>
-              Ela conecta os pontos:
-              <em>Requisito -> Caso de Teste -> Código</em>.
-            </p>
-            <p>
-              Isso garante que todos os requisitos foram testados e ajuda a ver
-              o impacto de mudanças .
-            </p>
-          </div>
-        </article>
-      </section>
-
-      <hr />
-
-      <section class="bloco-questoes">
-        <h2>Parte 3: Automação com Pytest</h2>
-
-        <article class="questao">
-          <span class="tag-tipo">Pytest Code</span>
-          <p>
-            <strong>11.</strong> Analise o código:
-            <code
-              >@pytest.mark.parametrize("entrada, esperado", [(2, 4), (3,
-              9)])</code
-            >. O que isso faz?
-          </p>
-          <div class="opcoes">
-            <button onclick="verificar(this, false)">
-              A) Define uma fixture.
-            </button>
-            <button onclick="verificar(this, true)">
-              B) Executa a mesma função de teste múltiplas vezes com dados
-              diferentes.
-            </button>
-          </div>
-          <div class="mini-aula-oculta">
-            <h4>💡 Parametrização</h4>
-            <p>
-              Isso permite transformar uma tabela de casos de teste em uma única
-              função. O teste roda várias vezes variando a entrada e o esperado
-              .
-            </p>
-          </div>
-        </article>
-
-        <article class="questao">
-          <span class="tag-tipo">Fixtures</span>
-          <p>
-            <strong>12.</strong> Para que serve o decorator
-            <code>@pytest.fixture</code>?
-          </p>
-          <div class="opcoes">
-            <button onclick="verificar(this, true)">
-              A) Preparar e fornecer dados/objetos reutilizáveis (Setup).
-            </button>
-            <button onclick="verificar(this, false)">
-              B) Repetir o teste várias vezes.
-            </button>
-          </div>
-          <div class="mini-aula-oculta">
-            <h4>💡 Fixtures</h4>
-            <p>
-              Elas preparam o terreno. Exemplo: criar um usuário válido antes de
-              cada teste de login para não repetir código .
-            </p>
-          </div>
-        </article>
-
-        <article class="questao">
-          <span class="tag-tipo">Marcadores</span>
-          <p>
-            <strong>13.</strong> Se você tem testes muito lentos e quer
-            separá-los dos rápidos, qual recurso do pytest você usa?
-          </p>
-          <div class="opcoes">
-            <button onclick="verificar(this, true)">
-              A) Marcadores (Markers), como @pytest.mark.slow.
-            </button>
-            <button onclick="verificar(this, false)">
-              B) Comentários no código.
-            </button>
-          </div>
-          <div class="mini-aula-oculta">
-            <h4>💡 Marcadores</h4>
-            <p>
-              Você "etiqueta" os testes. Depois pode rodar apenas os rápidos
-              ignorando os que têm a marca de lentos .
-            </p>
-          </div>
-        </article>
-
-        <article class="questao">
-          <span class="tag-tipo">Code Review</span>
-          <p>
-            <strong>14.</strong> O professor mostrou o princípio
-            <strong>DRY</strong> (Don't Repeat Yourself). Como aplicá-lo na
-            automação?
-          </p>
-          <div class="opcoes">
-            <button onclick="verificar(this, false)">
-              A) Copiando e colando código.
-            </button>
-            <button onclick="verificar(this, true)">
-              B) Usando Fixtures e Parametrização para evitar código duplicado.
-            </button>
-          </div>
-          <div class="mini-aula-oculta">
-            <h4>💡 DRY (Não se Repita)</h4>
-            <p>
-              Em vez de escrever 10 funções de teste iguais, use `parametrize`.
-              Em vez de configurar o banco 10 vezes, use `fixture` .
-            </p>
-          </div>
-        </article>
-      </section>
-
-      <hr />
-
-      <section class="bloco-questoes">
-        <h2>Parte 4: Estudos de Caso (Discursivas)</h2>
-
-        <article class="questao">
-          <span class="tag-tipo">Discursiva - Login</span>
-          <p>
-            <strong>15.</strong> Escreva um Caso de Teste (apenas Título e
-            Resultado Esperado) para um cenário <strong>Negativo</strong> de
-            Login.
-          </p>
-          <textarea
-            placeholder="Ex: Título: Login com... | Resultado: ..."
-          ></textarea>
-          <button class="btn-gabarito" onclick="toggleGabarito('gab-15')">
-            Ver Gabarito
-          </button>
-          <div id="gab-15" class="gabarito-oculto">
-            <p><strong>Modelo Ideal:</strong></p>
-            <ul>
-              <li><strong>Título:</strong> Login com senha incorreta.</li>
-              <li>
-                <strong>Resultado Esperado:</strong> Sistema deve retornar False
-                e exibir mensagem "Usuário ou senha inválidos".
-              </li>
-            </ul>
-            <p><em>Nota: Não use resultados vagos como "Dá erro" .</em></p>
-          </div>
-        </article>
-
-        <article class="questao">
-          <span class="tag-tipo">Discursiva - Integração</span>
-          <p>
-            <strong>16.</strong> Por que um teste que valida a comunicação entre
-            <code>Service</code> e <code>Repository</code> é considerado de
-            <strong>Integração</strong>?
-          </p>
-          <textarea placeholder="Sua resposta..."></textarea>
-          <button class="btn-gabarito" onclick="toggleGabarito('gab-16')">
-            Ver Gabarito
-          </button>
-          <div id="gab-16" class="gabarito-oculto">
-            <p><strong>Resposta:</strong></p>
-            <p>
-              Porque ele avalia a interação entre dois módulos diferentes. Se
-              envolver o banco de dados real (repository), ele quebra o
-              isolamento do teste unitário .
-            </p>
-          </div>
-        </article>
-
-        <article class="questao">
-          <span class="tag-tipo">Discursiva - Valores Limite</span>
-          <p>
-            <strong>17.</strong> Uma função aceita descontos para valores entre
-            1 e 1000 reais. Quais valores você testaria usando a Análise de
-            Valor Limite?
-          </p>
-          <textarea placeholder="Liste os valores..."></textarea>
-          <button class="btn-gabarito" onclick="toggleGabarito('gab-17')">
-            Ver Gabarito
-          </button>
-          <div id="gab-17" class="gabarito-oculto">
-            <p><strong>Valores Críticos:</strong></p>
-            <ul>
-              <li>0 (Inválido - logo abaixo)</li>
-              <li>1 (Mínimo válido)</li>
-              <li>1000 (Máximo válido)</li>
-              <li>1001 (Inválido - logo acima)</li>
-            </ul>
-          </div>
-        </article>
-
-        <article class="questao">
-          <span class="tag-tipo">Conceito</span>
-          <p>
-            <strong>18.</strong> Explique o conceito de <strong>Mock</strong> e
-            por que ele é essencial no Teste Unitário.
-          </p>
-          <div class="opcoes">
-            <button onclick="verificar(this, true)">A) Ver Resposta</button>
-          </div>
-          <div class="mini-aula-oculta">
-            <h4>💡 Mocks</h4>
-            <p>
-              Mocks são objetos falsos que simulam o comportamento de
-              dependências complexas (banco, API). Eles são essenciais para
-              manter o teste unitário <strong>isolado</strong>,
-              <strong>rápido</strong> e independente de rede/banco .
-            </p>
-          </div>
-        </article>
-
-        <article class="questao">
-          <span class="tag-tipo">Classes de Equivalência</span>
-          <p>
-            <strong>19.</strong> Se um sistema aceita idades de 18 a 60 anos. Se
-            você testar com 20, precisa testar com 21, 22, 23?
-          </p>
-          <div class="opcoes">
-            <button onclick="verificar(this, false)">
-              A) Sim, quanto mais melhor.
-            </button>
-            <button onclick="verificar(this, true)">
-              B) Não. Eles pertencem à mesma classe de equivalência.
-            </button>
-          </div>
-          <div class="mini-aula-oculta">
-            <h4>💡 Classes de Equivalência</h4>
-            <p>
-              Não precisa. 20, 21 e 22 estão na mesma "Classe Válida". Se um
-              funcionar, os outros devem funcionar também. Testar todos seria
-              redundante e desperdício de tempo .
-            </p>
-          </div>
-        </article>
-
-        <article class="questao">
-          <span class="tag-tipo">Testes de Regressão</span>
-          <p>
-            <strong>20.</strong> Qual a vantagem de ter os Casos de Teste bem
-            documentados para a <strong>Automação</strong>?
-          </p>
-          <div class="opcoes">
-            <button onclick="verificar(this, true)">
-              A) Facilita a tradução direta para código (Tabela -> Code).
-            </button>
-            <button onclick="verificar(this, false)">
-              B) Nenhuma, automação é independente.
-            </button>
-          </div>
-          <div class="mini-aula-oculta">
-            <h4>💡 Da Tabela ao Código</h4>
-            <p>
-              Uma tabela de casos de teste (entradas e saídas esperadas) pode
-              ser convertida diretamente em parâmetros para o `pytest`. Isso
-              torna a automação natural .
-            </p>
-          </div>
-        </article>
-
-        <article class="questao">
-          <span class="tag-tipo">Conceito Final</span>
-          <p>
-            <strong>21.</strong> Um teste falhou. No relatório, o que é
-            essencial incluir como "Evidência"?
-          </p>
-          <div class="opcoes">
-            <button onclick="verificar(this, true)">
-              A) Screenshots, logs, dumps de banco ou requisições capturadas.
-            </button>
-            <button onclick="verificar(this, false)">
-              B) Apenas a palavra "Falhou".
-            </button>
-          </div>
-          <div class="mini-aula-oculta">
-            <h4>💡 Evidências de Falha</h4>
-            <p>
-              Sem prova, não há crime (nem bug!). Você precisa anexar logs,
-              prints ou dumps para que o desenvolvedor consiga reproduzir e
-              corrigir o erro .
-            </p>
-          </div>
-        </article>
-      </section>
+        <button
+          onclick="location.reload()"
+          class="w-full bg-slate-800 text-white font-bold py-4 rounded-xl hover:bg-slate-900 transition shadow-lg transform active:scale-95"
+        >
+          <i class="fa-solid fa-rotate-right mr-2"></i> Refazer Quiz
+        </button>
+      </div>
     </main>
 
-    <div id="modal-alerta" class="modal-overlay" onclick="fecharModal(event)">
-      <div class="modal-box">
-        <div id="modal-header" class="modal-header"></div>
-        <div class="modal-body">
-          <p id="modal-texto"></p>
+    <div
+      id="feedback-modal"
+      class="fixed inset-0 bg-slate-900/80 backdrop-blur-sm z-50 flex items-center justify-center hidden p-6 transition-opacity duration-200"
+    >
+      <div
+        class="bg-white rounded-2xl shadow-2xl w-full max-w-sm overflow-hidden modal-enter transform transition-all scale-100"
+      >
+        <div
+          id="modal-header"
+          class="p-6 text-center transition-colors duration-300"
+        >
+          <div
+            id="modal-icon"
+            class="text-5xl mb-2 drop-shadow-sm scale-110 transform transition-transform duration-500"
+          ></div>
+          <h3 id="modal-title" class="text-xl font-bold text-white mt-2"></h3>
         </div>
-        <div class="modal-footer">
-          <button onclick="fecharModal(null)">Continuar</button>
+
+        <div class="p-6 text-center">
+          <div
+            id="modal-message"
+            class="text-slate-600 mb-6 text-sm font-medium leading-relaxed text-left bg-slate-50 p-3 rounded-lg border border-slate-100"
+          ></div>
+
+          <div class="flex flex-col gap-3">
+            <button
+              id="btn-retry"
+              class="hidden w-full py-3.5 px-4 rounded-xl font-bold border-2 border-slate-200 text-slate-600 hover:bg-slate-50 hover:border-slate-300 transition focus:outline-none"
+            >
+              <i class="fa-solid fa-rotate-left mr-2"></i> Revisar Conceito
+            </button>
+            <button
+              id="btn-next"
+              class="w-full py-3.5 px-4 rounded-xl font-bold text-white shadow-lg transition transform active:scale-95 focus:outline-none"
+            >
+              Próxima <i class="fa-solid fa-arrow-right ml-2"></i>
+            </button>
+          </div>
         </div>
       </div>
     </div>
 
-    <a href="../index.html" class="btn-float">🏠 Menu</a>
+    <script>
+      // === BANCO DE QUESTÕES (TESTE DE SOFTWARE - PYTHON/ENADE) ===
+      const questions = [
+        {
+          id: 1,
+          category: "Frameworks (Unittest vs Pytest)",
+          q: "Uma equipe de QA observou que os testes legados utilizam classes herdadas de <code>TestCase</code> e métodos como <code>setUp</code> e <code>tearDown</code>. Essas características pertencem nativamente à biblioteca:",
+          options: [
+            "pytest",
+            "unittest",
+            "mockery",
+            "selenium",
+            "junit-python",
+          ],
+          correct: 1,
+          explanation:
+            "<strong>Unittest (xUnit):</strong> O padrão do professor exige distinguir as bibliotecas. O <code>unittest</code> é baseado em classes e herança, enquanto o <code>pytest</code> foca em funções simples e fixtures.",
+        },
+        {
+          id: 2,
+          category: "Asserção e Razão (Lógica)",
+          q: "Analise as asserções abaixo e a relação entre elas:<br><br><strong>I.</strong> Testes unitários devem ser independentes entre si e não devem depender de banco de dados ou rede.<br><br><strong>PORQUE</strong><br><br><strong>II.</strong> Dependências externas tornam os testes lentos e intermitentes (flaky tests), dificultando a Integração Contínua.",
+          options: [
+            "As asserções I e II são verdadeiras, e a II é uma justificativa correta da I.",
+            "As asserções I e II são verdadeiras, mas a II não é uma justificativa da I.",
+            "A asserção I é verdadeira, e a II é falsa.",
+            "A asserção I é falsa, e a II é verdadeira.",
+            "As asserções I e II são falsas.",
+          ],
+          correct: 0,
+          explanation:
+            "<strong>Padrão ENADE:</strong> Ambas são verdadeiras. A razão pela qual isolamos testes (I) é justamente para evitar lentidão e falhas aleatórias causadas por fatores externos (II).",
+        },
+        {
+          id: 3,
+          category: "Prática de Código (Parametrize)",
+          q: "Você precisa validar uma função <code>calcula_dobro(n)</code> com os valores: 2->4, 5->10 e 10->20. Qual a sintaxe correta usando <code>pytest</code>?",
+          options: [
+            "<code>@unittest.parametrize('input,out', [(2,4), (5,10)])</code>",
+            "<code>@pytest.mark.parametrize('n,resp', [(2,4), (5,10), (10,20)])</code>",
+            "<code>@pytest.fixture(params=[2, 5, 10])</code>",
+            "<code>def test_dobro(2, 4): assert calcula_dobro(2) == 4</code>",
+            "<code>assert_equal(calcula_dobro(n), resp)</code>",
+          ],
+          correct: 1,
+          explanation:
+            "<strong>Sintaxe Pytest:</strong> O decorador correto é <code>@pytest.mark.parametrize</code>. O primeiro argumento é uma string com os nomes das variáveis, o segundo é uma lista de tuplas com os valores.",
+        },
+        {
+          id: 4,
+          category: "Code Coverage",
+          q: "Sobre a métrica de Cobertura de Código (Code Coverage), analise:<br>I. Uma cobertura de 100% garante que o software não tem bugs.<br>II. A cobertura mede quais linhas de código foram executadas durante os testes.<br>III. É possível ter alta cobertura e ainda assim ter falhas de lógica.",
+          options: [
+            "Apenas I está correta.",
+            "Apenas II está correta.",
+            "Apenas II e III estão corretas.",
+            "Apenas I e III estão corretas.",
+            "I, II e III estão corretas.",
+          ],
+          correct: 2,
+          explanation:
+            "<strong>Conceito Chave:</strong> Cobertura indica <em>o que foi executado</em>, não a qualidade do teste. É possível executar uma linha com um teste ruim (asserção fraca). Logo, 100% de cobertura não garante ausência de bugs.",
+        },
+        {
+          id: 5,
+          category: "Fixtures",
+          q: "No <code>pytest</code>, para compartilhar uma configuração (como uma conexão de banco fake) entre vários testes sem precisar recriá-la a cada função, utiliza-se:",
+          options: [
+            "<code>setUpClass</code> e <code>tearDownClass</code>",
+            "Um decorador <code>@pytest.fixture</code> com escopo apropriado (ex: scope='module').",
+            "A função <code>mock.patch</code>.",
+            "Variáveis globais no arquivo <code>conftest.py</code>.",
+            "O método <code>assert_dependency</code>.",
+          ],
+          correct: 1,
+          explanation:
+            "<strong>Fixtures:</strong> Diferente do <code>unittest</code> (setup/teardown), o <code>pytest</code> usa fixtures. Para evitar repetição, define-se o <code>scope</code> (function, module, session).",
+        },
+        {
+          id: 6,
+          category: "Asserção e Razão (Mock)",
+          q: "Considere as afirmações:<br><br><strong>I.</strong> O uso de Mocks é essencial ao testar uma função que realiza cobrança no cartão de crédito.<br><br><strong>PORQUE</strong><br><br><strong>II.</strong> Mocks permitem simular o comportamento da API de pagamento, evitando cobranças reais e garantindo que o teste não falhe por falta de internet.",
+          options: [
+            "As asserções I e II são verdadeiras, e a II é uma justificativa correta da I.",
+            "As asserções I e II são verdadeiras, mas a II não é justificativa da I.",
+            "A asserção I é verdadeira, e a II é falsa.",
+            "A asserção I é falsa, e a II é verdadeira.",
+            "As asserções I e II são falsas.",
+          ],
+          correct: 0,
+          explanation:
+            "<strong>Simulação de Cenários:</strong> Usamos Mocks para isolar o sistema de dependências externas (APIs financeiras), garantindo determinismo (sempre o mesmo resultado) e velocidade.",
+        },
+        {
+          id: 7,
+          category: "Conceitos de Teste",
+          q: "Um desenvolvedor escreveu testes que verificam se a comunicação entre o módulo de 'Carrinho de Compras' e o módulo de 'Estoque' funciona corretamente. Esse tipo de teste é classificado como:",
+          options: [
+            "Teste Unitário.",
+            "Teste de Integração.",
+            "Teste de Aceitação.",
+            "Teste de Regressão.",
+            "Teste de Caixa Branca.",
+          ],
+          correct: 1,
+          explanation:
+            "<strong>Integração:</strong> O foco aqui é a comunicação <em>entre módulos</em>. Unitário foca na menor parte isolada. Aceitação foca na visão do usuário final.",
+        },
+        {
+          id: 8,
+          category: "Sintaxe Comparada",
+          q: "Qual a equivalência correta de asserção entre <code>unittest</code> e <code>pytest</code>?",
+          options: [
+            "<code>self.assertEqual(a, b)</code> equivale a <code>assert a == b</code>",
+            "<code>self.assertTrue(x)</code> equivale a <code>expect(x).to_be(True)</code>",
+            "<code>assert a.equals(b)</code> equivale a <code>check(a, b)</code>",
+            "<code>self.assertRaises</code> equivale a <code>@pytest.fixture</code>",
+            "Não há equivalência, as lógicas são incompatíveis.",
+          ],
+          correct: 0,
+          explanation:
+            "<strong>Simplicidade do Pytest:</strong> O <code>unittest</code> usa métodos específicos da classe (camelCase). O <code>pytest</code> aproveita o operador nativo <code>assert</code> do Python, simplificando a leitura.",
+        },
+        {
+          id: 9,
+          category: "Assert Raises (Exceções)",
+          q: "Você precisa garantir que sua função <code>dividir(a, b)</code> lance um erro <code>ZeroDivisionError</code> quando o divisor for zero. Como implementar isso no Pytest?",
+          options: [
+            "<code>assert dividir(10, 0) == Error</code>",
+            "<code>try: dividir(10,0) except: pass</code>",
+            "<code>with pytest.raises(ZeroDivisionError): dividir(10, 0)</code>",
+            "<code>@pytest.expect_error(ZeroDivisionError)</code>",
+            "<code>self.failUnlessRaises(dividir, 10, 0)</code>",
+          ],
+          correct: 2,
+          explanation:
+            "<strong>Tratamento de Exceção:</strong> No Pytest, usa-se o gerenciador de contexto <code>with pytest.raises(TipoDoErro):</code> para envolver o código que deve falhar.",
+        },
+        {
+          id: 10,
+          category: "Metodologia (TDD)",
+          q: "O ciclo Red-Green-Refactor é a base do TDD (Test Driven Development). A fase 'Green' significa:",
+          options: [
+            "Escrever o teste e vê-lo falhar.",
+            "Escrever o código mínimo necessário para o teste passar.",
+            "Melhorar o código sem alterar seu comportamento externo.",
+            "Gerar o relatório de cobertura verde (100%).",
+            "Comitar o código no repositório.",
+          ],
+          correct: 1,
+          explanation:
+            "<strong>Ciclo TDD:</strong> Red (Teste falha) -> Green (Faz funcionar, mesmo que feio) -> Refactor (Melhora o código mantendo o teste passando).",
+        },
+        {
+          id: 11,
+          category: "Arquivos de Configuração",
+          q: "No ecossistema do Pytest, qual é o nome do arquivo padrão utilizado para armazenar <em>fixtures</em> globais que podem ser acessadas por múltiplos arquivos de teste sem necessidade de importação?",
+          options: [
+            "<code>__init__.py</code>",
+            "<code>setup.py</code>",
+            "<code>conftest.py</code>",
+            "<code>pytest.ini</code>",
+            "<code>fixtures.py</code>",
+          ],
+          correct: 2,
+          explanation:
+            "<strong>conftest.py:</strong> É um arquivo especial que o pytest descobre automaticamente. Fixtures definidas nele ficam disponíveis globalmente para o diretório.",
+        },
+        {
+          id: 12,
+          category: "Análise de Cenário",
+          q: "Cenário: Você alterou uma regra de negócio no cálculo de impostos. Após a alteração, rodou todos os testes antigos e alguns falharam. Isso caracteriza:",
+          options: [
+            "Um falso positivo.",
+            "Um erro de compilação.",
+            "Um teste de regressão bem-sucedido (detectou o impacto).",
+            "A necessidade de apagar os testes antigos.",
+            "Um erro no Pytest.",
+          ],
+          correct: 2,
+          explanation:
+            "<strong>Regressão:</strong> O objetivo de rodar a suíte completa após uma mudança é justamente garantir que nada que funcionava parou de funcionar (regressão). Se falhou, o teste cumpriu seu papel.",
+        },
+        {
+          id: 13,
+          category: "Mocking (Patch)",
+          q: "Ao utilizar <code>unittest.mock</code>, qual decorador é usado para substituir temporariamente um objeto real por um Mock durante a execução do teste?",
+          options: [
+            "<code>@mock.replace</code>",
+            "<code>@patch</code>",
+            "<code>@pytest.fixture</code>",
+            "<code>@override</code>",
+            "<code>@virtual</code>",
+          ],
+          correct: 1,
+          explanation:
+            "<strong>Patch:</strong> O <code>@patch</code> (do <code>unittest.mock</code>) intercepta a chamada ao objeto real e entrega um objeto falso (Mock) no lugar.",
+        },
+        {
+          id: 14,
+          category: "Boas Práticas",
+          q: "O padrão AAA (Arrange, Act, Assert) sugere que um teste deve ser estruturado em três etapas. A etapa 'Act' refere-se a:",
+          options: [
+            "Preparar os dados e instanciar objetos.",
+            "Verificar se o resultado é o esperado.",
+            "Executar o método ou função que está sendo testada.",
+            "Limpar o banco de dados após o teste.",
+            "Documentar o teste.",
+          ],
+          correct: 2,
+          explanation:
+            "<strong>Estrutura AAA:</strong> Arrange (Prepara), Act (Executa a ação/chama a função), Assert (Confere o resultado).",
+        },
+        {
+          id: 15,
+          category: "Prática (Identificação de Erro)",
+          q: "Analise o código abaixo e identifique o erro:<br><code>def teste_soma():<br>  res = soma(2, 2)<br>  return res == 4</code>",
+          options: [
+            "Falta definir a classe TestCase.",
+            "Testes no Pytest devem começar com 'test_' e usar 'assert', não return.",
+            "A função soma não foi importada.",
+            "Falta o decorador @parametrize.",
+            "Não há erro, o código funciona no Pytest.",
+          ],
+          correct: 1,
+          explanation:
+            "<strong>Convenção de Nomes:</strong> O Pytest descobre testes pelo prefixo <code>test_</code>. Além disso, ele verifica falhas via <code>assert</code>. Se você usar <code>return</code>, o teste sempre passará (pois retorna True, mas não valida nada).",
+        },
+        {
+          id: 16,
+          category: "Teoria (Caixa Preta vs Branca)",
+          q: "O teste onde o avaliador NÃO tem acesso ao código fonte e testa apenas as entradas e saídas do sistema é chamado de:",
+          options: [
+            "Caixa Branca.",
+            "Caixa Cinza.",
+            "Caixa Preta.",
+            "Teste de Unidade.",
+            "Code Review.",
+          ],
+          correct: 2,
+          explanation:
+            "<strong>Caixa Preta:</strong> Foca na funcionalidade externa, sem saber como foi implementado internamente (como um usuário final faria).",
+        },
+        {
+          id: 17,
+          category: "Formação Geral (ENADE)",
+          q: "No contexto de desenvolvimento ágil e DevOps, a Automação de Testes é fundamental PORQUE permite que o código seja implantado em produção várias vezes ao dia com segurança.",
+          options: [
+            "As asserções são verdadeiras e se justificam.",
+            "As asserções são verdadeiras mas não se justificam.",
+            "A primeira é falsa.",
+            "A segunda é falsa.",
+            "Ambas são falsas.",
+          ],
+          correct: 0,
+          explanation:
+            "<strong>DevOps:</strong> A automação é o pilar que permite a velocidade (Deploy contínuo) sem perder a segurança (Qualidade).",
+        },
+        {
+          id: 18,
+          category: "Assertions",
+          q: "No <code>unittest</code>, qual método verifica se um valor <strong>A</strong> é diferente de <strong>B</strong>?",
+          options: [
+            "<code>assertNotEqual(a, b)</code>",
+            "<code>assertDifferent(a, b)</code>",
+            "<code>assertFalse(a == b)</code>",
+            "<code>assert a != b</code>",
+            "<code>failIfEqual(a, b)</code>",
+          ],
+          correct: 0,
+          explanation:
+            "<strong>Métodos Unittest:</strong> O framework possui métodos verbosos. Para diferença, usa-se <code>assertNotEqual</code>.",
+        },
+        {
+          id: 19,
+          category: "Pytest Markers",
+          q: "Para pular um teste específico que ainda não está pronto ou que falha num sistema operacional específico, usamos no Pytest:",
+          options: [
+            "<code>@pytest.mark.ignore</code>",
+            "<code>@pytest.mark.skip</code> ou <code>skipif</code>",
+            "<code>@pytest.pass</code>",
+            "Comentar o código.",
+            "<code>@pytest.future</code>",
+          ],
+          correct: 1,
+          explanation:
+            "<strong>Markers:</strong> O <code>@pytest.mark.skip</code> pula incondicionalmente. O <code>skipif</code> pula se uma condição for verdadeira (ex: rodando no Windows).",
+        },
+        {
+          id: 20,
+          category: "Setup e Teardown",
+          q: "Em uma classe de teste <code>unittest</code>, o método que roda UMA VEZ antes de todos os testes da classe é:",
+          options: [
+            "<code>setUp()</code>",
+            "<code>setUpClass()</code>",
+            "<code>__init__()</code>",
+            "<code>beforeAll()</code>",
+            "<code>start()</code>",
+          ],
+          correct: 1,
+          explanation:
+            "<strong>Ciclo de Vida:</strong> <code>setUp</code> roda antes de <em>cada</em> método. <code>setUpClass</code> (método de classe, com @classmethod) roda uma vez por classe.",
+        },
+        {
+          id: 21,
+          category: "Prática (Fixture + Yield)",
+          q: "Analise o código:<br><code>@pytest.fixture<br>def recurso():<br>  setup()<br>  yield<br>  teardown()</code><br>O comando <code>yield</code> serve para:",
+          options: [
+            "Pausar o teste para input manual.",
+            "Gerar dados aleatórios.",
+            "Separar o código de configuração (setup) do código de limpeza (teardown).",
+            "Indicar que o teste falhou.",
+            "Chamar o próximo teste.",
+          ],
+          correct: 2,
+          explanation:
+            "<strong>Yield Fixtures:</strong> Tudo antes do <code>yield</code> é executado antes do teste (Setup). O teste roda. Tudo depois do <code>yield</code> roda após o teste (Teardown/Limpeza).",
+        },
+      ];
 
-    <script src="jackson.js"></script>
+      // === VARIÁVEIS DE CONTROLE ===
+      let currentIndex = 0;
+      let score = 0;
+      let attempts = 0;
+
+      // === UI ELEMENTS ===
+      const ui = {
+        card: document.getElementById("quiz-card"),
+        resultScreen: document.getElementById("result-screen"),
+        qCategory: document.getElementById("q-category"),
+        qCount: document.getElementById("q-count"),
+        qText: document.getElementById("q-text"),
+        optsContainer: document.getElementById("options-container"),
+        progressBar: document.getElementById("progress-bar"),
+        scoreDisplay: document.getElementById("score-display"),
+        finalScore: document.getElementById("final-score-big"),
+        modal: document.getElementById("feedback-modal"),
+        modalHeader: document.getElementById("modal-header"),
+        modalIcon: document.getElementById("modal-icon"),
+        modalTitle: document.getElementById("modal-title"),
+        modalMsg: document.getElementById("modal-message"),
+        btnRetry: document.getElementById("btn-retry"),
+        btnNext: document.getElementById("btn-next"),
+      };
+
+      // === FUNÇÕES ===
+      function init() {
+        currentIndex = 0;
+        score = 0;
+        loadQuestion();
+      }
+
+      function loadQuestion() {
+        const q = questions[currentIndex];
+        attempts = 0;
+        ui.qCategory.innerText = q.category;
+        ui.qCount.innerText = `${currentIndex + 1}/${questions.length}`;
+        ui.qText.innerHTML = q.q;
+        ui.scoreDisplay.innerText = `Pontos: ${score}`;
+
+        const pct = (currentIndex / questions.length) * 100;
+        ui.progressBar.style.width = `${pct}%`;
+
+        ui.optsContainer.innerHTML = "";
+        q.options.forEach((opt, idx) => {
+          const btn = document.createElement("button");
+          btn.className = `w-full text-left p-4 rounded-xl border-2 border-slate-100 bg-slate-50 hover:bg-white hover:border-teal-300 hover:shadow-md transition-all duration-200 flex items-center group no-select`;
+          btn.innerHTML = `
+            <span class="w-8 h-8 rounded-full bg-white text-slate-500 font-bold flex items-center justify-center text-xs mr-4 border border-slate-200 group-hover:bg-teal-600 group-hover:text-white group-hover:border-teal-600 transition-colors">
+              ${String.fromCharCode(65 + idx)}
+            </span>
+            <span class="text-sm font-medium text-slate-700 group-hover:text-slate-900 w-full">${opt}</span>
+          `;
+          btn.onclick = () => handleAnswer(idx);
+          ui.optsContainer.appendChild(btn);
+        });
+      }
+
+      function handleAnswer(selectedIndex) {
+        const q = questions[currentIndex];
+        const isCorrect = selectedIndex === q.correct;
+
+        ui.modal.classList.remove("hidden");
+        if (isCorrect) {
+          if (attempts === 0) score += 20;
+          configureModal("success");
+          ui.modalTitle.innerText = "Resposta Certa!";
+          ui.modalMsg.innerHTML = `<span class="text-emerald-600 font-bold">Excelente!</span><br><br>${q.explanation}`;
+          ui.btnRetry.classList.add("hidden");
+        } else {
+          attempts++;
+          configureModal("error");
+          ui.modalTitle.innerText = "Resposta Incorreta";
+          ui.modalMsg.innerHTML = `<span class="text-rose-600 font-bold">Atenção ao Conceito:</span><br><br>${q.explanation}`;
+          ui.btnRetry.classList.remove("hidden");
+        }
+      }
+
+      function configureModal(type) {
+        if (type === "success") {
+          ui.modalHeader.className = "p-6 text-center bg-emerald-500";
+          ui.modalIcon.innerHTML =
+            '<i class="fa-solid fa-check text-white"></i>';
+          ui.btnNext.className =
+            "w-full py-3.5 px-4 rounded-xl font-bold bg-emerald-600 text-white hover:bg-emerald-700 shadow-lg transition";
+        } else {
+          ui.modalHeader.className = "p-6 text-center bg-rose-500";
+          ui.modalIcon.innerHTML =
+            '<i class="fa-solid fa-xmark text-white"></i>';
+          ui.btnNext.className =
+            "w-full py-3.5 px-4 rounded-xl font-bold bg-slate-800 text-white hover:bg-slate-900 shadow-lg transition";
+        }
+        ui.btnNext.focus();
+      }
+
+      ui.btnRetry.onclick = () => ui.modal.classList.add("hidden");
+      ui.btnNext.onclick = () => {
+        ui.modal.classList.add("hidden");
+        currentIndex++;
+        if (currentIndex < questions.length) loadQuestion();
+        else showResults();
+      };
+
+      function showResults() {
+        ui.card.classList.add("hidden");
+        ui.resultScreen.classList.remove("hidden");
+        ui.finalScore.innerText = score;
+        ui.scoreDisplay.innerText = `Final: ${score}`;
+      }
+
+      init();
+    </script>
   </body>
 </html>
